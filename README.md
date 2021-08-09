@@ -9,9 +9,9 @@ New records will be clearly displayed on the Home page allowing returning users/
 
 [User Experience (UX)](#userexperience)
 
-[Database Design](#database)
-
 [Features](#features)
+
+[Database Design](#database)
 
 [Technologies Used](#technologies)
 
@@ -69,14 +69,83 @@ New records will be clearly displayed on the Home page allowing returning users/
 ### Wireframe Mockups
 The initial wireframe mockups for the website are linked below. These initial designs were captured using [Balsamiq](https://balsamiq.com/).
 
-<a name="database"></a>
-## Database Design
-
 <a name="features"></a>
 ## Features
 
+### Common Features Across ALL Pages
+* Header
+    * The header will be in a fixed position at the top of the screen and will not scroll with the page contents. This allows visitors easy access to navigate the site via the menu.
+    * The header will include a nav bar split into two rows.
+        * The top row will include a link back to the home page, a search bar and links to My Accounts and the Shopping Cart.
+        * The bottome section will include another navigation menu, aligned to the left of the page, that includes links to allow the user to browse the shop by Genre, Artist or Label and also to view new or sale items in the store.
+    * On mobile the navigation links in the bottom row will collapse into a burger menu. The links to My Account and Shopping Cart will remain visibale at the top of the screen for easy access.
+    * The navigation links in the My Account dropdown will change when the user is registered and logged in.
+    * A message bar will be positioned below the header to allow information to be presented to the user.
+* Footer
+    * The footer will be located at the bottom of each page and will scroll with the page contents.
+    * A disclaimer will be positioned in the footer stating that this website is for educational purposes only.
+    * Social media links and other contact information will be positioned to the right of the footer.
+    * Social media links will be represented by icons for each site and will increase when the user hovers over them.
+    * There will be a contact link at the bottom of the page that will take the user to the contact page.
+* Home Page
+    * The Home page will clearly display products that have been recently added to the website. The album artwork will the main feature on the Home page with artist/album title and price displayed under each image.
+    * At the top of the page there will be quick links that will allow the user to view all new products, products on sale or all products on the site.
+    * Clicking on the album image will open up a new page containing more details on the selected product.
+    * The layout/size of the album images will be responsive and will resize for different screen sizes. On mobile devices the albums will be presented in a single column to maximise the image size.
+* Product List Page
+    * The Product List page will display a list of all the products available on the site or the products from a particular category. This could be genre, artist, sale items etc.
+    * The page will clearly display the album image, artist name, album title, price and a description of the product. 
+    * Clicking on the album image will open up a new page containing more details on the selected product.
+    * If the user has administrator privileges and is logged in then there will be addition links on each item allow the user to edit/delete the product.
+    * On mobile devices the detailed description will not be displayed to stop the page becoming too cluttered.
+    * A link to the product reviews (if any) will be displayed next to each product. If a user is logged in then they will be able to leave a product review/rating.
+* Product Page
+    * This will display all data associated with a particular product. There will be buttons to allow the user to add the product to their shopping basket or wish list of they have created an account and are logged in.
+    * If the user has administrator privileges and is logged in then there will be addition links on each item allow the user to edit/delete the product.
+    * A link to the product reviews (if any) will be displayed next to each product. If a user is logged in then they will be able to leave a product review/rating.
+* Shopping Bag Page
+    * The shopping bag will display all items that that have been added by the user.
+    * For each item it will show the unit price, quantity and subtotal.
+    * The user can change the quanity against each item and also remove it from their back if they no longer wish to purchase the product.
+    * At the bottome of the page the basket total, delivery cost and order total will be displayed. On mobile screens this will be positioned at the top of the screen so the user can easily see the total cost of their order.
+    * A Keep Shopping anf Checkout button will also be displayed at the bottom of the page.
+* Checkout Page
+    * The Checkout page will contain a bried summary of the order and a form for the delivery details.
+    * If the user is logged in then the form will be populated with any address information the user has saved in their profile.
+    * The form will be validated on submission and any errors/ommissions will be reported back to the user.
+    * The payment information system will be implemented by Stripe and it will allow the user to enter a card number, expirey date and CVC number.
+    * Buttons at the bottom of the page will allow the user to complete the order or adjust the order.
+* Profile Page
+    * Once a user is registered they will have access to their profile page. This allows the user to enter default delivery information, view previous orders and view/edit/delete any reviews they have written on the site.
+* Product Management Page
+    * Site administrators can use this page to add new products to the website and also edit existing products in the database.
+* Wish List Page
+    * Registered users will have the ability to add products to their wishlist. The wish list page will be accessible via the My Account dropdown in the nav bar and will display all items in their wish list.
+    * Items from the wish list can be deleted or added to the users shopping cart.
+
+<a name="database"></a>
+## Database Design
+During development the website will use SQLite3 which is the default database used by Django. Once deployed the website will use a PostgreSQL database which can be added/hosted by Heroku.
+
 <a name="technologies"></a>
 ## Technologies Used
+
+### Languages
+* This website uses HTML, CSS, JavaScript & Python programming languages.
+
+### Libraries & Frameworks
+* [Font Awesome](https://fontawesome.com/)
+* [Googel Fonts](https://fonts.google.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [jQuery](https://jquery.com/)
+* [Django](https://www.djangoproject.com/)
+
+### Tools
+* [Balsamiq](https://balsamiq.com/)
+* [DrawSQL](https://drawsql.app/)
+* [GitPod](https://gitpod.io/)
+* [GitHub](https://github.com/)
+
 
 <a name="testing"></a>
 ## Testing
