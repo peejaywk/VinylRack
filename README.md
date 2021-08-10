@@ -137,6 +137,8 @@ The initial wireframe mockups for the website are linked below. These initial de
 ## Database Design
 During development the website will use SQLite3 which is the default database used by Django. Once deployed the website will use a PostgreSQL database which can be added/hosted by Heroku.
 
+The database schema was captured using [DrawSQL](https://drawsql.app/) and can be viewed [here](/docs/drawSQL-export-2021-08-10_07_52.png).
+
 <a name="technologies"></a>
 ## Technologies Used
 
