@@ -1,0 +1,402 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+			"sku": "pp5001340155",
+			"album_title": "The Beatles: 1967-1979",
+			"genre": 1,
+			"description": "The classic Beatles compilation spanning 1967-1970. Also known as the Blue Collection. 2 x 180g Vinyl",
+			"artist": 1,
+			"price": 19.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "beatles-1967-1979.jpg",
+			"image_url": "",
+			"record_label": 1,
+			"media_condition": "VG",
+			"sleeve_condition": "NM",
+			"cat_num": "0602547048448"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+			"sku": "pp5001730230",
+            "album_title": "The Beatles: 1962-1966",
+			"genre": 1,
+			"description": "The classic Beatles compilation spanning 1962-1966. Also known as the Red Collection. 2 x 180g Vinyl",
+			"artist": 1,
+			"price": 19.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "beatles-1962-1966.jpg",
+			"image_url": "",
+			"record_label": 1,
+			"media_condition": "VG",
+			"sleeve_condition": "VG",
+			"cat_num": "0602547048455"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001730010",
+            "album_title": "Sgt. Pepper's Lonely Hearts Club Band",
+			"genre": 1,
+			"description": "Remastered album on 180g viny. Also contains 8 page booklet.",
+			"artist": 1,
+			"price": 24.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "sgt-pepper.jpg",
+			"image_url": "",
+			"record_label": 2,
+			"media_condition": "VG",
+			"sleeve_condition": "NM",
+			"cat_num": "5099969942617"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5001890157",
+            "album_title": "What's Going On",
+			"genre": 2,
+			"description": "Re-issue of the eleventh studio album by motown singer Marvin Gaye. Originally released in 1971",
+			"artist": 2,
+			"price": 19.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "marvin-gaye-whats-going-on.jpg",
+			"image_url": "",
+			"record_label": 3,
+			"media_condition": "VG",
+			"sleeve_condition": "VG",
+			"cat_num": "WL72611"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002111605",
+            "album_title": "Human",
+			"genre": 2,
+			"description": "New & sealed. Platinum selling debut album from Rory Graham (Rag'n'Bone Man)",
+			"artist": 3,
+			"price": 17.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "rag-n-bone-man-human.jpg",
+			"image_url": "",
+			"record_label": 4,
+			"media_condition": "M",
+			"sleeve_condition": "M",
+			"cat_num": "88985398541"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002260206",
+            "album_title": "Life By Misadventure",
+			"genre": 2,
+			"description": "New & sealed. The second album from the platinum selling artist Rag'n'Bone Man.",
+			"artist": 3,
+			"price": 17.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "rag-n-bone-man-life-by-misadventure.jpg",
+			"image_url": "",
+			"record_label": 4,
+			"media_condition": "M",
+			"sleeve_condition": "M",
+			"cat_num": "19439854971"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002440521",
+            "album_title": "Innervisions",
+			"genre": 2,
+			"description": "Innervision is the 16th studio album by Stevie Wonder. This is a reissue of the original 1973 release in a gatefold sleeve.",
+			"artist": 4,
+			"price": 12.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "steview-wonder-innervision.jpg",
+			"image_url": "",
+			"record_label": 3,
+			"media_condition": "VG",
+			"sleeve_condition": "VG",
+			"cat_num": "STMA 8011"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002601115",
+            "album_title": "Talking Book",
+			"genre": 2,
+			"description": "Reissue of the fifteenth studio album by Steview Wonder. Originally released in 1972. Presented in a gatefold sleeve.",
+			"artist": 4,
+			"price": 9.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "stevie-wonder-talking-book.jpg",
+			"image_url": "",
+			"record_label": 3,
+			"media_condition": "VG",
+			"sleeve_condition": "VG",
+			"cat_num": "STMA 8007"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002690715",
+            "album_title": "The Montreux Years",
+			"genre": 4,
+			"description": "Nina Simone: The Montreux Years is released as part of a brand new Montreux Jazz Festival and BMG collection series \"The Montreux Years\". 2x180g Vinyl",
+			"artist": 5,
+			"price": 24.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "nina-simone-the-montreux-years.jpg",
+			"image_url": "",
+			"record_label": 5,
+			"media_condition": "M",
+			"sleeve_condition": "M",
+			"cat_num": "BMGCAT461DLP"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002701115",
+            "album_title": "Fulfillingness' First Finale",
+			"genre": 2,
+			"description": "The album is Wonder's seventeenth studio album, which was originally released in July 1974. It is widely considered one of the albums from his 'classic period'.",
+			"artist": 4,
+			"price": 9.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "stevie-wonder-fulfillingness-first-finale.jpg",
+			"image_url": "",
+			"record_label": 3,
+			"media_condition": "VG",
+			"sleeve_condition": "VG",
+			"cat_num": "STMA 8019"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002761055",
+            "album_title": "Unforgettable - A Tribute To Dinah Washington",
+			"genre": 2,
+			"description": "Her fifth LP for Columbia.' A Tribute To Dinah Washington', was released in February 1964, two months after Dinah's passing. Released on 180g vinyl.",
+			"artist": 6,
+			"price": 29.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "aretha-franklin-a-tribute-to-dinah-washington.jpg",
+			"image_url": "",
+			"record_label": 6,
+			"media_condition": "NM",
+			"sleeve_condition": "M",
+			"cat_num": "CS 8963"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002820069",
+            "album_title": "I Never Loved A Man The Way I Love You",
+			"genre": 2,
+			"description": "Reissue of one of the greatest albums originally released in 1967.",
+			"artist": 6,
+			"price": 15.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "aretha-franklin-i-never-loved-a-man-the-way-i-loved-you.jpg",
+			"image_url": "",
+			"record_label": 7,
+			"media_condition": "NM",
+			"sleeve_condition": "NM",
+			"cat_num": "SD 8139"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002820147",
+            "album_title": "Blue Train",
+			"genre": 4,
+			"description": "Blue Train' was recorded in September 1957 in New Jersey for Blue Note Records, and is considered John Coltrane's best album from this period. Remastered and reissued on 180g vinyl.",
+			"artist": 7,
+			"price": 15.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "john-coltrane-blue-train.jpg",
+			"image_url": "",
+			"record_label": 8,
+			"media_condition": "NM",
+			"sleeve_condition": "NM",
+			"cat_num": "BLP 1577"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002910572",
+            "album_title": "Diary Of Alicia Keys",
+			"genre": 2,
+			"description": "The second studio album by American singer songwriter Alicia Keys released in December 2003.",
+			"artist": 8,
+			"price": 15.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "alicia-keys-diary-of-alicia-keys.jpg",
+			"image_url": "",
+			"record_label": 9,
+			"media_condition": "NM",
+			"sleeve_condition": "VG",
+			"cat_num": "82876-55712-1"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5002990740",
+            "album_title": "Knebworth 1996",
+			"genre": 1,
+			"description": "Released to celebrate the 25th anniversary of the iconic record breaking live concerts at Knebworth Park on the 10th and 11th August 1996. Tripple vinyl box set.",
+			"artist": 9,
+			"price": 30.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "oasis-knebworth-1996.jpg",
+			"image_url": "",
+			"record_label": 10,
+			"media_condition": "M",
+			"sleeve_condition": "M",
+			"cat_num": "RKIDLP98"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003050248",
+            "album_title": "The Dark Side Of The Moon",
+			"genre": 1,
+			"description": "One of the best-selling and most critically acclaimed albums of all time remastered on heavyweight 180g vinyl.",
+			"artist": 10,
+			"price": 23.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "pink-floyd-dark-side-of-the-moon.jpg",
+			"image_url": "",
+			"record_label": 11,
+			"media_condition": "M",
+			"sleeve_condition": "M",
+			"cat_num": "PFRLP8"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003070787",
+            "album_title": "Rumours",
+			"genre": 1,
+			"description": "Reissue of the 1977 album by Fleetwood Mac. Released in in 2013 to celebrate 35th anniversary.",
+			"artist": 11,
+			"price": 17.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "fleetwood-mac-rumours.jpg",
+			"image_url": "",
+			"record_label": 12,
+			"media_condition": "M",
+			"sleeve_condition": "VG",
+			"cat_num": "9362-49793-5"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003090182",
+            "album_title": "(What's The Story) Morning Glory?",
+			"genre": 1,
+			"description": "(What's The Story) Morning Glory?, the follow-up to debut album Definitely Maybe, is Oasis's biggest-selling album with 22 million copies sold worldwide.",
+			"artist": 9,
+			"price": 23.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "oasis-whats-the-story-morning-glory.jpg",
+			"image_url": "",
+			"record_label": 10,
+			"media_condition": "M",
+			"sleeve_condition": "M",
+			"cat_num": "RKIDLP73"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003090186",
+            "album_title": "Definitely Maybe",
+			"genre": 1,
+			"description": "Originally released in 1994 Definitely Maybe was an instant success both critically and commercially. Reissued and remastered in 2014 on heavyweight 180g vinyl.",
+			"artist": 9,
+			"price": 23.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "oasis-definitely-maybe.jpg",
+			"image_url": "",
+			"record_label": 10,
+			"media_condition": "M",
+			"sleeve_condition": "M",
+			"cat_num": "RKIDLP70"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.product",
+        "fields": {
+            "sku": "pp5003161326",
+            "album_title": "Evermore",
+			"genre": 6,
+			"description": "Deluxe edition of the ninth studio album by the American singer-songwriter.",
+			"artist": 12,
+			"price": 33.99,
+			"on_sale": false,
+			"discount_percent": 0,
+			"image": "taylor-swift-evermore.jpg",
+			"image_url": "",
+			"record_label": 13,
+			"media_condition": "M",
+			"sleeve_condition": "M",
+			"cat_num": "B0033410-01"
+        }
+    }
+]
