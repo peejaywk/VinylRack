@@ -51,6 +51,7 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, default="", blank=True)
     media_condition = models.CharField(max_length=16)
     sleeve_condition = models.CharField(max_length=16)
+    cat_num = models.CharField(max_length=254, default="", blank=True)
 
     def __str__(self):
         return self.album_title
