@@ -69,6 +69,12 @@ body {
     float: left;
 }
 
+footer a {
+	color: black;
+	font-size: 14px;
+	margin-top: 5px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
