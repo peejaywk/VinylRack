@@ -49,8 +49,24 @@ body {
     border: 1px solid black !important;
 }
 
+.nav-bg {
+    background: white !important;
+}
+
+.nav-text-color {
+    color: black !important;
+}
+
 .bg-black {
     background: #000 !important;
+}
+
+.banner-bg {
+    background: #4D724D;
+}
+
+.navbar-nav .dropdown-menu {
+    float: left;
 }
 
 /* -------------------------------- Media Queries */
@@ -74,5 +90,13 @@ body {
 
     .header-container {
         padding-top: 164px;
+    }
+
+    .nav-bg {
+        background: black !important;
+    }
+
+    .nav-text-color {
+        color: white !important;
     }
 }
