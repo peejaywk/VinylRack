@@ -1,0 +1,98 @@
+[
+    {
+        "pk": 1,
+        "model": "products.artist",
+        "fields": {
+            "name": "the_beatles",
+            "friendly_name": "The Beatles"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.artist",
+        "fields": {
+            "name": "marvin_gaye",
+            "friendly_name": "Marvin Gaye"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.artist",
+        "fields": {
+            "name": "rag_n_bone_man",
+            "friendly_name": "Rag'n'Bone Man"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.artist",
+        "fields": {
+            "name": "stevie_wonder",
+            "friendly_name": "Stevie Wonder"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.artist",
+        "fields": {
+            "name": "nina_simone",
+            "friendly_name": "Nina Simone"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.artist",
+        "fields": {
+            "name": "aretha_franklin",
+            "friendly_name": "Aretha Franklin"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.artist",
+        "fields": {
+            "name": "john_coltrane",
+            "friendly_name": "John Coltrane"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.artist",
+        "fields": {
+            "name": "alicia_keys",
+            "friendly_name": "Alicia Keys"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.artist",
+        "fields": {
+            "name": "oasis",
+            "friendly_name": "Oasis"
+        }
+    },
+	{
+        "pk": 10,
+        "model": "products.artist",
+        "fields": {
+            "name": "pink_floyd",
+            "friendly_name": "Pink Floyd"
+        }
+    },
+	{
+        "pk": 11,
+        "model": "products.artist",
+        "fields": {
+            "name": "fleetwood_mac",
+            "friendly_name": "Fleetwood Mac"
+        }
+    },
+	{
+        "pk": 12,
+        "model": "products.artist",
+        "fields": {
+            "name": "taylor_swift",
+            "friendly_name": "Taylor Swift"
+        }
+    }
+]

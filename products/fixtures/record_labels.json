@@ -1,0 +1,106 @@
+[
+    {
+        "pk": 1,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "apple_records",
+            "friendly_name": "Apple Records"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "parlophone",
+            "friendly_name": "Parlophone"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "tamla_motown",
+            "friendly_name": "Tamla Motown"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "sony_music",
+            "friendly_name": "Sony Music"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "bmg",
+            "friendly_name": "BMG"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "columbia",
+            "friendly_name": "Columbia"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "atlantic",
+            "friendly_name": "Atlantic"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "blue_note",
+            "friendly_name": "Blue Note"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "j_records",
+            "friendly_name": "J Records"
+        }
+    },
+	{
+        "pk": 10,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "big_brother_recordings",
+            "friendly_name": "Big Brother Recordings"
+        }
+    },
+	{
+        "pk": 11,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "pink_floyd_records",
+            "friendly_name": "Pink Floyd Records"
+        }
+    },
+	{
+        "pk": 12,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "warner_records",
+            "friendly_name": "Warner Records"
+        }
+    },
+	{
+        "pk": 13,
+        "model": "products.recordlabel",
+        "fields": {
+            "name": "republic_records",
+            "friendly_name": "Republic Records"
+        }
+    }
+]
