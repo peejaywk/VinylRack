@@ -1,0 +1,74 @@
+[
+    {
+        "pk": 1,
+        "model": "products.genre",
+        "fields": {
+            "name": "rock",
+            "friendly_name": "Rock"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.genre",
+        "fields": {
+            "name": "funk_soul",
+            "friendly_name": "Funk / Soul"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.genre",
+        "fields": {
+            "name": "blues",
+            "friendly_name": "Blues"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.genre",
+        "fields": {
+            "name": "jazz",
+            "friendly_name": "Jazz"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.genre",
+        "fields": {
+            "name": "hip_hop",
+            "friendly_name": "Hip Hop"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.genre",
+        "fields": {
+            "name": "folk",
+            "friendly_name": "Folk"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.genre",
+        "fields": {
+            "name": "country",
+            "friendly_name": "Country"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.genre",
+        "fields": {
+            "name": "pop",
+            "friendly_name": "Pop"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.genre",
+        "fields": {
+            "name": "electronic",
+            "friendly_name": "Electronic"
+        }
+    }
+]
