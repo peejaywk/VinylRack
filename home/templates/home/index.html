@@ -34,7 +34,7 @@
                         {% endif %}
                         <div class="card-body pl-0 pb-0">
                             <a href="{% url 'product_detail' product.id %}">
-                                <p class="mb-5">{{ product.artist.friendly_name }}: {{ product.album_title }}</p>
+                                <p class="mb-5"><strong>{{ product.artist.friendly_name }}:</strong> {{ product.album_title }}</p>
                             </a>
                         </div>
                     </div>

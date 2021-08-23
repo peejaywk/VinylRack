@@ -75,6 +75,10 @@ footer a {
 	margin-top: 5px;
 }
 
+.product-description {
+    font-size: 1.1rem;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -104,5 +108,16 @@ footer a {
 
     .nav-text-color {
         color: white !important;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
     }
 }

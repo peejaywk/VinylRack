@@ -1,2 +1,63 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                <div class="image-container my-5">
+                    {% if product.image %}
+                        <a href="{{ product.image.url }}" target="_blank">
+                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        </a>
+                        {% else %}
+                        <a href="">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="product-details-container mb-5 mt-md-5">
+                    <p class="lead mb-0 font-weight-bold">{{ product.artist.friendly_name }}</p>
+                    <p class="mb-0 text-left ">{{ product.album_title }}</p>
+                    <a href="">
+                        <p>Reviews</p>
+                    </a>
+                    <table class="table-responsive table-borderless">
+                        <tbody>
+                            <tr>
+                                <td class="p-0"><p class="mb-0 text-muted">Catalogue Num</p></td>
+                                <td class="p-0"><p class="mb-0 ml-2 text-muted">{{ product.cat_num }}</p></td>
+                            </tr>
+                            <tr>
+                                <td class="p-0"><p class="mb-0 text-muted">Label</p></td>
+                                <td class="p-0"><p class="mb-0 ml-2 text-muted">{{ product.record_label.friendly_name }}</p></td>
+                            </tr>
+                            <tr>
+                                <td class="p-0"><p class="mb-0 text-muted">Genre</p></td>
+                                <td class="p-0"><p class="mb-0 ml-2 text-muted">{{ product.genre.friendly_name }}</p></td>
+                            </tr>
+                            <tr>
+                                <td class="p-0"><p class="mb-0 text-muted">Condition(Media/Sleeve)</p></td>
+                                <td class="p-0"><p class="mb-0 ml-2 text-muted">{{ product.media_condition }}:{{ product.sleeve_condition }}</p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p class="mt-3 product-description">{{ product.description }}</p>
+                    <p class="lead font-weight-bold">£{{ product.price }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
