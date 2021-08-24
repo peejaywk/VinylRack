@@ -18,6 +18,9 @@ def all_products(request):
         if 'genre' in request.GET:
             query = request.GET['genre']
             products = products.filter(genre__name__contains=query)
+        if 'artist' in request.GET:
+            query = request.GET['artist']
+            products = products.filter(artist__name__contains=query)    
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -57,6 +60,16 @@ def product_genre(request):
     template = 'products/genre.html'
     context = {
         'genres': genres,
+    }
+
+    return render(request, template, context)
+
+def product_artist(request):
+    """ A view to show all available artists """
+    artists = Artist.objects.all()
+    template = 'products/artist.html'
+    context = {
+        'artists': artists,
     }
 
     return render(request, template, context)
