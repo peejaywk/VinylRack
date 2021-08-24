@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
 
-from .models import Product, Artist
+from .models import Product, Artist, Genre
 
 
 def all_products(request):
@@ -15,6 +15,9 @@ def all_products(request):
     direction = None
 
     if request.GET:
+        if 'genre' in request.GET:
+            query = request.GET['genre']
+            products = products.filter(genre__name__contains=query)
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -43,6 +46,17 @@ def product_detail(request, product_id):
     template = 'products/product_detail.html'
     context = {
         'product': product,
+    }
+
+    return render(request, template, context)
+
+
+def product_genre(request):
+    """ A view to show all available genres """
+    genres = Genre.objects.all()
+    template = 'products/genre.html'
+    context = {
+        'genres': genres,
     }
 
     return render(request, template, context)
