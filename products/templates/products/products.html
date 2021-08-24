@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container"> 
+    <div class="row">
+        <div class="col-12">
+            <h2>New In</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        {% for product in products %}
+            <div class="col-sm-12 col-md-6 col-xl-3">
+                <div class="card h-100 border-0">
+                    {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.album_title }}">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.album_title }}">
+                        </a>
+                    {% endif %}
+                    <div class="card-body pl-0 pb-0">
+                        <a href="{% url 'product_detail' product.id %}">
+                            <p class="mb-5"><strong>{{ product.artist.friendly_name }}:</strong> {{ product.album_title }}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+        
+    
+</div>
+{% endblock %}
