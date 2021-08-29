@@ -10,6 +10,7 @@ def all_products(request):
 
     products = Product.objects.all()
     query = None
+    heading_text = 'All Items'
     categories = None
     sort = None
     direction = None
@@ -18,14 +19,24 @@ def all_products(request):
         if 'genre' in request.GET:
             query = request.GET['genre']
             products = products.filter(genre__name__contains=query)
+            heading_text = Genre.objects.get(name=query).friendly_name
         if 'artist' in request.GET:
             query = request.GET['artist']
             products = products.filter(artist__name__contains=query)
+            heading_text = Artist.objects.get(name=query).friendly_name
         if 'label' in request.GET:
             query = request.GET['label']
             products = products.filter(record_label__name__contains=query)
+            heading_text = Recordlabel.objects.get(name=query).friendly_name
+        if 'on_sale' in request.GET:
+            products = products.filter(on_sale=True)
+            heading_text = 'Items on Sale!'
+        if 'new_in' in request.GET:
+            products = Product.objects.order_by('-date_added').all()[:8]
+            heading_text = 'Latest records added to the store'
         if 'q' in request.GET:
             query = request.GET['q']
+            heading_text = 'Search Results'
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
@@ -38,6 +49,7 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'heading_text': heading_text,
     }
 
     return render(request, template, context)
