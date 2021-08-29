@@ -79,6 +79,13 @@ footer a {
     font-size: 1.1rem;
 }
 
+/* Disable the up/down arrows on number inputs */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
