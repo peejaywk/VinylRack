@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Genre(models.Model):
@@ -52,6 +53,7 @@ class Product(models.Model):
     media_condition = models.CharField(max_length=16)
     sleeve_condition = models.CharField(max_length=16)
     cat_num = models.CharField(max_length=254, default="", blank=True)
+    date_added = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.album_title
