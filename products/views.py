@@ -46,10 +46,19 @@ def all_products(request):
 def product_detail(request, product_id):
     """ A view to show individual product details """
 
+    sale_price = 0
     product = get_object_or_404(Product, pk=product_id)
+
+    # If the product is on sale then reduce the price by the discount
+    # percentage.
+    if product.on_sale:
+        sale_price = product.price - (product.price * (product.discount_percent/100))
+        sale_price = round(sale_price, 2)
+
     template = 'products/product_detail.html'
     context = {
         'product': product,
+        'sale_price': sale_price,
     }
 
     return render(request, template, context)
