@@ -79,6 +79,13 @@ footer a {
     font-size: 1.1rem;
 }
 
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+
 /* Disable the up/down arrows on number inputs */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 

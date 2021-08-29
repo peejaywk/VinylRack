@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.db.models import Q
+from decimal import Decimal
 
 from .models import Product, Artist, Genre, Recordlabel
 
@@ -64,7 +65,7 @@ def product_detail(request, product_id):
     # If the product is on sale then reduce the price by the discount
     # percentage.
     if product.on_sale:
-        sale_price = product.price - (product.price * (product.discount_percent/100))
+        sale_price = product.price - Decimal(product.price * (product.discount_percent/100))
         sale_price = round(sale_price, 2)
 
     template = 'products/product_detail.html'
