@@ -23,8 +23,8 @@
     {% endblock %}
 
     {% block corejs %}
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -77,15 +77,15 @@
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="" class="dropdown-item">Product Management</a>
-                                {% endif %}
-                                <a href="" class="dropdown-item">My Profile</a>
-                                <a href="" class="dropdown-item">My Wishlist</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% if request.user.is_superuser %}
+                            <a href="" class="dropdown-item">Product Management</a>
+                            {% endif %}
+                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="" class="dropdown-item">My Wishlist</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                             {% endif %}
                         </div>
                     </li>
@@ -96,9 +96,9 @@
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">
                                     {% if grand_total %}
-                                        £{{ grand_total|floatformat:2 }}
+                                    £{{ grand_total|floatformat:2 }}
                                     {% else %}
-                                        £0.00
+                                    £0.00
                                     {% endif %}
                                 </p>
                             </div>
@@ -109,7 +109,8 @@
         </div>
         <div class="row nav-bg">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 {% include 'includes/mobile-top-header.html' %}
@@ -118,8 +119,8 @@
         </div>
         <div id="delivery-banner" class="row text-center">
             <div class="col banner-bg text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
-            </div>            
+                <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>
+            </div>
         </div>
 
     </header>
@@ -146,9 +147,12 @@
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><i class="fab fa-instagram fa-2x"></i></a></li>
-                        <li class="list-inline-item me-4"><a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><i class="fab fa-facebook fa-2x"></i></a></li>
-                        <li class="list-inline-item me-4"><a href="https://twitter.com/" target="_blank" rel="noreferrer"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/" target="_blank"
+                                rel="noreferrer"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li class="list-inline-item me-4"><a href="https://www.facebook.com/" target="_blank"
+                                rel="noreferrer"><i class="fab fa-facebook fa-2x"></i></a></li>
+                        <li class="list-inline-item me-4"><a href="https://twitter.com/" target="_blank"
+                                rel="noreferrer"><i class="fab fa-twitter fa-2x"></i></a></li>
                     </ul>
                 </div>
             </div>
