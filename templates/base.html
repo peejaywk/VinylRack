@@ -122,39 +122,39 @@
                 <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>
             </div>
         </div>
-
     </header>
-
-    {% if messages %}
-    <div class="message-container"></div>
-    {% endif %}
 
     {% block page_header %}
     {% endblock %}
 
-    {% block content %}
-    {% endblock %}
+    <div class="page-wrap">
+        {% if messages %}
+            <div class="message-container"></div>
+        {% endif %}
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div> 
 
     <!-- Footer -->
-    <footer class="text-center mt-auto">
-        <div class="container-fluid text-center">
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <ul class="text-uppercase list-unstyled list-inline mt-2 mb-0">
-                        <li class="list-inline-item"><a href="">About Us</a></li>
-                        <li class="list-inline-item"><a href="">Contact us</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="https://www.instagram.com/" target="_blank"
-                                rel="noreferrer"><i class="fab fa-instagram fa-2x"></i></a></li>
-                        <li class="list-inline-item me-4"><a href="https://www.facebook.com/" target="_blank"
-                                rel="noreferrer"><i class="fab fa-facebook fa-2x"></i></a></li>
-                        <li class="list-inline-item me-4"><a href="https://twitter.com/" target="_blank"
-                                rel="noreferrer"><i class="fab fa-twitter fa-2x"></i></a></li>
-                    </ul>
-                </div>
+    <footer class="text-center container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <ul class="text-uppercase list-unstyled list-inline mt-2 mb-0">
+                    <li class="list-inline-item"><a href="">About Us</a></li>
+                    <li class="list-inline-item"><a href="">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <ul class="list-inline">
+                    <li class="list-inline-item "><a href="https://www.instagram.com/" target="_blank"
+                            rel="noreferrer"><i class="fab fa-instagram fa-2x m-2"></i></a></li>
+                    <li class="list-inline-item me-4"><a href="https://www.facebook.com/" target="_blank"
+                            rel="noreferrer"><i class="fab fa-facebook fa-2x m-2"></i></a></li>
+                    <li class="list-inline-item me-4"><a href="https://twitter.com/" target="_blank"
+                            rel="noreferrer"><i class="fab fa-twitter fa-2x m-2"></i></a></li>
+                </ul>
             </div>
         </div>
     </footer>
