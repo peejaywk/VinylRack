@@ -34,7 +34,7 @@ def all_products(request):
             heading_text = 'Items on Sale!'
         if 'new_in' in request.GET:
             products = Product.objects.order_by('-date_added').all()[:8]
-            heading_text = 'Latest records added to the store'
+            heading_text = 'New In - Latest records added to the store'
         if 'q' in request.GET:
             query = request.GET['q']
             heading_text = 'Search Results'
