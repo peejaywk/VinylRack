@@ -6,11 +6,12 @@ from .forms import UserProfileForm
 
 from checkout.models import Order
 
+
 def profile(request):
     """ Display the user's profile """
 
     profile = get_object_or_404(UserProfile, user=request.user)
-    
+
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
@@ -41,10 +42,7 @@ def order_history(request, order_number):
         'A confirmation email was sent on the order date.'
     ))
 
-    # template = 'checkout/checkout_success.html'
-    # Placeholder until the stripe payment app has been implemented and the
-    # checkout_success page implemented.
-    template = 'index.html'
+    template = 'checkout/checkout_success.html'
     context = {
         'order': order,
         'from_profile': True,
