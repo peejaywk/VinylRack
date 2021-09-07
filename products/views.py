@@ -4,6 +4,7 @@ from django.db.models import Q
 from decimal import Decimal
 
 from .models import Product, Artist, Genre, Recordlabel
+from .forms import ProductForm
 
 
 def all_products(request):
@@ -105,6 +106,17 @@ def product_label(request):
     template = 'products/label.html'
     context = {
         'labels': labels,
+    }
+
+    return render(request, template, context)
+
+
+def add_product(request):
+    """ Add a product to the store """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
     }
 
     return render(request, template, context)
