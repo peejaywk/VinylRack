@@ -25,6 +25,12 @@
                     <a href="">
                         <p>Reviews</p>
                     </a>
+                    {% if request.user.is_superuser %}
+                        <small class="mb-2">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </small>
+                    {% endif %}
                     <table class="table-responsive table-borderless">
                         <tbody>
                             <tr>

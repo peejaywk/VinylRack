@@ -22,11 +22,18 @@
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.album_title }}">
                         </a>
                     {% endif %}
-                    <div class="card-body pl-0 pb-0">
+                    <div class="card-body pl-0 pb-0 mb-5">
                         <a href="{% url 'product_detail' product.id %}">
-                            <p class="mb-5"><strong>{{ product.artist.friendly_name }}:</strong> {{ product.album_title }}</p>
+                            <p class="mb-1"><strong>{{ product.artist.friendly_name }}:</strong> {{ product.album_title }}</p>
                         </a>
+                        {% if request.user.is_superuser %}
+                            <small class="">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                        {% endif %}
                     </div>
+                    
                 </div>
             </div>
         {% endfor %}
