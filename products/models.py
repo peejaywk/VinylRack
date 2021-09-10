@@ -46,8 +46,9 @@ class Product(models.Model):
     album_title = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    on_sale = models.BooleanField()
-    discount_percent = models.DecimalField(max_digits=2, decimal_places=0)
+    on_sale = models.BooleanField(default=False, blank=True)
+    discount_percent = models.DecimalField(
+        max_digits=2, decimal_places=0, blank=True)
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, default="", blank=True)
     media_condition = models.CharField(max_length=16)
