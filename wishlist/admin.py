@@ -2,16 +2,19 @@ from django.contrib import admin
 from .models import Wishlist, WishlistItem
 
 
-class WishlistItemAdminInline(admin.TabularInline):
-    model = WishlistItem
+# class WishlistItemAdminInline(admin.TabularInline):
+#     model = WishlistItem
 
 
-class WishlistAdmin(admin.ModelAdmin):
-    inlines = (WishlistItemAdminInline,)
+# class WishlistAdmin(admin.ModelAdmin):
+#     inlines = (WishlistItemAdminInline,)
 
-    fields = ('user',)
+#     fields = ('user',)
 
-    list_display = ('user',)
+#     list_display = ('user',)
 
 
-admin.site.register(Wishlist, WishlistAdmin)
+# admin.site.register(Wishlist, WishlistAdmin)
+
+admin.site.register(Wishlist)
+admin.site.register(WishlistItem)

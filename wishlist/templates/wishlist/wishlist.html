@@ -10,6 +10,14 @@
     </div>
     <hr>
     <div class="row">
+        {% if wishlist %}
+            {% for product in wishlist.products.all %}
+            <p>1. {{ product.artist }}</p>
+            <p>2. {{ product.album_title }}</p>
+            {% endfor %}
+        {% else %}
+            <p>There are no items in your wishlist</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
