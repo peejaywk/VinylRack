@@ -10,14 +10,38 @@
     </div>
     <hr>
     <div class="row">
-        {% if wishlist %}
-            {% for product in wishlist.products.all %}
-            <p>1. {{ product.artist }}</p>
-            <p>2. {{ product.album_title }}</p>
-            {% endfor %}
-        {% else %}
-            <p>There are no items in your wishlist</p>
-        {% endif %}
+        <div class="col-12">
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black"> 
+                        <tr>
+                            <th scope="col">Product Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    {% for product in wishlist.products.all %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            {% if product.image %}
+                                <img class="img-fluid rounded" src="{{ product.image.url }}" alt="{{ product.album_title }}">
+                            {% else %}
+                                <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.album_title }}">
+                            {% endif %}
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ product.artist.friendly_name }}: {{ product.album_title }}</strong></p>
+                            <p class="my-0 small text-muted">SKU: {{ product.sku|upper }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>£{{ product.price }}</strong></p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

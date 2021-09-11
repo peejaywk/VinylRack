@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Wishlist, WishlistItem
-from profiles.models import UserProfile
+from django.contrib.auth.decorators import login_required
+from .models import Wishlist
 
 
+@login_required
 def wishlist(request):
     """ View to display a users wishlist """
     
