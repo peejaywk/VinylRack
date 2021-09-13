@@ -41,6 +41,15 @@
                         <td class="py-3">
                             <p class="my-0"><strong>£{{ product.price }}</strong></p>
                         </td>
+                        <td class="py-3">
+                            <form class="form update-form" method="POST" action="{% url 'add_to_bag' product.id %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="quantity" value="1">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                <button class="btn btn-black rounded-0 text-uppercase mb-2">Add to Bag</button>
+                            </form>
+                            <a href="{% url 'delete_from_wishlist' product.id %}"><button class="btn btn-black rounded-0 text-uppercase mb-2">Remove </button></a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </table>
