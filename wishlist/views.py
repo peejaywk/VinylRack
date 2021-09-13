@@ -28,6 +28,10 @@ def add_to_wishlist(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    # Get the url the request has been made from so the
+    # user can be redirected to that page
+    previous_url = request.META.get('HTTP_REFERER')
+    print(previous_url)
     # Get the current logged in users wishlist
     # If it doesn't exist then create one.
     wishlist = Wishlist.objects.get_or_create(user=request.user)
@@ -36,7 +40,7 @@ def add_to_wishlist(request, product_id):
     wishlist.products.add(product)
     messages.success(request, 'Product added to your wishlist')
 
-    return redirect(reverse('wishlist'))
+    return redirect(previous_url)
 
 
 @login_required
