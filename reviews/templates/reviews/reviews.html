@@ -5,7 +5,7 @@
 <div class="container mt-5"> 
     <div class="row">
         <div class="col-12 mt-3">
-            <h3 class="font-weight-bold mt-3">Reviews</h3>
+            <h3 class="font-weight-bold mt-3">My Reviews</h3>
         </div>
     </div>
     <hr>
@@ -17,7 +17,7 @@
                         <tr>
                             <th scope="col">Album</th>
                             <th scope="col">Review Details</th>
-                            <th scope="col"></th>
+                            <!-- <th scope="col"></th> -->
                         </tr>
                     </thead>
                     {% for review in reviews %}
@@ -39,11 +39,17 @@
                             <p class="my-0 small">{{review.review_title}}</p>
                             <p class="my-0 small text-muted">Comment:</p>
                             <p class="my-0 small">{{review.review_content}}</p>
+                            <p class="my-0 small text-muted">Date Added:</p>
+                            <p class="my-0 small">{{review.created_on}}</p>
+                            <small class="mb-2">
+                                <a href="{% url 'edit_review' review.id %}">Edit</a> |
+                                <a href="{% url 'delete_review' review.id %}">Delete</a>
+                            </small>
                         </td>
-                        <td class="py-3">
-                            <a href="{% url 'edit_review' review.id %}"><button class="btn-sm btn-black rounded-0 text-uppercase mb-2">Edit</button></a>
-                            <a href="{% url 'delete_review' review.id %}"><button class="btn-sm btn-danger rounded-0 text-uppercase mb-2">Delete</button></a>
-                        </td>
+                        <!-- <td class="py-3">
+                            <a href="{% url 'edit_review' review.id %}"><button type="button" class="btn-sm btn-black rounded-0 text-uppercase mb-2">Edit</button></a>
+                            <a href="{% url 'delete_review' review.id %}"><button type="bottun" class="btn-sm btn-danger rounded-0 text-uppercase mb-2">Delete</button></a>
+                        </td> -->
                     </tr>
                     {% endfor %}
                 </table>
