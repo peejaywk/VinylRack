@@ -14,8 +14,6 @@ def list_reviews(request):
         if 'product' in request.GET:
             product_id = request.GET['product']
             reviews = Review.objects.filter(product=product_id)
-            print('Product')
-            print(reviews)
     else:
         reviews = Review.objects.filter(user=request.user)
 
@@ -81,3 +79,13 @@ def edit_review(request, review_id):
     }
     template = 'reviews/edit_review.html'
     return render(request, template, context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """ Delete a prodproduct review """
+
+    review = get_object_or_404(Review, pk=review_id)
+    review.delete()
+    messages.success(request, 'Review deleted!')
+    return redirect(reverse('list_reviews'))
