@@ -41,12 +41,8 @@
                             <p class="my-0 small">{{review.review_content}}</p>
                         </td>
                         <td class="py-3">
-                            <form class="form update-form" method="POST" action="">
-                                {% csrf_token %}
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <button class="btn-sm btn-black rounded-0 text-uppercase mb-2">Edit</button>
-                            </form>
-                            <a href=""><button class="btn-sm btn-black rounded-0 text-uppercase mb-2">Delete </button></a>
+                            <a href="{% url 'edit_review' review.id %}"><button class="btn-sm btn-black rounded-0 text-uppercase mb-2">Edit</button></a>
+                            <a href=""><button class="btn-sm btn-black rounded-0 text-uppercase mb-2">Delete</button></a>
                         </td>
                     </tr>
                     {% endfor %}

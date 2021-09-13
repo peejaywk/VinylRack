@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Review
@@ -25,6 +26,7 @@ def list_reviews(request):
     return render(request, template, context)
 
 
+@login_required
 def add_review(request, product_id):
     """ A view to add a new product review """
 
@@ -53,4 +55,29 @@ def add_review(request, product_id):
         'product': product,
     }
     template = 'reviews/add_review.html'
+    return render(request, template, context)
+
+
+@login_required
+def edit_review(request, review_id):
+    """ Edit a product review """
+
+    review = get_object_or_404(Review, pk=review_id)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form = ReviewForm(request.POST, instance=review)
+            form.save()
+            messages.success(request, 'Successfully edited review!')
+            return redirect(reverse('list_reviews'))
+        else:
+            messages.error(request, 'Failed to add review. Please ensure the form is valid.')
+    else:
+        form = ReviewForm(instance=review)
+
+    context = {
+        'form': form,
+    }
+    template = 'reviews/edit_review.html'
     return render(request, template, context)
