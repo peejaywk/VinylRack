@@ -11,10 +11,47 @@
     <hr>
     <div class="row">
         <div class="col-12">
-            {% for review in reviews %}
-                <p>{{review.review_title}}</p>
-                <p>{{review.review_content}}</p>
-            {% endfor %}
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black"> 
+                        <tr>
+                            <th scope="col">Album</th>
+                            <th scope="col">Review Details</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    {% for review in reviews %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            {% if review.product.image %}
+                                <a href="{% url 'product_detail' review.product.id %}">
+                                    <img class="img-fluid rounded img_wishlist" src="{{ review.product.image.url }}" alt="{{ review.product.album_title }}">
+                                </a>
+                            {% else %}
+                                <a href="{% url 'product_detail' review.product.id %}">
+                                    <img class="img-fluid rounded img_wishlist" src="{{ MEDIA_URL }}noimage.png" alt="{{ review.product.album_title }}">
+                                </a>
+                            {% endif %}
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ review.product.artist.friendly_name }}: {{ review.product.album_title }}</strong></p>
+                            <p class="my-0 small text-muted">Title:</p>
+                            <p class="my-0 small">{{review.review_title}}</p>
+                            <p class="my-0 small text-muted">Comment:</p>
+                            <p class="my-0 small">{{review.review_content}}</p>
+                        </td>
+                        <td class="py-3">
+                            <form class="form update-form" method="POST" action="">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                <button class="btn-sm btn-black rounded-0 text-uppercase mb-2">Edit</button>
+                            </form>
+                            <a href=""><button class="btn-sm btn-black rounded-0 text-uppercase mb-2">Delete </button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
 </div>
