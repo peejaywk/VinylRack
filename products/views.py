@@ -5,6 +5,7 @@ from django.db.models import Q
 from decimal import Decimal
 
 from .models import Product, Artist, Genre, Recordlabel
+from reviews.models import Review
 from .forms import ProductForm
 
 
@@ -64,6 +65,9 @@ def product_detail(request, product_id):
     sale_price = 0
     product = get_object_or_404(Product, pk=product_id)
 
+    # Get all reviews associated with the product
+    reviews = Review.objects.filter(product=product_id)
+    
     # If the product is on sale then reduce the price by the discount
     # percentage.
     if product.on_sale:
@@ -73,6 +77,7 @@ def product_detail(request, product_id):
     template = 'products/product_detail.html'
     context = {
         'product': product,
+        'reviews': reviews,
         'sale_price': sale_price,
     }
 

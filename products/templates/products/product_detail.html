@@ -22,9 +22,16 @@
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="lead mb-0 font-weight-bold">{{ product.artist.friendly_name }}</p>
                     <p class="mb-0 text-left ">{{ product.album_title }}</p>
-                    <a href="">
-                        <p>Reviews</p>
-                    </a>
+                    {% if reviews %}
+                        <a href="{% url 'list_reviews' %}?product={{ product.id }}">
+                            <p>Reviews</p>
+                        </a>
+                    {% else %}
+                        <a href="">
+                            <p>Be the first to review this album!</p>
+                        </a>
+                    {% endif %}
+                    
                     {% if request.user.is_superuser %}
                         <small class="mb-2">
                             <a href="{% url 'edit_product' product.id %}">Edit</a> | 
