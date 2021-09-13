@@ -26,11 +26,11 @@
                         <td class="p-3 w-25">
                             {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="img-fluid rounded" src="{{ product.image.url }}" alt="{{ product.album_title }}">
+                                    <img class="img-fluid rounded img_wishlist" src="{{ product.image.url }}" alt="{{ product.album_title }}">
                                 </a>
                             {% else %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.album_title }}">
+                                    <img class="img-fluid rounded img_wishlist" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.album_title }}">
                                 </a>
                             {% endif %}
                         </td>

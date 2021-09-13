@@ -298,6 +298,13 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+/* ----- Wishlist ----- */
+.img_wishlist {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
