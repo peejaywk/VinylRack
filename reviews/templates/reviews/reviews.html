@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5"> 
+    <div class="row">
+        <div class="col-12 mt-3">
+            <h3 class="font-weight-bold mt-3">Reviews</h3>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            {% for review in reviews %}
+                <p>{{review.review_title}}</p>
+                <p>{{review.review_content}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
