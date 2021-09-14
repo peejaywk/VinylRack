@@ -16,6 +16,10 @@ main {
     padding-bottom: 100px;
 }
 
+.page-top-margin {
+    margin-top: 50px;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -390,5 +394,9 @@ input[name='q']::placeholder {
 
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
+    }
+
+    .page-top-margin {
+        margin-top: 0px;
     }
 }
