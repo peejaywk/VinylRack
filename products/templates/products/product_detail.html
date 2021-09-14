@@ -20,7 +20,21 @@
         
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="lead mb-0 font-weight-bold">{{ product.artist.friendly_name }}</p>
+                    <table class="table-responsive table-borderless table-sm">
+                        <tbody>
+                            <tr>
+                                <td class="p-0 lead mb-0 font-weight-bold">{{ product.artist.friendly_name }}</td>
+                                <td class="p-0">
+                                    {% if request.user.is_superuser %}
+                                    <small class="ml-2">
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    </small>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <p class="mb-0 text-left ">{{ product.album_title }}</p>
                     {% if reviews %}
                         <a href="{% url 'list_reviews' %}?product={{ product.id }}">
@@ -32,29 +46,29 @@
                         </a>
                     {% endif %}
                     
-                    {% if request.user.is_superuser %}
+                    <!-- {% if request.user.is_superuser %}
                         <small class="mb-2">
                             <a href="{% url 'edit_product' product.id %}">Edit</a> | 
                             <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                         </small>
-                    {% endif %}
-                    <table class="table-responsive table-borderless">
+                    {% endif %} -->
+                    <table class="table table-borderless table-sm">
                         <tbody>
                             <tr>
-                                <td class="p-0"><p class="mb-0 text-muted">Catalogue Num</p></td>
-                                <td class="p-0"><p class="mb-0 ml-2 text-muted">{{ product.cat_num }}</p></td>
+                                <td class="p-0">Catalogue Num</td>
+                                <td class="p-0">{{ product.cat_num }}</td>
                             </tr>
                             <tr>
-                                <td class="p-0"><p class="mb-0 text-muted">Label</p></td>
-                                <td class="p-0"><p class="mb-0 ml-2 text-muted">{{ product.record_label.friendly_name }}</p></td>
+                                <td class="p-0">Label</td>
+                                <td class="p-0">{{ product.record_label.friendly_name }}</td>
                             </tr>
                             <tr>
-                                <td class="p-0"><p class="mb-0 text-muted">Genre</p></td>
-                                <td class="p-0"><p class="mb-0 ml-2 text-muted">{{ product.genre.friendly_name }}</p></td>
+                                <td class="p-0">Genre</td>
+                                <td class="p-0">{{ product.genre.friendly_name }}</td>
                             </tr>
                             <tr>
-                                <td class="p-0"><p class="mb-0 text-muted">Condition(Media/Sleeve)</p></td>
-                                <td class="p-0"><p class="mb-0 ml-2 text-muted">{{ product.media_condition }}/{{ product.sleeve_condition }}</p></td>
+                                <td class="p-0">Condition(Media/Sleeve)</td>
+                                <td class="p-0">{{ product.media_condition }}/{{ product.sleeve_condition }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -73,7 +87,7 @@
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
-                            <div class="col-3 col-md-6">
+                            <div class="col-6 col-md-6">
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -99,7 +113,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 col-md-6">
+                            <div class="col-6 col-md-6">
                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
