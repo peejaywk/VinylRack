@@ -10,16 +10,19 @@ from products.models import Product
 def list_reviews(request):
     """ View to display a list of reviews """
 
+    hide_image = False
     if request.GET:
         if 'product' in request.GET:
             product_id = request.GET['product']
             reviews = Review.objects.filter(product=product_id)
+            hide_image = True
     else:
         reviews = Review.objects.filter(user=request.user)
 
     template = 'reviews/reviews.html'
     context = {
         'reviews': reviews,
+        'hide_image': hide_image,
     }
     return render(request, template, context)
 

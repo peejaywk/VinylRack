@@ -5,7 +5,11 @@
 <div class="container page-top-margin"> 
     <div class="row">
         <div class="col-12 mt-3">
-            <h3 class="font-weight-bold mt-3">My Reviews</h3>
+            {% if not hide_image %}
+                <h3 class="font-weight-bold mt-3">My Reviews</h3>
+            {% else %}
+                <h3 class="font-weight-bold mt-3">Album Reviews</h3>
+            {% endif %}
         </div>
     </div>
     <hr>
@@ -15,12 +19,15 @@
                 <table class="table table-sm table-borderless">
                     <thead class="text-black"> 
                         <tr>
-                            <th scope="col">Album</th>
+                            {% if not hide_image %}
+                                <th scope="col">Album</th>
+                            {% endif %}
                             <th scope="col">Review Details</th>
                         </tr>
                     </thead>
                     {% for review in reviews %}
                     <tr>
+                        {% if not hide_image %}
                         <td class="p-3 w-25">
                             {% if review.product.image %}
                                 <a href="{% url 'product_detail' review.product.id %}">
@@ -32,6 +39,7 @@
                                 </a>
                             {% endif %}
                         </td>
+                        {% endif %}
                         <td class="py-3">
                             <p class="my-0"><strong>{{ review.product.artist.friendly_name }}: {{ review.product.album_title }}</strong></p>
                             <p class="my-0 small text-muted">Title:</p>
