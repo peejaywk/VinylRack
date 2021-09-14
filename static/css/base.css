@@ -29,7 +29,8 @@ main {
     width: 1.5rem;
 }
 
-.logo-font {
+.logo-font,
+.uppercase {
     text-transform: uppercase;
 }
 

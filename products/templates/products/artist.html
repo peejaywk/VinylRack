@@ -13,7 +13,7 @@
         {% for artist in artists %}
             <div class="col-sm-12 col-md-6 col-xl-3">
                 <a href="{% url 'products' %}?artist={{ artist.name }}">
-                    <p>{{ artist.friendly_name }}</p>
+                    <p class="text-black uppercase">{{ artist.friendly_name }}</p>
                 </a>
             
             </div>

@@ -13,7 +13,7 @@
         {% for label in labels %}
             <div class="col-sm-12 col-md-6 col-xl-3">
                 <a href="{% url 'products' %}?label={{ label.name }}">
-                    <p>{{ label.friendly_name }}</p>
+                    <p class="text-black uppercase">{{ label.friendly_name }}</p>
                 </a>
             
             </div>

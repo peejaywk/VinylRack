@@ -13,7 +13,7 @@
         {% for genre in genres %}
             <div class="col-sm-12 col-md-6 col-xl-3">
                 <a href="{% url 'products' %}?genre={{ genre.name }}">
-                    <p>{{ genre.friendly_name }}</p>
+                    <p class="text-black uppercase">{{ genre.friendly_name }}</p>
                 </a>
             
             </div>
