@@ -24,7 +24,7 @@
                     {% endif %}
                     <div class="card-body pl-0 pb-0 mb-5">
                         <a href="{% url 'product_detail' product.id %}">
-                            <p class="mb-1"><strong>{{ product.artist.friendly_name }}:</strong> {{ product.album_title }}</p>
+                            <p class="mb-1 text-black"><strong>{{ product.artist.friendly_name }}:</strong> {{ product.album_title }}</p>
                         </a>
                         {% if request.user.is_superuser %}
                             <small class="">

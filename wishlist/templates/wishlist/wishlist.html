@@ -16,14 +16,14 @@
                     <thead class="text-black"> 
                         <tr>
                             <th scope="col">Product Info</th>
-                            <th scope="col"></th>
+                            <th scope="col" class="d-none d-md-cell"></th>
                             <th scope="col">Price</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     {% for product in wishlist.products.all %}
                     <tr>
-                        <td class="p-3 w-25">
+                        <td class="p-3 w-25 d-none d-md-cell">
                             {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
                                     <img class="img-fluid rounded img_wishlist" src="{{ product.image.url }}" alt="{{ product.album_title }}">
@@ -46,9 +46,9 @@
                                 {% csrf_token %}
                                 <input type="hidden" name="quantity" value="1">
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <button class="btn btn-black rounded-0 text-uppercase mb-2">Add to Bag</button>
+                                <button class="btn btn-sm btn-black rounded-0 text-uppercase mb-2">Add to Bag</button>
                             </form>
-                            <a href="{% url 'delete_from_wishlist' product.id %}"><button class="btn btn-black rounded-0 text-uppercase mb-2">Remove </button></a>
+                            <a href="{% url 'delete_from_wishlist' product.id %}"><button class="btn btn-sm btn-black rounded-0 text-uppercase mb-2">Remove </button></a>
                         </td>
                     </tr>
                     {% endfor %}

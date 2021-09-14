@@ -309,9 +309,9 @@ input[name='q']::placeholder {
 
 /* ----- Wishlist ----- */
 .img_wishlist {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
+    width: 100% !important;
+    max-width: 200px !important;
+    height: auto !important;
 }
 
 /* -------------------------------- Media Queries */
