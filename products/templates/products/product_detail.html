@@ -38,7 +38,10 @@
                     <p class="mb-0 text-left ">{{ product.album_title }}</p>
                     {% if reviews %}
                         <a href="{% url 'list_reviews' %}?product={{ product.id }}">
-                            <p>Reviews</p>
+                            <p class="mb-0">Reviews</p>
+                        </a>
+                        <a href="{% url 'add_review' product.id %}">
+                            <p class="text-muted small">Add new review</p>
                         </a>
                     {% else %}
                         <a href="{% url 'add_review' product.id %}">
@@ -46,12 +49,6 @@
                         </a>
                     {% endif %}
                     
-                    <!-- {% if request.user.is_superuser %}
-                        <small class="mb-2">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        </small>
-                    {% endif %} -->
                     <table class="table table-borderless table-sm">
                         <tbody>
                             <tr>

@@ -42,12 +42,9 @@
                         {% endif %}
                         <td class="py-3">
                             <p class="my-0"><strong>{{ review.product.artist.friendly_name }}: {{ review.product.album_title }}</strong></p>
-                            <p class="my-0 small text-muted">Title:</p>
-                            <p class="my-0 small">{{review.review_title}}</p>
-                            <p class="my-0 small text-muted">Comment:</p>
-                            <p class="my-0 small">{{review.review_content}}</p>
-                            <p class="my-0 small text-muted">Date Added:</p>
-                            <p class="my-0 small">{{review.created_on}}</p>
+                            <p class="my-0 small"><strong>Title: </strong>{{review.review_title}}</p>
+                            <p class="my-0 small"><strong>Comment: </strong>{{review.review_content}}</p>
+                            <p class="my-0 small"><strong>Date Added: </strong>{{review.created_on}}</p>
                             <small class="mb-2">
                                 <a href="{% url 'edit_review' review.id %}">Edit</a> |
                                 <a href="{% url 'delete_review' review.id %}">Delete</a>
