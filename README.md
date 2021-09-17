@@ -162,6 +162,9 @@ The database schema was captured using [DrawSQL](https://drawsql.app/) and can b
 <a name="testing"></a>
 ## Testing
 
+Images not being displayed on the wishlist page on screen sizes above medium.
+Incorrect bootstrap class applied. Changed from 'd-none d-md-cell' to 'd-none d-md-table-cell' which fixed the issue.
+
 <a name="deployment"></a>
 ## Deployment
 

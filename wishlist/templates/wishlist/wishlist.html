@@ -16,14 +16,14 @@
                     <thead class="text-black"> 
                         <tr>
                             <th scope="col">Product Info</th>
-                            <th scope="col" class="d-none d-md-cell"></th>
+                            <th scope="col" class="d-none d-md-table-cell"></th>
                             <th scope="col">Price</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     {% for product in wishlist.products.all %}
                     <tr>
-                        <td class="p-3 w-25 d-none d-md-cell">
+                        <td class="p-3 w-25 d-none d-md-table-cell">
                             {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
                                     <img class="img-fluid rounded img_wishlist" src="{{ product.image.url }}" alt="{{ product.album_title }}">
