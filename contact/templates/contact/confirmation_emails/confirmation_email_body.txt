@@ -1,11 +1,11 @@
 Hello {{ full_name }}!
 
-Thanks you for contacting Vinyl Rack. Your message has been received and we typically respond withing 24 hours.
+Thanks you for contacting Vinyl Rack. Your message has been received and we typically respond within 24 hours.
 
 Your message:
 
 Subject: 
-{{ subject }}
+{{ msg_subject }}
 
 Message: 
 {{ message }}
