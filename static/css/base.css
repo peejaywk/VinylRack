@@ -319,6 +319,32 @@ input[name='q']::placeholder {
     height: auto !important;
 }
 
+.stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: "Font Awesome 5 Free";
+    
+  }
+   
+  .stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+  }
+   
+  .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 20%;
+  }
+  
+  .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005" !important;
+    color: #f8ce0b !important;
+    font-weight: 900;
+  }
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

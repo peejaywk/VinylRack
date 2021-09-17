@@ -15,6 +15,7 @@ class Review(models.Model):
 
     created_on = models.DateTimeField(default=timezone.now)
 
+    review_rating = models.IntegerField(default=4)
     review_title = models.CharField(max_length=254, null=False, blank=False)
     review_content = models.TextField(max_length=1200, null=False, blank=False, default='')
 

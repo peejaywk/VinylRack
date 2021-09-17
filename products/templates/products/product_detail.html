@@ -48,6 +48,9 @@
                             <p>Be the first to review this album!</p>
                         </a>
                     {% endif %}
+                    <div class="stars-outer" id="my-data" review-rating-data="{{ review_rating }}">
+                        <div class="stars-inner"></div>
+                    </div>
                     
                     <table class="table table-borderless table-sm">
                         <tbody>
@@ -70,6 +73,7 @@
                         </tbody>
                     </table>
                     
+
                     <p class="mt-3 product-description">{{ product.description }}</p>
                     {% if product.on_sale %}
                         <h3>
@@ -130,4 +134,14 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+// Update the review stars
+$(document).ready(function () {
+    const starTotal = 5;
+    reviewrating = "{{review_rating}}";
+    const starPercentage = (reviewrating / starTotal) * 100;
+    const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+    document.querySelector('.stars-inner').style.width = starPercentageRounded;
+})
+</script>
 {% endblock %}

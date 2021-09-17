@@ -67,7 +67,8 @@ def product_detail(request, product_id):
 
     # Get all reviews associated with the product
     reviews = Review.objects.filter(product=product_id)
-    
+    review_rating = 5
+
     # If the product is on sale then reduce the price by the discount
     # percentage.
     if product.on_sale:
@@ -78,6 +79,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'reviews': reviews,
+        'review_rating': review_rating,
         'sale_price': sale_price,
     }
 
