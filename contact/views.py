@@ -17,16 +17,16 @@ def contact(request):
 
             email = contact_form.cleaned_data['contact_email']
             full_name = contact_form.cleaned_data['name']
-            subject = contact_form.cleaned_data['subject']
+            msg_subject = contact_form.cleaned_data['subject']
             message = contact_form.cleaned_data['message']
-            print(email)
+            
             subject = render_to_string(
                 'contact/confirmation_emails/confirmation_email_subject.txt')
             body = render_to_string(
                 'contact/confirmation_emails/confirmation_email_body.txt',
                 {
                     'full_name': full_name,
-                    'subject': subject,
+                    'msg_subject': msg_subject,
                     'message': message,
                     'contact_email': settings.DEFAULT_FROM_EMAIL})
 
