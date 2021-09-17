@@ -22,13 +22,13 @@
                             {% if not hide_image %}
                                 <th scope="col">Album</th>
                             {% endif %}
-                            <th scope="col">Review Details</th>
+                            <th scope="col" class="d-none d-md-table-cell">Review Details</th>
                         </tr>
                     </thead>
                     {% for review in reviews %}
                     <tr>
                         {% if not hide_image %}
-                        <td class="p-3 w-25">
+                        <td class="p-3 w-25 d-none d-md-table-cell">
                             {% if review.product.image %}
                                 <a href="{% url 'product_detail' review.product.id %}">
                                     <img class="img-fluid rounded img_wishlist" src="{{ review.product.image.url }}" alt="{{ review.product.album_title }}">
