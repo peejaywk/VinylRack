@@ -4,6 +4,7 @@ from django import forms
 class ContactForm(forms.Form):
     name = forms.CharField(required=True)
     contact_email = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
     message = forms.CharField(widget=forms.Textarea, required=True)
 
     def __init__(self, *args, **kwargs):
@@ -12,6 +13,7 @@ class ContactForm(forms.Form):
         placeholders = {
             'name': 'Full Name',
             'contact_email': 'Email Address',
+            'subject': 'Subject',
             'message': 'Message',
         }
 
