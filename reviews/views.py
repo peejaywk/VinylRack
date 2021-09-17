@@ -64,7 +64,7 @@ def edit_review(request, review_id):
     """ Edit a product review """
 
     review = get_object_or_404(Review, pk=review_id)
-
+    
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -75,6 +75,14 @@ def edit_review(request, review_id):
         else:
             messages.error(request, 'Failed to add review. Please ensure the form is valid.')
     else:
+        # Check to see the logged in user is the original author of the
+        # review post. If not rediret
+        if review.user != request.user:
+            messages.error(request, 'You cannot edit this review as you are not the original author.')
+            # Get the url the request has been made from so the
+            # user can be redirected to that page
+            previous_url = request.META.get('HTTP_REFERER')
+            return redirect(previous_url)
         form = ReviewForm(instance=review)
 
     context = {
@@ -89,6 +97,13 @@ def delete_review(request, review_id):
     """ Delete a prodproduct review """
 
     review = get_object_or_404(Review, pk=review_id)
-    review.delete()
-    messages.success(request, 'Review deleted!')
-    return redirect(reverse('list_reviews'))
+    if review.user != request.user:
+        messages.error(request, 'You cannot delete this review as you are not the original author.')
+        # Get the url the request has been made from so the
+        # user can be redirected to that page
+        previous_url = request.META.get('HTTP_REFERER')
+        return redirect(previous_url)
+    else:
+        review.delete()
+        messages.success(request, 'Review deleted!')
+        return redirect(reverse('list_reviews'))

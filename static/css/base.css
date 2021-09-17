@@ -319,6 +319,7 @@ input[name='q']::placeholder {
     height: auto !important;
 }
 
+/* ----- Review star ratings ----- */
 .stars-outer {
     display: inline-block;
     position: relative;
