@@ -4,11 +4,28 @@
 {% block content %}
     <div class="container page-top-margin"> 
         <div class="row">
-            <div class="col-12 mt-3">
-                <h3 class="font-weight-bold mt-3">Welcome To Vinyl Rack!</h3>
+            <div class="col-12 mt-3"></div>
+        </div>
+        
+        <div class="jumbotron home-jumbotron" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0.7) 100%),url('{{ MEDIA_URL }}mick-haupt-CbNBjnXXhNg-unsplash.jpg')">
+            <h3 class="uppercase font-weight-bold mt-3">Welcome To Vinyl Rack!</h3>
+            <p class="lead font-weight-bold">Thank you for visiting Vinyl Rack. We aim to provide the very best in customer service with competitive prices on all our records.</p>
+            <p class="lead font-weight-bold">Please browse the site and if you have any questions then don't hesitate to contact us.</p>
+            <hr class="my-4">
+            <a href="{% url 'products' %}">
+                <button class="btn btn-black rounded-0 text-uppercase mb-2">Browse Store </button>
+            </a>
+            <a href="{% url 'products' %}?on_sale">
+                <button class="btn btn-black rounded-0 text-uppercase mb-2" style="z-index:2000">Sale Items </button>
+            </a>
+        </div>
+       
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <h3 class="font-weight-bold mt-3">Featured Items</h3>
             </div>
         </div>
-        <hr>
         <div class="row">
             {% for product in products %}
                 <div class="col-sm-12 col-md-6 col-xl-3">
@@ -31,7 +48,6 @@
                 </div>
             {% endfor %}
         </div>
-            
-        
+
     </div>
 {% endblock %}

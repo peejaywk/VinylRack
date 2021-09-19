@@ -319,6 +319,15 @@ input[name='q']::placeholder {
     height: auto !important;
 }
 
+.home-jumbotron {
+    background-size: cover;
+}
+
+.home-page-img {
+    width: 100%;
+    height: 300px;
+}
+
 /* ----- Review star ratings ----- */
 .stars-outer {
     display: inline-block;
