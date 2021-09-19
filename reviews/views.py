@@ -11,9 +11,12 @@ def list_reviews(request):
     """ View to display a list of reviews """
 
     hide_image = False
+    product = None
+
     if request.GET:
         if 'product' in request.GET:
             product_id = request.GET['product']
+            product = get_object_or_404(Product, pk=product_id)
             reviews = Review.objects.filter(product=product_id)
             hide_image = True
     else:
@@ -22,6 +25,7 @@ def list_reviews(request):
     template = 'reviews/reviews.html'
     context = {
         'reviews': reviews,
+        'product': product,
         'hide_image': hide_image,
     }
     return render(request, template, context)
@@ -89,6 +93,7 @@ def edit_review(request, review_id):
 
     context = {
         'form': form,
+        'review': review,
     }
     template = 'reviews/edit_review.html'
     return render(request, template, context)

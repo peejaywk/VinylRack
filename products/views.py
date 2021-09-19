@@ -65,6 +65,7 @@ def product_detail(request, product_id):
     sale_price = 0
     sum = 0
     count = 0
+    avg_rating = 0
     product = get_object_or_404(Product, pk=product_id)
 
     # Get all reviews associated with the product
