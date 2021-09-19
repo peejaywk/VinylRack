@@ -7,16 +7,18 @@
             <div class="col-12 mt-3"></div>
         </div>
         
-        <div class="jumbotron home-jumbotron" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0.7) 100%),url('{{ MEDIA_URL }}mick-haupt-CbNBjnXXhNg-unsplash.jpg')">
-            <h3 class="uppercase font-weight-bold mt-3">Welcome To Vinyl Rack!</h3>
-            <p class="lead font-weight-bold">Thank you for visiting Vinyl Rack. We aim to provide the very best in customer service with competitive prices on all our records.</p>
-            <p class="lead font-weight-bold">Please browse the site and if you have any questions then don't hesitate to contact us.</p>
+        <div class="jumbotron home-jumbotron" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.5) 100%),url('{{ MEDIA_URL }}mick-haupt-CbNBjnXXhNg-unsplash.jpg')">
+            <div class="background-panel">
+                <h3 class="text-white uppercase font-weight-bold mt-3">Welcome To Vinyl Rack!</h3>
+                <p class="text-white lead">Thank you for visiting Vinyl Rack. We aim to provide the very best in customer service with competitive prices on all our records.</p>
+                <p class="text-white lead">Please browse the site and if you have any questions then don't hesitate to contact us.</p>
+            </div>
             <hr class="my-4">
             <a href="{% url 'products' %}">
-                <button class="btn btn-black rounded-0 text-uppercase mb-2">Browse Store </button>
+                <button class="btn btn-black rounded-0 text-uppercase">Browse Store </button>
             </a>
             <a href="{% url 'products' %}?on_sale">
-                <button class="btn btn-black rounded-0 text-uppercase mb-2" style="z-index:2000">Sale Items </button>
+                <button class="btn btn-black rounded-0 text-uppercase ml-2" style="z-index:2000">Sale Items </button>
             </a>
         </div>
        

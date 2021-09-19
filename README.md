@@ -171,3 +171,4 @@ Incorrect bootstrap class applied. Changed from 'd-none d-md-cell' to 'd-none d-
 <a name="credits"></a>
 ## Credits
 * [Filling Star Ratings: George Martsoukos](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450)
+* [Jumbotron Image](https://unsplash.com/photos/CbNBjnXXhNg) Unsplash Credit @rocinante_11
