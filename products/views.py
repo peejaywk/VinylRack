@@ -79,18 +79,11 @@ def product_detail(request, product_id):
             count += 1
         avg_rating = sum / count
 
-    # If the product is on sale then reduce the price by the discount
-    # percentage.
-    if product.on_sale:
-        sale_price = product.price - Decimal(product.price * (product.discount_percent/100))
-        sale_price = round(sale_price, 2)
-
     template = 'products/product_detail.html'
     context = {
         'product': product,
         'reviews': reviews,
         'review_rating': avg_rating,
-        'sale_price': sale_price,
     }
 
     return render(request, template, context)

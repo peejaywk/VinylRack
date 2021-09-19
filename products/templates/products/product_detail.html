@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block content %}
     <div class="container-fluid page-top-margin">
@@ -79,7 +80,7 @@
                         <h3>
                             <span class="badge rounded-0 sale-text text-white">Save {{ product.discount_percent }}%</span>
                         </h3>                        
-                        <p class="lead font-weight-bold mb-0">£{{ sale_price }}</p>
+                        <p class="lead font-weight-bold mb-0">£{{ product.price | calc_saleprice:product.discount_percent }}</p>
                         <p class="text-muted mt-0">Price was: £{{ product.price }}</p>                       
                     {% else %}
                         <p class="lead font-weight-bold">£{{ product.price }}</p>
