@@ -63,11 +63,20 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     sale_price = 0
+    sum = 0
+    count = 0
     product = get_object_or_404(Product, pk=product_id)
 
     # Get all reviews associated with the product
     reviews = Review.objects.filter(product=product_id)
-    review_rating = 5
+
+    # If the product has reviews then calculate the average review rating
+    # for the stars
+    if reviews:
+        for review in reviews:
+            sum += review.review_rating
+            count += 1
+        avg_rating = sum / count
 
     # If the product is on sale then reduce the price by the discount
     # percentage.
@@ -79,7 +88,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'reviews': reviews,
-        'review_rating': review_rating,
+        'review_rating': avg_rating,
         'sale_price': sale_price,
     }
 

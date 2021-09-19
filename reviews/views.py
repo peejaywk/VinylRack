@@ -37,11 +37,13 @@ def add_review(request, product_id):
         form = ReviewForm(request.POST)
         if form.is_valid():
             review_title = form.cleaned_data['review_title']
+            review_rating = form.cleaned_data['review_rating']
             review_content = form.cleaned_data['review_content']
             Review.objects.create(
                 user=request.user,
                 product=product,
                 review_title=review_title,
+                review_rating = review_rating,
                 review_content=review_content
             )
             messages.success(request, 'Successfully added review!')
