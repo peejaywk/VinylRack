@@ -27,3 +27,10 @@ class ProductForm(forms.ModelForm):
         self.fields['record_label'].choices = record_label_friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+
+class ArtistForm(forms.ModelForm):
+
+    class Meta:
+        model = Artist
+        fields = '__all__'

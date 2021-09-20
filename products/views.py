@@ -6,7 +6,7 @@ from decimal import Decimal
 
 from .models import Product, Artist, Genre, Recordlabel
 from reviews.models import Review
-from .forms import ProductForm
+from .forms import ProductForm, ArtistForm
 
 
 def all_products(request):
@@ -139,10 +139,12 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
+        artist_form = ArtistForm()
 
     template = 'products/add_product.html'
     context = {
         'form': form,
+        'artist_form': artist_form,
     }
 
     return render(request, template, context)
