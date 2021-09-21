@@ -13,13 +13,13 @@ class ProductForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        genres = Genre.objects.all()
+        genres = Genre.objects.all().order_by('name')
         genre_friendly_names = [(c.id, c.get_friendly_name()) for c in genres]
         
-        artists = Artist.objects.all()
+        artists = Artist.objects.all().order_by('name')
         artist_friendly_names = [(c.id, c.get_friendly_name()) for c in artists]
 
-        record_labels = Recordlabel.objects.all()
+        record_labels = Recordlabel.objects.all().order_by('name')
         record_label_friendly_names = [(c.id, c.get_friendly_name()) for c in record_labels]
 
         self.fields['genre'].choices = genre_friendly_names
