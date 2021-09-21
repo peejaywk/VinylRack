@@ -6,7 +6,7 @@ from decimal import Decimal
 
 from .models import Product, Artist, Genre, Recordlabel
 from reviews.models import Review
-from .forms import ProductForm, ArtistForm
+from .forms import ProductForm, ArtistForm, RecordLabelForm
 
 
 def all_products(request):
@@ -140,11 +140,13 @@ def add_product(request):
     else:
         form = ProductForm()
         artist_form = ArtistForm()
+        record_label_form = RecordLabelForm()
 
     template = 'products/add_product.html'
     context = {
         'form': form,
         'artist_form': artist_form,
+        'record_label_form': record_label_form,
     }
 
     return render(request, template, context)
@@ -190,3 +192,41 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def add_artist(request):
+    """ Add a artist to the database """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ArtistForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added artist!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add artist. Please ensure the form is valid.')
+
+    return redirect(reverse('add_product'))
+
+
+@login_required
+def add_recordlabel(request):
+    """ Add a record label to the database """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = RecordLabelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added record label!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add record label. Please ensure the form is valid.')
+
+    return redirect(reverse('add_product'))

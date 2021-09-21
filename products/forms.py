@@ -34,3 +34,10 @@ class ArtistForm(forms.ModelForm):
     class Meta:
         model = Artist
         fields = '__all__'
+
+
+class RecordLabelForm(forms.ModelForm):
+
+    class Meta:
+        model = Recordlabel
+        fields = '__all__'
