@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q
+from django.db.models import Q, F
+from django.db.models.functions import Lower
 from decimal import Decimal
 
 from .models import Product, Artist, Genre, Recordlabel
@@ -20,6 +21,17 @@ def all_products(request):
     direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=F('artist__name'))
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
         if 'genre' in request.GET:
             query = request.GET['genre']
             products = products.filter(genre__name__contains=query)
@@ -49,11 +61,13 @@ def all_products(request):
             queries = Q(artist__name__icontains=query) | Q(description__icontains=query) | Q(album_title__icontains=query)
             products = products.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
     template = 'products/products.html'
     context = {
         'products': products,
         'search_term': query,
         'heading_text': heading_text,
+        'current_sorting': current_sorting,
     }
 
     return render(request, template, context)
