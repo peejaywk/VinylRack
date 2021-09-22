@@ -105,7 +105,7 @@ def product_detail(request, product_id):
 
 def product_genre(request):
     """ A view to show all available genres """
-    genres = Genre.objects.all()
+    genres = Genre.objects.all().order_by('name')
     template = 'products/genre.html'
     context = {
         'genres': genres,
@@ -116,7 +116,7 @@ def product_genre(request):
 
 def product_artist(request):
     """ A view to show all available artists """
-    artists = Artist.objects.all()
+    artists = Artist.objects.all().order_by('name')
     template = 'products/artist.html'
     context = {
         'artists': artists,
@@ -127,7 +127,7 @@ def product_artist(request):
 
 def product_label(request):
     """ A view to show all available record labels """
-    labels = Recordlabel.objects.all()
+    labels = Recordlabel.objects.all().order_by('name')
     template = 'products/label.html'
     context = {
         'labels': labels,
