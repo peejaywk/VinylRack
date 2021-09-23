@@ -68,8 +68,13 @@
                                 <td class="p-0">{{ product.genre.friendly_name }}</td>
                             </tr>
                             <tr>
-                                <td class="p-0">Condition(Media/Sleeve)</td>
-                                <td class="p-0">{{ product.media_condition }}/{{ product.sleeve_condition }}</td>
+                                <td class="p-0">
+                                    Condition(Sleeve/Media)
+                                    <a href="{% url 'grading' %}">
+                                        <p class="text-small">Grading Info.</p>
+                                    </a>
+                                </td>
+                                <td class="p-0">{{ product.sleeve_condition }}/{{ product.media_condition }}</td>
                             </tr>
                         </tbody>
                     </table>
