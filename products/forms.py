@@ -9,13 +9,25 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
+    
+    # media_condition = forms.CharField
+    # sleeve_condition
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
     
+    grading_choices = [
+            ('M', 'Mint'),
+            ('Ex', 'Excellent'),
+            ('Vg', 'Very Good'),
+            ('Gd', 'Good')
+        ]
+    media_condition = forms.ChoiceField(choices=grading_choices)
+    sleeve_condition = forms.ChoiceField(choices=grading_choices)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
         genres = Genre.objects.all().order_by('name')
         genre_friendly_names = [(c.id, c.get_friendly_name()) for c in genres]
-        
         artists = Artist.objects.all().order_by('name')
         artist_friendly_names = [(c.id, c.get_friendly_name()) for c in artists]
 
