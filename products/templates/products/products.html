@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block content %}
 <div class="container page-top-margin"> 
@@ -43,18 +44,35 @@
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.album_title }}">
                         </a>
                     {% endif %}
-                    <div class="card-body pl-0 pb-0 mb-5">
+                    <div class="card-body pl-0 pb-0 mb-0">
                         <a href="{% url 'product_detail' product.id %}">
                             <p class="mb-1 text-black"><strong>{{ product.artist.friendly_name }}:</strong> {{ product.album_title }}</p>
                         </a>
-                        {% if request.user.is_superuser %}
-                            <small class="">
-                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                            </small>
+                        {% if product.on_sale %}
+                            <h3>
+                                <span class="badge rounded-0 sale-text text-white">{{ product.discount_percent }}% OFF</span>
+                            </h3>
                         {% endif %}
                     </div>
-                    
+                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                {% if product.on_sale %}
+                                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price | calc_saleprice:product.discount_percent }}</p>
+                                {% else %}
+                                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="col-12 col-md-6">
+                                {% if request.user.is_superuser %}
+                                <small class="text-right">
+                                    <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                </small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endfor %}
