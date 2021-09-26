@@ -2,53 +2,34 @@
 {% load static %}
 
 {% block content %}
-<div class="container page-top-margin"> 
+<div class="container page-top-margin">
     <div class="row">
         <div class="col-12 col-md-6 mt-3">
             <h3 class="font-weight-bold mt-3 mb-4">Product Management</h3>
-            
+
         </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <h5 class="text-muted">Add New Artist</h5>
-            <form method="POST" action="{% url 'add_artist' %}" class="form mb-2">
-                {% csrf_token %}
-                {% for field in artist_form %}
-                {{ field | as_crispy_field }}
-                {% endfor %}
-                <div class="text-right">
-                    <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                    <button class="btn btn-black rounded-0" type="submit">Add Artist</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-12 col-md-6">
-            <h5 class="text-muted">Add New Record Label</h5>
-            <form method="POST" action="{% url 'add_recordlabel' %}" class="form mb-2">
-                {% csrf_token %}
-                {% for field in record_label_form %}
-                {{ field | as_crispy_field }}
-                {% endfor %}
-                <div class="text-right">
-                    <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                    <button class="btn btn-black rounded-0" type="submit">Add Label</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <hr>
+    <hr> 
     <div class="row">
         <div class="col-12 col-md-6">
             <h5 class="text-muted">Add New Product</h5>
             <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
-                    {% if field.name != 'image' %}
-                        {{ field | as_crispy_field }}
-                    {% else %}
+                    {% if field.name == 'image' %}
                         {{ field }}
+                    {% elif field.name == 'artist' %}
+                        {{ field | as_crispy_field }}
+                        <button type="button" class="btn btn-black rounded-0 mb-3" data-toggle="modal" data-target="#addArtistModal">
+                            Add New Artist
+                        </button>
+                    {% elif field.name == 'record_label' %}
+                        {{ field | as_crispy_field }}
+                        <button type="button" class="btn btn-black rounded-0 mb-3" data-toggle="modal" data-target="#addRecordLabelModal">
+                            Add New Record Label
+                        </button>
+                    {% else %}
+                        {{ field | as_crispy_field }}
                     {% endif %}
                 {% endfor %}
                 <div class="text-right">
@@ -60,14 +41,71 @@
     </div>
 </div>
 
+<!-- Modal Add New Artist -->
+<div class="modal fade" id="addArtistModal" tabindex="-1" role="dialog" aria-labelledby="addArtistModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addArtistModalLabel">Add New Artist</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{% url 'add_artist' %}" class="form mb-2">
+                <div class="modal-body">
+                    <div class="col-12 col-md-6">
+                        {% csrf_token %}
+                        {% for field in artist_form %}
+                        {{ field | as_crispy_field }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-black rounded-0">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add New Record Label -->
+<div class="modal fade" id="addRecordLabelModal" tabindex="-1" role="dialog" aria-labelledby="addRecordLabelModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addRecordLabelModalLabel">Add New Record Label</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{% url 'add_artist' %}" class="form mb-2">
+                <div class="modal-body">
+                    <div class="col-12 col-md-6">
+                        {% csrf_token %}
+                        {% for field in record_label_form %}
+                        {{ field | as_crispy_field }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-black rounded-0">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Image will be set to: ${file.name}`);
-        });
-    </script>
+{{ block.super }}
+<script type="text/javascript">
+    $('#new-image').change(function () {
+        var file = $('#new-image')[0].files[0];
+        $('#filename').text(`Image will be set to: ${file.name}`);
+    });
+</script>
 {% endblock %}
