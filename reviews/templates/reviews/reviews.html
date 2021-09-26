@@ -42,11 +42,15 @@
                         </td>
                         {% endif %}
                         <td class="py-3">
-                            <p class="my-0"><strong>{{ review.product.artist.friendly_name }}: {{ review.product.album_title }}</strong></p>
+                            {% if not hide_image %}
+                                <p class="my-0"><strong>{{ review.product.artist.friendly_name }}: {{ review.product.album_title }}</strong></p>
+                            {% endif %}
                             <p class="my-0 small"><strong>Title: </strong>{{review.review_title}}</p>
                             <p class="my-0 small"><strong>Comment: </strong>{{review.review_content}}</p>
+                            <p class="my-0 small"><strong>Review Rating: </strong>{{review.review_rating}} out of 5</p>
                             <p class="my-0 small"><strong>Date Added: </strong>{{review.created_on}}</p>
-                            {% if request.user.is_authenticated %}
+                            
+                            {% if request.user.is_authenticated and user == review.user %}
                                 <small class="mb-2">
                                     <a href="{% url 'edit_review' review.id %}">Edit</a> |
                                     <a href="{% url 'delete_review' review.id %}">Delete</a>
