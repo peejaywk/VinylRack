@@ -217,12 +217,19 @@ def add_artist(request):
 
     if request.method == 'POST':
         form = ArtistForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully added artist!')
+
+        # Check to see if the artist is already in the database
+        artist_name = form['name'].value()
+        if Artist.objects.filter(name = artist_name).exists():
+            messages.warning(request, 'Artist already exists in the database.')
             return redirect(reverse('add_product'))
         else:
-            messages.error(request, 'Failed to add artist. Please ensure the form is valid.')
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Successfully added artist!')
+                return redirect(reverse('add_product'))
+            else:
+                messages.error(request, 'Failed to add artist. Please ensure the form is valid.')
 
     return redirect(reverse('add_product'))
 
@@ -236,11 +243,18 @@ def add_recordlabel(request):
 
     if request.method == 'POST':
         form = RecordLabelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully added record label!')
+
+        # Check to see if the label is already in the database
+        label_name = form['name'].value()
+        if Recordlabel.objects.filter(name = label_name).exists():
+            messages.warning(request, 'Record Label already exists in the database.')
             return redirect(reverse('add_product'))
         else:
-            messages.error(request, 'Failed to add record label. Please ensure the form is valid.')
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Successfully added record label!')
+                return redirect(reverse('add_product'))
+            else:
+                messages.error(request, 'Failed to add record label. Please ensure the form is valid.')
 
     return redirect(reverse('add_product'))
