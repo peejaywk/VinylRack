@@ -9,11 +9,9 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
-    
-    # media_condition = forms.CharField
-    # sleeve_condition
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
+
     grading_choices = [
             ('M', 'Mint'),
             ('Ex', 'Excellent'),
@@ -29,10 +27,12 @@ class ProductForm(forms.ModelForm):
         genres = Genre.objects.all().order_by('name')
         genre_friendly_names = [(c.id, c.get_friendly_name()) for c in genres]
         artists = Artist.objects.all().order_by('name')
-        artist_friendly_names = [(c.id, c.get_friendly_name()) for c in artists]
+        artist_friendly_names = [(c.id, c.get_friendly_name()) for c in
+                                 artists]
 
         record_labels = Recordlabel.objects.all().order_by('name')
-        record_label_friendly_names = [(c.id, c.get_friendly_name()) for c in record_labels]
+        record_label_friendly_names = [(c.id, c.get_friendly_name()) for c in
+                                       record_labels]
 
         self.fields['genre'].choices = genre_friendly_names
         self.fields['artist'].choices = artist_friendly_names
@@ -57,7 +57,7 @@ class ArtistForm(forms.ModelForm):
 
         self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].label = placeholders[field]           
+            self.fields[field].label = placeholders[field]
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
@@ -79,7 +79,7 @@ class RecordLabelForm(forms.ModelForm):
 
         self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].label = placeholders[field]           
+            self.fields[field].label = placeholders[field]
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'

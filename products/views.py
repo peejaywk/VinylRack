@@ -2,8 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q, F
-from django.db.models.functions import Lower
-from decimal import Decimal
 
 from .models import Product, Artist, Genre, Recordlabel
 from reviews.models import Review
@@ -16,7 +14,6 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     heading_text = 'All Items'
-    categories = None
     sort = None
     direction = None
 
@@ -58,7 +55,9 @@ def all_products(request):
                 return redirect(reverse('products'))
             
             # Search performed on artist, description and album title.
-            queries = Q(artist__name__icontains=query) | Q(description__icontains=query) | Q(album_title__icontains=query)
+            queries = Q(artist__name__icontains=query) | \
+                Q(description__icontains=query) | \
+                Q(album_title__icontains=query)
             products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -76,7 +75,6 @@ def all_products(request):
 def product_detail(request, product_id):
     """ A view to show individual product details """
 
-    sale_price = 0
     sum = 0
     count = 0
     avg_rating = 0
@@ -150,7 +148,8 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please ensure the \
+                form is valid.')
     else:
         form = ProductForm()
         artist_form = ArtistForm()
@@ -181,7 +180,8 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product. Please ensure \
+                the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.album_title}')
@@ -229,7 +229,8 @@ def add_artist(request):
                 messages.success(request, 'Successfully added artist!')
                 return redirect(reverse('add_product'))
             else:
-                messages.error(request, 'Failed to add artist. Please ensure the form is valid.')
+                messages.error(request, 'Failed to add artist. Please ensure \
+                    the form is valid.')
 
     return redirect(reverse('add_product'))
 
@@ -246,8 +247,9 @@ def add_recordlabel(request):
 
         # Check to see if the label is already in the database
         label_name = form['name'].value()
-        if Recordlabel.objects.filter(name = label_name).exists():
-            messages.warning(request, 'Record Label already exists in the database.')
+        if Recordlabel.objects.filter(name=label_name).exists():
+            messages.warning(request, 'Record Label already exists in the \
+                database.')
             return redirect(reverse('add_product'))
         else:
             if form.is_valid():
@@ -255,6 +257,7 @@ def add_recordlabel(request):
                 messages.success(request, 'Successfully added record label!')
                 return redirect(reverse('add_product'))
             else:
-                messages.error(request, 'Failed to add record label. Please ensure the form is valid.')
+                messages.error(request, 'Failed to add record label. \
+                    Please ensure the form is valid.')
 
     return redirect(reverse('add_product'))
