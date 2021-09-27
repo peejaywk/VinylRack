@@ -67,7 +67,7 @@
                                 {% if request.user.is_superuser %}
                                 <small class="text-right">
                                     <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                    <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    <a class="text-danger" href="#deleteRecord" data-toggle="modal" data-productid="{{product.id}}">Delete</a>
                                 </small>
                                 {% endif %}
                             </div>
@@ -82,6 +82,27 @@
     <a class="btt-link d-flex h-100">
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
     </a>	
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteRecord" tabindex="-1" role="dialog" aria-labelledby="deleteRecordLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteRecordLabel">Delete Record</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-1 text-black">Are you sure you want to delete the record from the database?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">No</button>
+                <a id="deleteBtn" class="btn btn-outline-black rounded-0" href="" >Yes</a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
@@ -113,6 +134,16 @@
 
                 window.location.replace(currentUrl);
             }
+        })
+    </script>
+
+    <!-- Javascript to pass the product ID into the delete modal -->
+    <script type="text/javascript">
+        $('#deleteRecord').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var productId = button.data('productid') // Extract info from data-* attributes
+            url = `{% url 'delete_product' 123 %}` // Create the delete product url with dummy product id
+            document.getElementById('deleteBtn').href=url.replace('123', productId) // Update the href in the modal with the correct delete url
         })
     </script>
 {% endblock %}
