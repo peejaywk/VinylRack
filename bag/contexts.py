@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def bag_contents(request):
 
     bag_items = []
@@ -13,8 +14,9 @@ def bag_contents(request):
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        if product.on_sale :
-            product_price = product.price - Decimal(product.price * (product.discount_percent/100))
+        if product.on_sale:
+            product_price = product.price - Decimal(
+                product.price * (product.discount_percent/100))
             product_price = round(product_price, 2)
         else:
             product_price = product.price
