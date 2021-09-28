@@ -37,7 +37,9 @@ Google Lighthouse will be used to check the Performance, Accessibility, Best Pra
 
 ### [PEP8 Online Check](http://pep8online.com/)
 
-### [JS Hint](https://jshint.com/)
+### [JS Lint](https://jslint.com/)
+* Stripe Elements Java Script
+    * Warnings reported by JS Lint. See report [here](docs/images/008 - StripJSLint.png).
 
 ### [W3C HTML Checker](https://validator.w3.org/nu/)
 * Home Page
@@ -109,7 +111,7 @@ Google Lighthouse will be used to check the Performance, Accessibility, Best Pra
 
 * Registration Page
     * No errors reported
-    
+
 ### [W3C CSS Checker](https://jigsaw.w3.org/css-validator/)
 
 <a name="bugsissues"></a>
