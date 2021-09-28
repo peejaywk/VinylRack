@@ -90,7 +90,26 @@ Google Lighthouse will be used to check the Performance, Accessibility, Best Pra
 * Contact Us Page
     * No errors reported
 
+* Shopping Bag Page
+    * Errors & warnings reported for the Vinyl Rack Home page. See [here](docs/images/007-ShoppingBagPageHTMLCheck.png) for details.
+        * The error 'Element p not allowed as child of element strong in this context' seemed to be coming from the Crispy Forms so was ignored.
+        * The duplicate IDs are from the code used to generate different views for small and large screens. Different code will be rendered depending on the size of the screen. Errors ignored.
 
+* Chekout Page
+    * No errors reported
+
+* Checkout Success Page
+    * No errors reported
+
+* Sign Out Page
+    * No errors reported
+
+* Sign In Page
+    * No errors reported
+
+* Registration Page
+    * No errors reported
+    
 ### [W3C CSS Checker](https://jigsaw.w3.org/css-validator/)
 
 <a name="bugsissues"></a>
