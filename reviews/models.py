@@ -17,7 +17,8 @@ class Review(models.Model):
 
     review_rating = models.IntegerField(default=4)
     review_title = models.CharField(max_length=254, null=False, blank=False)
-    review_content = models.TextField(max_length=1200, null=False, blank=False, default='')
+    review_content = models.TextField(
+        max_length=1200, null=False, blank=False, default='')
 
     def __str__(self):
         return self.review_title

@@ -37,7 +37,8 @@ def add_to_wishlist(request, product_id):
     wishlist = Wishlist.objects.get_or_create(user=request.user)
     wishlist = wishlist[0]
 
-    in_wishlist = WishlistItem.objects.filter(wishlist=wishlist, product=product).exists()
+    in_wishlist = WishlistItem.objects.filter(
+        wishlist=wishlist, product=product).exists()
 
     if in_wishlist:
         messages.info(request, 'Product is already in your wishlist')

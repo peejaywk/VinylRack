@@ -2,7 +2,9 @@ from django.shortcuts import render
 
 
 def grading(request):
-    """ Display information on how the records sold on the site are graded """
+    """
+    Display information on how the records sold on the site are graded
+    """
 
     context = {}
     template = "grading/grading.html"

@@ -19,7 +19,7 @@ def contact(request):
             full_name = contact_form.cleaned_data['name']
             msg_subject = contact_form.cleaned_data['subject']
             message = contact_form.cleaned_data['message']
-            
+
             subject = render_to_string(
                 'contact/confirmation_emails/confirmation_email_subject.txt')
             body = render_to_string(
@@ -37,14 +37,15 @@ def contact(request):
                 [email]
             )
 
-            messages.success(request, 'Your message was submitted successfully.' \
-                ' We will be in touch soon')
+            messages.success(request, 'Your message was submitted successfully. \
+                We will be in touch soon')
             return redirect(reverse('contact'))
         else:
-            messages.error(request, 'There was a problem with the form. Please resubmit')
+            messages.error(request, 'There was a problem with the form. \
+                Please resubmit')
     else:
         form = ContactForm()
-    
+
     context = {
         'form': form,
     }

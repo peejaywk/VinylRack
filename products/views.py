@@ -51,9 +51,10 @@ def all_products(request):
             query = request.GET['q']
             heading_text = 'Search Results'
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, "You didn't enter any search \
+                    criteria!")
                 return redirect(reverse('products'))
-            
+
             # Search performed on artist, description and album title.
             queries = Q(artist__name__icontains=query) | \
                 Q(description__icontains=query) | \
@@ -220,7 +221,7 @@ def add_artist(request):
 
         # Check to see if the artist is already in the database
         artist_name = form['name'].value()
-        if Artist.objects.filter(name = artist_name).exists():
+        if Artist.objects.filter(name=artist_name).exists():
             messages.warning(request, 'Artist already exists in the database.')
             return redirect(reverse('add_product'))
         else:

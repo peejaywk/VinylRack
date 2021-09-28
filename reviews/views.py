@@ -47,13 +47,14 @@ def add_review(request, product_id):
                 user=request.user,
                 product=product,
                 review_title=review_title,
-                review_rating = review_rating,
+                review_rating=review_rating,
                 review_content=review_content
             )
             messages.success(request, 'Successfully added review!')
             return redirect(reverse('list_reviews'))
         else:
-            messages.error(request, 'Failed to add review. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add review. Please ensure the \
+                form is valid.')
     else:
         form = ReviewForm()
 
@@ -70,7 +71,7 @@ def edit_review(request, review_id):
     """ Edit a product review """
 
     review = get_object_or_404(Review, pk=review_id)
-    
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
@@ -79,12 +80,14 @@ def edit_review(request, review_id):
             messages.success(request, 'Successfully edited review!')
             return redirect(reverse('list_reviews'))
         else:
-            messages.error(request, 'Failed to add review. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add review. Please ensure the \
+                form is valid.')
     else:
         # Check to see the logged in user is the original author of the
         # review post. If not rediret
         if review.user != request.user:
-            messages.error(request, 'You cannot edit this review as you are not the original author.')
+            messages.error(request, 'You cannot edit this review as you are \
+                not the original author.')
             # Get the url the request has been made from so the
             # user can be redirected to that page
             previous_url = request.META.get('HTTP_REFERER')
@@ -105,7 +108,8 @@ def delete_review(request, review_id):
 
     review = get_object_or_404(Review, pk=review_id)
     if review.user != request.user:
-        messages.error(request, 'You cannot delete this review as you are not the original author.')
+        messages.error(request, 'You cannot delete this review as you are not \
+            the original author.')
         # Get the url the request has been made from so the
         # user can be redirected to that page
         previous_url = request.META.get('HTTP_REFERER')
