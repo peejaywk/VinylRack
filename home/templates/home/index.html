@@ -14,12 +14,8 @@
                 <p class="text-white lead">Please browse the site and if you have any questions then don't hesitate to contact us.</p>
             </div>
             <hr class="my-4">
-            <a href="{% url 'products' %}">
-                <button class="btn btn-black rounded-0 text-uppercase">Browse Store </button>
-            </a>
-            <a href="{% url 'products' %}?on_sale">
-                <button class="btn btn-black rounded-0 text-uppercase ml-2" style="z-index:2000">Sale Items </button>
-            </a>
+            <a class="btn btn-black rounded-0 text-uppercase ml-2" href="{% url 'products' %}" >Browse Store</a>
+            <a class="btn btn-black rounded-0 text-uppercase ml-2" href="{% url 'products' %}?on_sale" >Sale Items</a>
         </div>
        
         <hr>

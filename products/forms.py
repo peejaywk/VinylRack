@@ -34,6 +34,7 @@ class ProductForm(forms.ModelForm):
         record_label_friendly_names = [(c.id, c.get_friendly_name()) for c in
                                        record_labels]
 
+        self.fields['sku'].widget.attrs['autofocus'] = True
         self.fields['genre'].choices = genre_friendly_names
         self.fields['artist'].choices = artist_friendly_names
         self.fields['record_label'].choices = record_label_friendly_names
