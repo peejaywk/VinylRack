@@ -35,7 +35,11 @@ Google Lighthouse will be used to check the Performance, Accessibility, Best Pra
 <a name="codevalidation"></a>
 ## Code Validation
 
+### Python Flake8 Validation
+* All python code was checked using Flake8. These results can be found [here](/docs/python-flake8-results.txt). A few of the errors relating to longer lines were not refactored as these were either auto generated files or determined to be of low importance.
+
 ### [PEP8 Online Check](http://pep8online.com/)
+* All Python code was checked using the PEP8 online validation tool. No errors were found using the online tool and any warnings addressed as required.
 
 ### [JS Lint](https://jslint.com/)
 * Stripe Elements Java Script

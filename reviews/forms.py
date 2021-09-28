@@ -20,7 +20,7 @@ class ReviewForm(forms.ModelForm):
 
         self.fields['review_rating'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].label = placeholders[field]           
+            self.fields[field].label = placeholders[field]
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'

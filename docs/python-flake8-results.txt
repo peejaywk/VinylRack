@@ -1,0 +1,104 @@
+./bag/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./bag/models.py:1:1: F401 'django.db.models' imported but unused
+./bag/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./bag/views.py:26:80: E501 line too long (81 > 79 characters)
+./bag/views.py:45:80: E501 line too long (81 > 79 characters)
+./checkout/apps.py:9:9: F401 'checkout.signals' imported but unused
+./checkout/models.py:22:16: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:25:23: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/models.py:26:14: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./checkout/webhook_handler.py:73:80: E501 line too long (80 > 79 characters)
+./checkout/webhook_handler.py:74:80: E501 line too long (80 > 79 characters)
+./checkout/webhooks.py:27:5: F841 local variable 'e' is assigned to but never used
+./checkout/webhooks.py:30:5: F841 local variable 'e' is assigned to but never used
+./checkout/webhooks.py:42:80: E501 line too long (86 > 79 characters)
+./checkout/migrations/0001_initial.py:19:80: E501 line too long (117 > 79 characters)
+./checkout/migrations/0001_initial.py:20:80: E501 line too long (82 > 79 characters)
+./checkout/migrations/0001_initial.py:25:30: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:25:80: E501 line too long (85 > 79 characters)
+./checkout/migrations/0001_initial.py:28:37: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:28:80: E501 line too long (92 > 79 characters)
+./checkout/migrations/0001_initial.py:29:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./checkout/migrations/0001_initial.py:29:80: E501 line too long (83 > 79 characters)
+./checkout/migrations/0001_initial.py:31:80: E501 line too long (98 > 79 characters)
+./checkout/migrations/0001_initial.py:32:80: E501 line too long (97 > 79 characters)
+./checkout/migrations/0001_initial.py:33:80: E501 line too long (97 > 79 characters)
+./checkout/migrations/0001_initial.py:41:80: E501 line too long (117 > 79 characters)
+./checkout/migrations/0001_initial.py:43:80: E501 line too long (104 > 79 characters)
+./checkout/migrations/0001_initial.py:44:80: E501 line too long (137 > 79 characters)
+./checkout/migrations/0001_initial.py:45:80: E501 line too long (115 > 79 characters)
+./checkout/migrations/0003_order_user_profile.py:18:80: E501 line too long (143 > 79 characters)
+./contact/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./contact/models.py:1:1: F401 'django.db.models' imported but unused
+./contact/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./grading/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./grading/models.py:1:1: F401 'django.db.models' imported but unused
+./grading/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./home/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./home/models.py:1:1: F401 'django.db.models' imported but unused
+./home/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./products/models.py:7:21: DJ01 Avoid using null=True on string-based fields such CharField.
+./products/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./products/widgets.py:9:80: E501 line too long (87 > 79 characters)
+./products/migrations/0001_initial.py:18:80: E501 line too long (117 > 79 characters)
+./products/migrations/0001_initial.py:26:80: E501 line too long (117 > 79 characters)
+./products/migrations/0001_initial.py:28:35: DJ01 Avoid using null=True on string-based fields such CharField.
+./products/migrations/0001_initial.py:28:80: E501 line too long (91 > 79 characters)
+./products/migrations/0001_initial.py:34:80: E501 line too long (117 > 79 characters)
+./products/migrations/0001_initial.py:42:80: E501 line too long (117 > 79 characters)
+./products/migrations/0001_initial.py:43:80: E501 line too long (82 > 79 characters)
+./products/migrations/0001_initial.py:48:80: E501 line too long (90 > 79 characters)
+./products/migrations/0001_initial.py:49:80: E501 line too long (82 > 79 characters)
+./products/migrations/0001_initial.py:50:80: E501 line too long (88 > 79 characters)
+./products/migrations/0001_initial.py:53:80: E501 line too long (137 > 79 characters)
+./products/migrations/0001_initial.py:54:80: E501 line too long (135 > 79 characters)
+./products/migrations/0001_initial.py:55:80: E501 line too long (148 > 79 characters)
+./products/migrations/0004_auto_20210910_1508.py:16:80: E501 line too long (82 > 79 characters)
+./products/migrations/0005_alter_product_discount_percent.py:16:80: E501 line too long (93 > 79 characters)
+./profiles/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./profiles/models.py:15:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:17:31: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:19:31: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:21:28: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:23:22: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/models.py:24:24: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./profiles/migrations/0001_initial.py:21:80: E501 line too long (117 > 79 characters)
+./profiles/migrations/0001_initial.py:22:42: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:22:80: E501 line too long (97 > 79 characters)
+./profiles/migrations/0001_initial.py:23:45: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:23:80: E501 line too long (100 > 79 characters)
+./profiles/migrations/0001_initial.py:24:45: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:24:80: E501 line too long (100 > 79 characters)
+./profiles/migrations/0001_initial.py:25:42: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:25:80: E501 line too long (97 > 79 characters)
+./profiles/migrations/0001_initial.py:26:36: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:26:80: E501 line too long (91 > 79 characters)
+./profiles/migrations/0001_initial.py:27:38: DJ01 Avoid using null=True on string-based fields such CharField.
+./profiles/migrations/0001_initial.py:27:80: E501 line too long (93 > 79 characters)
+./profiles/migrations/0001_initial.py:28:80: E501 line too long (111 > 79 characters)
+./profiles/migrations/0001_initial.py:29:80: E501 line too long (121 > 79 characters)
+./reviews/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./reviews/migrations/0001_initial.py:22:80: E501 line too long (117 > 79 characters)
+./reviews/migrations/0001_initial.py:23:80: E501 line too long (88 > 79 characters)
+./reviews/migrations/0001_initial.py:25:80: E501 line too long (82 > 79 characters)
+./reviews/migrations/0001_initial.py:26:80: E501 line too long (139 > 79 characters)
+./reviews/migrations/0001_initial.py:27:80: E501 line too long (144 > 79 characters)
+./reviews/migrations/0002_alter_review_user.py:19:80: E501 line too long (133 > 79 characters)
+./vinylrack/settings.py:104:80: E501 line too long (84 > 79 characters)
+./vinylrack/settings.py:143:80: E501 line too long (91 > 79 characters)
+./vinylrack/settings.py:146:80: E501 line too long (81 > 79 characters)
+./vinylrack/settings.py:149:80: E501 line too long (82 > 79 characters)
+./vinylrack/settings.py:152:80: E501 line too long (83 > 79 characters)
+./wishlist/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./wishlist/migrations/0001_initial.py:21:80: E501 line too long (117 > 79 characters)
+./wishlist/migrations/0001_initial.py:22:80: E501 line too long (144 > 79 characters)
+./wishlist/migrations/0001_initial.py:28:80: E501 line too long (117 > 79 characters)
+./wishlist/migrations/0001_initial.py:29:80: E501 line too long (88 > 79 characters)
+./wishlist/migrations/0001_initial.py:30:80: E501 line too long (140 > 79 characters)
+./wishlist/migrations/0001_initial.py:31:80: E501 line too long (139 > 79 characters)
+./wishlist/migrations/0002_auto_20210911_0918.py:20:80: E501 line too long (131 > 79 characters)
+./wishlist/migrations/0002_auto_20210911_0918.py:25:80: E501 line too long (138 > 79 characters)
+./wishlist/migrations/0003_auto_20210911_0936.py:18:80: E501 line too long (104 > 79 characters)
+./wishlist/migrations/0003_auto_20210911_0936.py:23:80: E501 line too long (105 > 79 characters)

@@ -19,7 +19,7 @@ class ContactForm(forms.Form):
 
         self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            self.fields[field].label = placeholders[field]           
+            self.fields[field].label = placeholders[field]
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
