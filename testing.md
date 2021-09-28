@@ -39,7 +39,10 @@ Google Lighthouse will be used to check the Performance, Accessibility, Best Pra
 
 ### [JS Lint](https://jslint.com/)
 * Stripe Elements Java Script
-    * Warnings reported by JS Lint. See report [here](docs/images/008 - StripJSLint.png).
+    * Warnings reported by JS Lint. See report [here](docs/images/008-StripJSLint.png).
+
+* Country Field Java Scrip 
+    * No errors reported
 
 ### [W3C HTML Checker](https://validator.w3.org/nu/)
 * Home Page
