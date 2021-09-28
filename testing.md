@@ -61,6 +61,11 @@ Google Lighthouse will be used to check the Performance, Accessibility, Best Pra
         * All the duplicate attributes and IDs were ignored as the duplicate items were on the modal forms and therefore separate from the main html. These errors did not impace on the performace/operation of the site. Maybe these should be addressed at a later date.
         * The error 'Element p not allowed as child of element strong in this context' seemed to be coming from the Crispy Forms so was ignored.
 
+* Edit Product Page
+    * Errors & warnings reported for the Product Management Page. See [here](docs/images/006-ProductEditPageHTMLCheck.png) for details.
+        * The img alt atribute was added in the CustomClearableFileInput widget.
+        * The error 'Element p not allowed as child of element strong in this context' seemed to be coming from the Crispy Forms so was ignored.
+
 * My Profile Page
     * No errors reported
 
@@ -74,6 +79,17 @@ Google Lighthouse will be used to check the Performance, Accessibility, Best Pra
 * Product Details Page
     * Errors & warnings reported for the Vinyl Rack Home page. See [here](docs/images/004-ProductDetailPageHTMLCheck.png) for details.
         * Removed code that was used during testing/development of the page. Repeated the test and no errors found.
+
+* Add Review Page
+    * Errors & warnings reported for the Vinyl Rack Home page. See [here](docs/images/005-AddReviewPageHTMLCheck.png) for details.
+        * Added the missing action url to the form to fix the error. Repeated the test and no errors found.
+    
+* Edit Review Page
+    * No errors reported
+
+* Contact Us Page
+    * No errors reported
+
 
 ### [W3C CSS Checker](https://jigsaw.w3.org/css-validator/)
 
