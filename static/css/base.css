@@ -88,6 +88,10 @@ main {
     float: left;
 }
 
+.navbar-width {
+    width: auto;
+}
+
 /* ----- Footer ----- */
 footer a {
 	color: white;
@@ -131,7 +135,6 @@ footer {
 .remove-item {
     cursor: pointer;
 }
-
 
 /* Disable the up/down arrows on number inputs */
 input[type=number]::-webkit-inner-spin-button, 
@@ -420,6 +423,10 @@ input[name='q']::placeholder {
     .navbar-toggler {
         padding: .4rem .4rem;
         font-size: 1rem;
+    }
+
+    .navbar-width {
+        width: 100%;
     }
 
     #delivery-banner h4 {
