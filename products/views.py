@@ -220,6 +220,10 @@ def edit_product(request, product_id):
 def edit_genre(request, genre_id, product_id):
     """ Edit a Genre """
 
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     genre = get_object_or_404(Genre, pk=genre_id)
     if request.method == 'POST':
         form = GenreForm(request.POST, instance=genre)
@@ -237,6 +241,10 @@ def edit_genre(request, genre_id, product_id):
 def edit_artist(request, artist_id, product_id):
     """ Edit an Artist """
 
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     artist = get_object_or_404(Artist, pk=artist_id)
     if request.method == 'POST':
         form = ArtistForm(request.POST, instance=artist)
@@ -253,6 +261,10 @@ def edit_artist(request, artist_id, product_id):
 @login_required
 def edit_recordlabel(request, label_id, product_id):
     """ Edit a Record Label """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     record_label = get_object_or_404(Recordlabel, pk=label_id)
     if request.method == 'POST':
