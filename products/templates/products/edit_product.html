@@ -18,10 +18,25 @@
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
+                        {% if field.name == 'image' %}
                             {{ field }}
+                        {% elif field.name == 'genre' %}
+                            {{ field | as_crispy_field }}
+                            <button type="button" class="btn btn-black rounded-0 mb-3" data-toggle="modal" data-target="#editGenreModal">
+                                Edit Genre
+                            </button>
+                        {% elif field.name == 'artist' %}
+                            {{ field | as_crispy_field }}
+                            <button type="button" class="btn btn-black rounded-0 mb-3" data-toggle="modal" data-target="#editArtistModal">
+                                Edit Artist
+                            </button>
+                        {% elif field.name == 'record_label' %}
+                            {{ field | as_crispy_field }}
+                            <button type="button" class="btn btn-black rounded-0 mb-3" data-toggle="modal" data-target="#editRecordLabelModal">
+                                Edit Record Label
+                            </button>
+                        {% else %}
+                            {{ field | as_crispy_field }}
                         {% endif %}
                     {% endfor %}
                     <div class="text-right">
@@ -32,6 +47,93 @@
             </div>            
         </div>
     </div>
+
+<!-- Modal Edit Genre -->
+<div class="modal fade" id="editGenreModal" tabindex="-1" role="dialog" aria-labelledby="editGenreModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editGenreModalLabel">Edit Genre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{% url 'edit_genre' product.genre.id product.id %}" class="form mb-2">
+                <div class="modal-body">
+                    <div class="col-12 col-md-6">
+                        {% csrf_token %}
+                        {% for field in genre_form %}
+                        {{ field | as_crispy_field }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-black rounded-0">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit Artist -->
+<div class="modal fade" id="editArtistModal" tabindex="-1" role="dialog" aria-labelledby="editArtistModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editArtistModalLabel">Edit Artist</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{% url 'edit_artist' product.artist.id product.id %}" class="form mb-2">
+                <div class="modal-body">
+                    <div class="col-12 col-md-6">
+                        {% csrf_token %}
+                        {% for field in artist_form %}
+                        {{ field | as_crispy_field }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-black rounded-0">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit Record Label -->
+<div class="modal fade" id="editRecordLabelModal" tabindex="-1" role="dialog" aria-labelledby="editRecordLabelModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRecordLabelModalLabel">Edit Record Label</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{% url 'edit_recordlabel' product.record_label.id product.id %}" class="form mb-2">
+                <div class="modal-body">
+                    <div class="col-12 col-md-6">
+                        {% csrf_token %}
+                        {% for field in record_label_form %}
+                        {{ field | as_crispy_field }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-black rounded-0">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}

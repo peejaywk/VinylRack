@@ -171,31 +171,100 @@ def add_product(request):
 @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
+
+    product = None
+    genre_form = None
+    artist = None
+    record_label = None
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
+    # Get all the objects that require a form to be rendered.
     product = get_object_or_404(Product, pk=product_id)
+    genre = get_object_or_404(Genre, pk=product.genre_id)
+    artist = get_object_or_404(Artist, pk=product.artist_id)
+    record_label = get_object_or_404(Recordlabel, pk=product.record_label_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated product!')
+            messages.info(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Failed to update product. Please ensure \
                 the form is valid.')
     else:
+        # Get data for all forms that the user can edit via the
+        # edit product page.
         form = ProductForm(instance=product)
+        genre_form = GenreForm(instance=genre)
+        artist_form = ArtistForm(instance=artist)
+        record_label_form = RecordLabelForm(instance=record_label)
         messages.info(request, f'You are editing {product.album_title}')
 
     template = 'products/edit_product.html'
     context = {
         'form': form,
         'product': product,
+        'genre_form': genre_form,
+        'artist_form': artist_form,
+        'record_label_form': record_label_form,
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_genre(request, genre_id, product_id):
+    """ Edit a Genre """
+
+    genre = get_object_or_404(Genre, pk=genre_id)
+    if request.method == 'POST':
+        form = GenreForm(request.POST, instance=genre)
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Successfully updated Genre!')
+        else:
+            messages.error(request, 'Failed to update Genre. Please ensure \
+                the form is valid.')
+
+    return redirect(reverse('edit_product', args=[product_id]))
+
+
+@login_required
+def edit_artist(request, artist_id, product_id):
+    """ Edit an Artist """
+
+    artist = get_object_or_404(Artist, pk=artist_id)
+    if request.method == 'POST':
+        form = ArtistForm(request.POST, instance=artist)
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Successfully updated Artist!')
+        else:
+            messages.error(request, 'Failed to update Artist. Please ensure \
+                the form is valid.')
+
+    return redirect(reverse('edit_product', args=[product_id]))
+
+
+@login_required
+def edit_recordlabel(request, label_id, product_id):
+    """ Edit a Record Label """
+
+    record_label = get_object_or_404(Recordlabel, pk=label_id)
+    if request.method == 'POST':
+        form = RecordLabelForm(request.POST, instance=record_label)
+        if form.is_valid():
+            form.save()
+            messages.info(request, 'Successfully updated Record Label!')
+        else:
+            messages.error(request, 'Failed to update Record Label. Please ensure \
+                the form is valid.')
+
+    return redirect(reverse('edit_product', args=[product_id]))
 
 
 @login_required
