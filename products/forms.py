@@ -84,3 +84,25 @@ class RecordLabelForm(forms.ModelForm):
 
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+
+class GenreForm(forms.ModelForm):
+
+    class Meta:
+        model = Genre
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        placeholders = {
+            'name': 'Name',
+            'friendly_name': 'Friendly Name',
+        }
+
+        self.fields['name'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            self.fields[field].label = placeholders[field]
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'

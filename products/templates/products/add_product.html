@@ -18,6 +18,11 @@
                 {% for field in form %}
                     {% if field.name == 'image' %}
                         {{ field }}
+                    {% elif field.name == 'genre' %}
+                        {{ field | as_crispy_field }}
+                        <button type="button" class="btn btn-black rounded-0 mb-3" data-toggle="modal" data-target="#addGenreModal">
+                            Add New Genre
+                        </button>
                     {% elif field.name == 'artist' %}
                         {{ field | as_crispy_field }}
                         <button type="button" class="btn btn-black rounded-0 mb-3" data-toggle="modal" data-target="#addArtistModal">
@@ -86,6 +91,35 @@
                     <div class="col-12 col-md-6">
                         {% csrf_token %}
                         {% for field in record_label_form %}
+                        {{ field | as_crispy_field }}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-black rounded-0">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add New Genre -->
+<div class="modal fade" id="addGenreModal" tabindex="-1" role="dialog" aria-labelledby="addGenreModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addGenreModalLabel">Add New Genre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{% url 'add_genre' %}" class="form mb-2">
+                <div class="modal-body">
+                    <div class="col-12 col-md-6">
+                        {% csrf_token %}
+                        {% for field in genre_form %}
                         {{ field | as_crispy_field }}
                         {% endfor %}
                     </div>

@@ -13,4 +13,5 @@ urlpatterns = [
          name='delete_product'),
     path('add_artist/', views.add_artist, name='add_artist'),
     path('add_recordlabel/', views.add_recordlabel, name='add_recordlabel'),
+    path('add_genre/', views.add_genre, name='add_genre'),
 ]

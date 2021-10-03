@@ -5,7 +5,7 @@ from django.db.models import Q, F
 
 from .models import Product, Artist, Genre, Recordlabel
 from reviews.models import Review
-from .forms import ProductForm, ArtistForm, RecordLabelForm
+from .forms import ProductForm, ArtistForm, RecordLabelForm, GenreForm
 
 
 def all_products(request):
@@ -155,12 +155,14 @@ def add_product(request):
         form = ProductForm()
         artist_form = ArtistForm()
         record_label_form = RecordLabelForm()
+        genre_form = GenreForm()
 
     template = 'products/add_product.html'
     context = {
         'form': form,
         'artist_form': artist_form,
         'record_label_form': record_label_form,
+        'genre_form': genre_form,
     }
 
     return render(request, template, context)
@@ -227,7 +229,7 @@ def add_artist(request):
         else:
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Successfully added artist!')
+                messages.info(request, 'Successfully added new Artist!')
                 return redirect(reverse('add_product'))
             else:
                 messages.error(request, 'Failed to add artist. Please ensure \
@@ -255,10 +257,38 @@ def add_recordlabel(request):
         else:
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Successfully added record label!')
+                messages.info(request, 'Successfully added new Record Label!')
                 return redirect(reverse('add_product'))
             else:
                 messages.error(request, 'Failed to add record label. \
+                    Please ensure the form is valid.')
+
+    return redirect(reverse('add_product'))
+
+
+@login_required
+def add_genre(request):
+    """ Add a new genre to the database """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = GenreForm(request.POST)
+
+        # Check to see if the label is already in the database
+        label_name = form['name'].value()
+        if Genre.objects.filter(name=label_name).exists():
+            messages.warning(request, 'Genre already exists in the \
+                database.')
+            return redirect(reverse('add_product'))
+        else:
+            if form.is_valid():
+                form.save()
+                messages.info(request, 'Successfully added new Genre!')
+                return redirect(reverse('add_product'))
+            else:
+                messages.error(request, 'Failed to add genre. \
                     Please ensure the form is valid.')
 
     return redirect(reverse('add_product'))
