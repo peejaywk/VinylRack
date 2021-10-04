@@ -201,7 +201,40 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 #### Test Results
 * **PASS**
 
-### Test-008 : Browse By Genre
+### Test-008 : Product Details Page
+Test to confirm that the correct information is displayed on the Product Details page for logged out user, logged in (non-adim) and logged in (admin).
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Logout of the site if currently logged in.
+3. On the home page click on any product to open the product details page. Confirm that the page displays the correct information for the product and that the edit/delete links are not visible next to the artist name.
+4. Login to the site as a non admin and confirm that the edit/delete links are not visible next to the artist name.
+5. Login to the site with admin access and confirm that the edit/delete links are present next to the artist name.
+6. Click on the Grading Info link and check the Grading Guide page is opened.
+7. Find a product with a review rating and confirm the correct number of stars are being rendered.
+8. Click the Add To Bag button and confirm that the item has been added to your shopping bag.
+9. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+10. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+The Product Details page displays the correct information for logged out, logged in (non admin) and logged in (admin) users. See image below for showing the product details page for a logged in admin user. The correct number of rating stars is also being rendered for product being viewed (see image below)
+
+![Test008Image](/docs/images/Test-008a.png)
+
+Clicking on the Grading Info link opens the Grading Guide page.
+
+Clicking the Add To Bag button successfully adds the product to the shopping bag as can be seen in the two images below:
+
+![Test008Image](/docs/images/Test-008b.png)
+
+![Test008Image](/docs/images/Test-008c.png)
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
+
+### Test-009 : Browse By Genre
 Test to confirm the products can be browsed/filtered by Genre.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
@@ -220,7 +253,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 #### Test Results
 * **PASS**
 
-### Test-009 : Browse By Artist
+### Test-010 : Browse By Artist
 Test to confirm the products can be browsed/filtered by Artist.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
@@ -239,7 +272,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 #### Test Results
 * **PASS**
 
-### Test-010 : Browse By Record Label
+### Test-011 : Browse By Record Label
 Test to confirm the products can be browsed/filtered by Record Label.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
@@ -258,7 +291,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 #### Test Results
 * **PASS**
 
-### Test-011 : On Sale Page / Items
+### Test-012 : On Sale Page / Items
 Test to confirm that the correct products are displayed on the On Sale page with the % discound and the price adjusted accordingly.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
@@ -271,6 +304,7 @@ Test to confirm that the correct products are displayed on the On Sale page with
 
 #### Test Notes
 The On Sale page displayed all products that had the 'on_sale' flag set True. The currect percentage discount was visible below the image and the price had been reduced by the correct amount (see image below).
+
 ![Test-011-Image](/docs/images/Test-011b.png)
 
 The product details page for a sale item displayed the correct percentage discount along with the correct sale price and original price (see image below).
@@ -283,7 +317,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 #### Test Results
 * **PASS**
 
-### Test-012 : New In Page
+### Test-013 : New In Page
 Test to confirm the last eight products added to the site are displayed on the New In page.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
@@ -297,27 +331,27 @@ Clicking on the New In link on the navigation bar displayed the correct items on
 #### Test Results
 * **PASS**
 
-### Test-013 : Add New Product
+### Test-014 : Add New Product
 
-### Test-014 : Edit Product
+### Test-015 : Edit Product
 
-### Test-015 : Delete Product
+### Test-016 : Delete Product
 
-### Test-016 : Add to Wishlist
+### Test-017 : Add to Wishlist
 
-### Test-017 : Remove from Wishlist
+### Test-018 : Remove from Wishlist
 
-### Test-018 : Add Review
+### Test-019 : Add Review
 
-### Test-019 : Edit Review
+### Test-020 : Edit Review
 
-### Test-020 : Delete Review
+### Test-021 : Delete Review
 
-### Test-021 : Add/Remove/Delete to/from Cart
+### Test-022 : Add/Remove/Delete to/from Cart
 
-### Test-022 : Checkout Strip Payment
+### Test-023 : Checkout Strip Payment
 
-### Test-023 : Profile Page
+### Test-024 : Profile Page
 
 <a name="codevalidation"></a>
 ## Code Validation
