@@ -97,6 +97,163 @@ The site was consistently resposive across all devices and screen sizes with the
 <a name="functionaltesting"></a>
 ## Functional/Features Testing
 
+### Test-001 : Navigation Bar
+Test navigation bar links function correctly and that the correct links are displayed for admin and non admin users.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/. Logout of the site if logged in.
+2. Check that the nav bar is fixed to the top of the browser window when scrolling down.
+3. With the user logged out check that the following menu options appear in the the My Account drop down menu:
+    * Register & Login
+4. Click each of the menu options listed above and confirm that you are taken to the correct page.
+5. Login as a regular non admin user and check that the following menu options appear in My Account drop down menu::
+    * My Profile, My My Wishlist, My Reviews & Logout.
+6. Click each of the menu options listed above and confirm that you are taken to the correct page. Clicking the Logout option should log you out of the website.
+7. Login in using an administrator account and check that the following options appear in the nav bar:
+    * Product Management, My Profile, My My Wishlist, My Reviews & Logout
+8. Click each of the menu options listed above and confirm that you are taken to the correct page. Clicking the Logout option should log you out of the website.
+9. On desktop devices confirm that clicking on the Vinyl Rack icon in the top left returns the user to the home page.
+10. Confirm that all the navigation links under the Catalogue drop down menu function correclty. On mobile devices these will collapse into a hamburger icon.
+11. Confirm that the New In and On Sale links function correclty. On mobile devices these will collapse into a hamburger icon.
+12. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+13. Repeat the above steps using a mobile device if possible.
+14. Repeat the above tests with a screen size of <=992 pixels and check that the menu options Catalogue, On Sale & New In collapse into the hamburger icon. Also confirm that the Vinyl Rack icon is not rendered and that instead there is a Home link in the hamburger menu.
+15. On mobile devices confirm that the Search, My Account and Shooping Bag icons are rendered at the top of the screen and function correctly.
+
+#### Test Notes
+All the navigation links function correctly for all users and link to the correct pages. For screen sizes <=992 pixels the correct navigation links
+collapse into the hamburger menu and function correctly. The nav bar also remains fixed to the top of the page on both desktop and mobile devices. 
+    
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
+
+### Test-002 : Footer
+Test footer links function correctly and that it scrolls with the page contents.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Check that the footer remains at the bottom of the screen even when very little content is present.
+3. Check that the footer scrolls down when displaying a page with lots of content.
+4. Click on the Contact Us link and conform that the Contact Us page is loaded.
+5. Click on each social media link and verify it opens up the correct page in a new browser tab.
+6. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+7. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+The footer is located at the bottom of the screen when little content is present and scrolls down when more content is added or when viewing a page with lots of content. The Contact Us option links to the correct page and all social media links are working and link to the correct pages, opening in a new tab.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
+
+### Test-003 : Home Page
+Test to check the Home Page is displaying the correct information and that the links in the Jumbotron function correctly. 
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Confirm that the jumbotron at the top of the page is displaying the welcome message at that the buttons function correctly.
+3. Confirm that the last eight products added to the site are displayed on the page.
+4. Click on any of the album images and confirm that the correct product details page is displayed.
+5. Return to the home page and click on any of the album/artist links below the album image and confirm the correct product details page is displayed.
+6. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+7. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+The jumbotron is displayed correctly on desktop and mobile devices and both links function correctly taking the user to the appropriate page. The last eight products are being displayed on the home page and clicking on either the image or item text takes the user to the correct product details page.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
+
+### Test-004 : User Registration
+
+### Test-005 : User Authentication
+
+### Test-006 : User Sign-out
+
+### Test-007 : Product List Page
+
+### Test-008 : Browse By Genre
+Test to confirm the products can be browsed/filtered by Genre.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Click on the By Genre link in the Catalogue dropdown menu. Confirm that all the Genres are listed on the page.
+3. Click on any Genre and confirm that the correct products are displayed for that particular genre. 
+4. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+5. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the By Genre link opens up the correct page displaying a list (sorted alphabetically) of all the different Genres.
+The correct products were being displayed when clicking on any of the listed genres.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
+
+### Test-009 : Browse By Artist
+Test to confirm the products can be browsed/filtered by Artist.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Click on the By Artist link in the Catalogue dropdown menu. Confirm that all the Artists are listed on the page.
+3. Click on any Artist and confirm that the correct products are displayed for that particular artist. 
+4. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+5. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the By Artist link opens up the correct page displaying a list (sorted alphabetically) of all the different artists listed on the site.
+The correct products were being displayed when clicking on any of the listed artists.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+### Test-010 : Browse By Record Label
+Test to confirm the products can be browsed/filtered by Record Label.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Click on the By Label link in the Catalogue dropdown menu. Confirm that all the Record Labels are listed on the page.
+3. Click on any Record Label and confirm that the correct products are displayed for that particular Record Label. 
+4. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+5. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the By Label link opens up the correct page displaying a list (sorted alphabetically) of all the different record labels listed on the site.
+The correct products were being displayed when clicking on any of the listed record labels.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+### Test-011 : On Sale Page
+
+### Test-012 : New In Page
+
+### Test-013 : Add New Product
+
+### Test-014 : Edit Product
+
+### Test-015 : Delete Product
+
+### Test-016 : Add to Wishlist
+
+### Test-017 : Remove from Wishlist
+
+### Test-018 : Add Review
+
+### Test-019 : Edit Review
+
+### Test-020 : Delete Review
+
+### Test-021 : Add/Remove/Delete to/from Cart
+
+### Test-022 : Checkout Strip Payment
+
+### Test-023 : Profile Page
+
 <a name="codevalidation"></a>
 ## Code Validation
 

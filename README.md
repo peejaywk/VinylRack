@@ -102,7 +102,7 @@ A neutral colour scheme was chosen for the site as most of the color on majority
     * The header will be in a fixed position at the top of the screen and will not scroll with the page contents. This allows visitors easy access to navigate the site via the menu.
     * The header will include a nav bar split into two rows.
         * The top row will include a link back to the home page, a search bar and links to My Accounts and the Shopping Cart.
-        * The bottome section will include another navigation menu, aligned to the left of the page, that includes links to allow the user to browse the shop by Genre, Artist or Label and also to view new or sale items in the store.
+        * The bottom section will include another navigation menu, aligned to the left of the page, that includes links to allow the user to browse the shop by Genre, Artist or Label and also to view new or sale items in the store.
     * On mobile the navigation links in the bottom row will collapse into a burger menu. The links to My Account and Shopping Cart will remain visibale at the top of the screen for easy access.
     * The navigation links in the My Account dropdown will change when the user is registered and logged in.
     * A message bar will be positioned below the header to allow information to be presented to the user.
