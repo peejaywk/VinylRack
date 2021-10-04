@@ -19,6 +19,7 @@ def all_products(request):
 
     if request.GET:
         if 'sort' in request.GET:
+            # Sort items by name in ascending or descending order
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':
@@ -30,24 +31,30 @@ def all_products(request):
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
         if 'genre' in request.GET:
+            # Get all Genre objects
             query = request.GET['genre']
             products = products.filter(genre__name__contains=query)
             heading_text = Genre.objects.get(name=query).friendly_name
         if 'artist' in request.GET:
+            # Get all Artist objects
             query = request.GET['artist']
             products = products.filter(artist__name__contains=query)
             heading_text = Artist.objects.get(name=query).friendly_name
         if 'label' in request.GET:
+            # Get all Record Label objects
             query = request.GET['label']
             products = products.filter(record_label__name__contains=query)
             heading_text = Recordlabel.objects.get(name=query).friendly_name
         if 'on_sale' in request.GET:
+            # Get all objects that are marked 'for sale'
             products = products.filter(on_sale=True)
             heading_text = 'Items on Sale!'
         if 'new_in' in request.GET:
+            # Get the last 8 objects added to the products table
             products = Product.objects.order_by('-date_added').all()[:8]
             heading_text = 'New In - Latest records added to the store'
         if 'q' in request.GET:
+            # Process the search request.
             query = request.GET['q']
             heading_text = 'Search Results'
             if not query:
@@ -85,7 +92,7 @@ def product_detail(request, product_id):
     reviews = Review.objects.filter(product=product_id)
 
     # If the product has reviews then calculate the average review rating
-    # for the stars
+    # for the stars on the product details page.
     if reviews:
         for review in reviews:
             sum += review.review_rating
@@ -103,7 +110,7 @@ def product_detail(request, product_id):
 
 
 def product_genre(request):
-    """ A view to show all available genres """
+    """ A view to show all available Genres """
     genres = Genre.objects.all().order_by('name')
     template = 'products/genre.html'
     context = {
@@ -114,7 +121,7 @@ def product_genre(request):
 
 
 def product_artist(request):
-    """ A view to show all available artists """
+    """ A view to show all available Artists """
     artists = Artist.objects.all().order_by('name')
     template = 'products/artist.html'
     context = {
@@ -125,7 +132,7 @@ def product_artist(request):
 
 
 def product_label(request):
-    """ A view to show all available record labels """
+    """ A view to show all available Record Labels """
     labels = Recordlabel.objects.all().order_by('name')
     template = 'products/label.html'
     context = {
@@ -137,7 +144,13 @@ def product_label(request):
 
 @login_required
 def add_product(request):
-    """ Add a product to the store """
+    """ Add a new product to the store """
+
+    form = None
+    artist_form = None
+    record_label_form = None
+    genre_form = None
+
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -152,6 +165,8 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Please ensure the \
                 form is valid.')
     else:
+        # Create all forms that the user can populate when adding a new
+        # product to the site
         form = ProductForm()
         artist_form = ArtistForm()
         record_label_form = RecordLabelForm()
@@ -170,8 +185,9 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """ Edit a product in the store """
+    """ Edit a product on the site """
 
+    form = None
     product = None
     genre_form = None
     artist = None
@@ -186,6 +202,7 @@ def edit_product(request, product_id):
     genre = get_object_or_404(Genre, pk=product.genre_id)
     artist = get_object_or_404(Artist, pk=product.artist_id)
     record_label = get_object_or_404(Recordlabel, pk=product.record_label_id)
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -218,7 +235,7 @@ def edit_product(request, product_id):
 
 @login_required
 def edit_genre(request, genre_id, product_id):
-    """ Edit a Genre """
+    """ Edit an existing Genre """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
@@ -239,7 +256,7 @@ def edit_genre(request, genre_id, product_id):
 
 @login_required
 def edit_artist(request, artist_id, product_id):
-    """ Edit an Artist """
+    """ Edit an existing Artist """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
@@ -260,7 +277,7 @@ def edit_artist(request, artist_id, product_id):
 
 @login_required
 def edit_recordlabel(request, label_id, product_id):
-    """ Edit a Record Label """
+    """ Edit an existing Record Label """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
