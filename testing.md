@@ -176,6 +176,30 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 ### Test-006 : User Sign-out
 
 ### Test-007 : Product List Page
+Test to confirm all the products available on the site are listed on the products list page. Check that the image, artist, album name and price are clearly displayed and that and items marked as 'on_sale' are displaying the percentage discount and the adjusted price. Also confirm that the edit/delete links are displayed for each product when the use is logged in the admin access.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Logout of the site if currently logged in.
+3. Click on the All Products link in the Catalogue dropdown menu. Confirm that all the products available on the site are listed on the page.
+4. Confirm that the image, artist, album name and price are clearly displayed.
+5. For items marked as 'on_sale' confirm the percentage discount is displayed and the price has been adjusted accordingly.
+6. Click on any product and confirm the correct product details page is opened.
+7. Navigate back to the All Products page and login as an administrator.
+8. Confirm that the edit/delete links are present below each of the products.
+9. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+10. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the All Products link in the Catalogue dropdown opens the correct page with all the available products listed. Any items that are marked 'on_sale' have the correct percentage discount and price displayed. When logged out or logged in as a non-admin there are no edit/delete links displayed.
+When logged in as a site admin the edit/delete links are displayed below each of the products (see image below).
+
+![Test007-Image](/docs/images/Test-007a.png)
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-008 : Browse By Genre
 Test to confirm the products can be browsed/filtered by Genre.
@@ -212,6 +236,9 @@ The correct products were being displayed when clicking on any of the listed art
 Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
 Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 
+#### Test Results
+* **PASS**
+
 ### Test-010 : Browse By Record Label
 Test to confirm the products can be browsed/filtered by Record Label.
 
@@ -228,9 +255,47 @@ The correct products were being displayed when clicking on any of the listed rec
 Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
 Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 
-### Test-011 : On Sale Page
+#### Test Results
+* **PASS**
+
+### Test-011 : On Sale Page / Items
+Test to confirm that the correct products are displayed on the On Sale page with the % discound and the price adjusted accordingly.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Click the On Sale link in navigation bar and confirm that the correct products are displayed. Only products with the 'on_sale' flag set should be displayed.
+3. Confirm that the percentage discount is displayed below each image and that the unit price has been reduced correctly.
+4. Click on any of the products to view the product details page.
+5. Confirm that the percentage discount is displayed along with the discount price and original price.
+6. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+7. Repeat the above steps using a mobile device if possible
+
+#### Test Notes
+The On Sale page displayed all products that had the 'on_sale' flag set True. The currect percentage discount was visible below the image and the price had been reduced by the correct amount (see image below).
+![Test-011-Image](/docs/images/Test-011b.png)
+
+The product details page for a sale item displayed the correct percentage discount along with the correct sale price and original price (see image below).
+
+![Test-011-Image](/docs/images/Test-011a.png)
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-012 : New In Page
+Test to confirm the last eight products added to the site are displayed on the New In page.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Click the New In link in navigation bar and confirm that the last eight products added to the site are displayed.
+3. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+4. Repeat the above steps using a mobile device if possible
+
+#### Test Notes
+Clicking on the New In link on the navigation bar displayed the correct items on the new in page. These were confirmed to be the last eight products added to the site.
+
+#### Test Results
+* **PASS**
 
 ### Test-013 : Add New Product
 
