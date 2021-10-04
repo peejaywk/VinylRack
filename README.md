@@ -79,6 +79,21 @@ The initial wireframe mockups for the website are linked below. These initial de
 * [Product Management Page](/docs/wireframes/008-ProductManagementPage-v1.png)
 * [Contact Page](/docs/wireframes/009-ContactPage-v1.png)
 
+### Frontend Design
+The [Bootstrap](https://getbootstrap.com/) framework was used to implement the frontend of the website to give a responsive design that provides a good UX across all devices and screen sizes.
+
+### Icons
+[Font Awesome](https://fontawesome.com/) has been used throughout this project to provide any icons that are required.
+
+### Colour Scheme
+A neutral colour scheme was chosen for the site as most of the color on majority of pages is provided by the album artwork. A simple black and white theme was chosen with a light green colour being used for the delivery details banner and to display the discount percentage when required.
+
+* ![#4D724D](https://via.placeholder.com/15/4D724D/000000?text=+) #4D724D
+    * Delivery details banner
+    * Footer background colour
+    * Percentage discount badge background colour
+* A custom black button was created and used throughout the site - otherwise the default Bootstrap colours were used for buttons
+
 <a name="features"></a>
 ## Features
 
@@ -137,7 +152,121 @@ The initial wireframe mockups for the website are linked below. These initial de
 ## Database Design
 During development the website will use SQLite3 which is the default database used by Django. Once deployed the website will use a PostgreSQL database which can be added/hosted by Heroku.
 
-The database schema was captured using [DrawSQL](https://drawsql.app/) and can be viewed [here](/docs/drawSQL-export-2021-08-22_14_40.png).
+The database schema was captured using [DrawSQL](https://drawsql.app/) and can be viewed [here](/docs/drawSQL-export-2021-10-04_09_49.png).
+
+### Profile App
+
+#### User Profile Model
+
+Note: For the user model in the Profile App the Django Allauth and its `django.contrib.auth.models` was used.
+
+|Name             |Database Key            |Field Type         | Validation Requirements                     |
+|-----------------|------------------------|-------------------|---------------------------------------------|
+|User             |user                    |OneToOneField(User)|on_delete=models.CASCADE                     |
+|Phone Number     |default_phone_number    |CharField          |max_length=20, null=True, blank=True         |
+|Street Address 1 |default_street_address1 |CharField          |max_length=80, null=True, blank=True         |
+|Street Address 2 |default_street_address2 |CharField          |max_length=80, null=True, blank=True         |
+|Town or City     |default_town_or_city    |CharField          |max_length=40, null=True, blank=True         |
+|County           |default_county          |CharField          |max_length=80, null=True, blank=True         |
+|Postcode         |default_postcode        |CharField          |max_length=20, null=True, blank=True         |
+|Country          |default_country         |CountryField       |blank_label='Country', null=True, blank=True |
+
+### Products App
+
+#### Genre Model
+|Name             |Database Key  |Field Type | Validation Requirements              |
+|-----------------|--------------|-----------|--------------------------------------|
+|Name             |name          |CharField  |max_length=254                        |
+|Friendly Name    |friendly_name |CharField  |max_length=254, null=True, blank=True |
+
+#### Artist Model
+|Name             |Database Key  |Field Type | Validation Requirements              |
+|-----------------|--------------|-----------|--------------------------------------|
+|Name             |name          |CharField  |max_length=254                        |
+|Friendly Name    |friendly_name |CharField  |max_length=254, null=True, blank=True |
+
+#### Recordlabel Model
+|Name             |Database Key  |Field Type | Validation Requirements              |
+|-----------------|--------------|-----------|--------------------------------------|
+|Name             |name          |CharField  |max_length=254                        |
+|Friendly Name    |friendly_name |CharField  |max_length=254, null=True, blank=True |
+
+#### Product Model
+| Name             | Database Key            | Field Type              | Validation Requirements                              |
+|------------------|-------------------------|-------------------------|-------------------------------------------------------|
+| Sku              | sku                     | CharField               | max_length=254, default="", blank=True                |
+| Genre            | genre                   | ForeignKey(Genre)       | null=True, blank=True, on_delete=models.SET_NULL      |
+| Artist           | artist                  | ForeignKey(Artist)      | null=True, blank=True, on_delete=models.SET_NULL      |
+| Record Label     | record_label            | ForeignKey(Recordlabel) | null=True, blank=True, on_delete=models.SET_NULL      |    
+| Album Title      | album_title             | CharField               | max_length=254                                        |    
+| Description      | description             | TextField               | None                                                  |        
+| Price            | price                   | DecimalField            | max_digits=6, decimal_places=2                        |    
+| On Sale          | on_sale                 | BooleanField            | default=False, blank=True                             |
+| Discount Percent | discount_percent        | DecimalField            | max_digits=2, decimal_places=0, blank=True, null=True |
+| Image            | image                   | ImageField              | null=True, blank=True                                 |
+| Image Url        | image_url               | URLField                | max_length=1024, default="", blank=True               |
+| Media Condition  | media_condition         | CharField               | max_length=16                                         |
+| Sleeve Condition | sleeve_condition        | CharField               | max_length=16                                         |   
+| Calalogue Number | cat_num                 | CharField               | max_length=254, default="", blank=True                |   
+| Date Added       | date_added              | DateTimeField           | default=timezone.now                                  |
+    
+### Checkout App
+
+#### Order Model
+| Name                     | Database Key    | Field Type                 | Validation                                                   |
+| ------------------------ | --------------- | ---------------------------| -------------------------------------------------------------|
+| Order Number             | order_number    | CharField                  | max_length=32, null=False, editable=False                    |
+| User Profile             | user_profile    | ForeignKey(UserProfile)    | on_delete=models.SET_NULL, null=True, related_name='orders'  |
+| Full Name                | full_name       | CharField                  | max_length=50, null=False, blank=False                       |
+| Email Address            | email           | EmailField                 | max_length=254, null=False, blank=False                      |
+| Phone Number             | phone_number    | CharField                  | max_length=20, null=False, blank=False                       |
+| Country                  | country         | CountryField               | blank_label='Country *', null=False, blank=False             |
+| Postcode                 | postcode        | CharField                  | max_length=20, null=True, blank=True                         |
+| Town or City             | town_or_city    | CharField                  | max_length=40, null=False, blank=False                       |
+| Street Address 1         | street_address1 | CharField                  | max_length=80, null=False, blank=False                       |
+| Street Address 2         | street_address2 | CharField                  | max_length=80, null=True, blank=True                         |
+| County                   | county          | CharField                  | max_length=80, null=True, blank=True                         |
+| Date                     | date            | DateTimeField              | auto_now_add=True                                            |
+| Delivery Cost            | delivery_cost   | DecimalField               | max_digits=6, decimal_places=2, null=False, default=0        |
+| Order Total              | order_total     | DecimalField               | max_digits=10, decimal_places=2, null=False, default=0       |
+| Grand Total              | grand_total     | DecimalField               | max_digits=10, decimal_places=2, null=False, default=0       |
+| Original Bag             | original_bag    | TextField                  | null=False, blank=False, default=''                          |
+| Stripe Payment Intent ID | stripe_pid      | CharField                  | max_length=254, null=False, blank=False, default=''          |
+
+#### Order Line Item Model
+| Name            | Database Key   | Field Type          | Validation                                                                   |
+| --------------- | -------------- | --------------------| -----------------------------------------------------------------------------|
+| Order           | order          | ForeignKey(Order)   | null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems'  |
+| Product         | product        | ForeignKey(Product) | null=False, blank=False, on_delete=models.CASCADE                            |
+| Quantity        | quantity       | IntegerField        | null=False, blank=False, default=0                                           |
+| Line Item Total | lineitem_total | DecimalField        | max_digits=6, decimal_places=2, null=False, blank=False, editable=False      |
+
+### Wishlist App
+
+#### Wishlist Model
+| Name            | Database Key   | Field Type               | Validation                                                                   |
+| --------------- | -------------- | -------------------------| -----------------------------------------------------------------------------|
+| User            | user           | OneToOneField(User)      | on_delete=models.CASCADE, null=False, blank=False, related_name='wishlist'   |
+| Products        | products       | ManyToManyField(Product) | through='WishlistItem', related_name='wishlist_products'                     |
+
+#### Wishlist Item Model
+| Name            | Database Key   | Field Type           | Validation                                         |
+| --------------- | -------------- | ---------------------| ---------------------------------------------------|
+| Wishlist        | wishlist       | ForeignKey(Wishlist) | null=False, blank=False, on_delete=models.CASCADE  |
+| Product         | product        | ForeignKey(Product)  | null=False, blank=False, on_delete=models.CASCADE  |
+| Date Added      | date_added     | DateTimeField        | default=timezone.now                               |
+
+### Review App
+
+#### Review Model
+| Name            | Database Key   | Field Type           | Validation                                                                |
+| --------------- | -------------- | ---------------------| --------------------------------------------------------------------------|
+| User            | User           | ForeignKey(User)     | on_delete=models.CASCADE, null=False, blank=False, related_name='review'  |
+| Product         | product        | ForeignKey(Product)  | on_delete=models.CASCADE, null=False, blank=False, related_name='product' |
+| Created On      | created_on     | DateTimeField        | default=timezone.now                                                      |
+| Review Rating   | review_rating  | IntegerField         | default=4                                                                 |
+| Review Title    | review_title   | CharField            | max_length=254, null=False, blank=False                                   |
+| Review Content  | review_content | DateTimeField        | max_length=1200, null=False, blank=False, default=''                      |
 
 <a name="technologies"></a>
 ## Technologies Used
