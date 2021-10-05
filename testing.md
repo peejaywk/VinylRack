@@ -328,6 +328,9 @@ Test to confirm the last eight products added to the site are displayed on the N
 #### Test Notes
 Clicking on the New In link on the navigation bar displayed the correct items on the new in page. These were confirmed to be the last eight products added to the site.
 
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
 #### Test Results
 * **PASS**
 
@@ -354,12 +357,57 @@ There was an issue when adding a new product to the site with no image. The site
 
 Once the error was resolved the user was redirected to the product details page for the new product displaying the correct information.
 
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
 #### Test Results
 * **PASS**
 
 ### Test-015 : Edit Product
+Test to check that admin users can edit and existing product on the site.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Login in as an admin user click on any product to open up the product details page.
+3. Click in the edit link to open the edit product page.
+4. Confirm that the form is populated with the correct information for the product being edited.
+5. Edit the Genre by clicking the Edit Genre button. Confirm that the Genre is updated on the product edit page.
+6. Repeat step 5 above for Artist and Record Label.
+7. Once the product has been modified click the Update Product button to save the changes.
+8. Confirm that the user is redirected to the product details page and that the changes are displayed.
+9. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+10. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Click the edit link in the product details page opened up the edit page with the correct information being displayed in the form. The Genre, Artist and Record Label could be changed by clicking on the corresponding button and updating the information in the modal form. The information was updated in the edit product page once saved and the modal closed.
+
+After making changes to the product and clicking the Update Product button the user was redirected to the product details page showing the updated information.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-016 : Delete Product
+Test to check that admin users can delete a product from the site.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Login in as an admin user click on any product to open up the product details page.
+3. Click on the delete link and confirm the modal appears prompting the user to confirm deletion.
+4. Click No and confirm that the modal is closed and the product has not been deleted from the site.
+5. Click on the delete link again and this time click on Yes to confirm deletion.
+6. Confirm that the correct product has been deleted from site.
+7. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+8. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the delete link on the product details page opened up the confirmation modal. Clicking No closed the modal without deleting anything from the site. Clicking on Yes deleted the correct product from the site.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-017 : Add to Wishlist
 
