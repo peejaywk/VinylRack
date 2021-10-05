@@ -323,7 +323,7 @@ Test to confirm the last eight products added to the site are displayed on the N
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
 2. Click the New In link in navigation bar and confirm that the last eight products added to the site are displayed.
 3. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
-4. Repeat the above steps using a mobile device if possible
+4. Repeat the above steps using a mobile device if possible.
 
 #### Test Notes
 Clicking on the New In link on the navigation bar displayed the correct items on the new in page. These were confirmed to be the last eight products added to the site.
@@ -332,6 +332,30 @@ Clicking on the New In link on the navigation bar displayed the correct items on
 * **PASS**
 
 ### Test-014 : Add New Product
+Test to check that admin users can add new products to the site and that the form validation is functioning correctly.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Login in as an admin user and navigate the the Product Management page.
+3. Add a new Genre to the site by clicking on the Add New Genre button and completing the form in the modal.
+4. Check the form validation is working as per the Genre model validation requirements.
+5. Add the new Genre and confirm this is available in the Genre dropdown on the Product Management page.
+6. Repeat steps 3 to 5 for Artist and Record Label.
+7. Complete the form on the Product Management page checking the form validation is working as per the Product model validation requirements.
+8. Once completed add the new Product to the site.
+9. Confirm that the user is redirected to the Product Details page for the new product and that the details are correct.
+10. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+11. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+The process of adding a new genre, artist and record label worked as expected. The form validation functioned correctly prompting the user to complete all mandatory fields. The new entries appeared in the dropdown lists on the Product Management page.
+
+When adding a new product to the site the form validation functioned as per the model requirements promting the user to complete all the required fields.
+There was an issue when adding a new product to the site with no image. The site was returning a server 500 error. This issue was resolved and is ducumented in the [Bugs & Issues](#bugsissues) section below.
+
+Once the error was resolved the user was redirected to the product details page for the new product displaying the correct information.
+
+#### Test Results
+* **PASS**
 
 ### Test-015 : Edit Product
 
@@ -352,6 +376,8 @@ Clicking on the New In link on the navigation bar displayed the correct items on
 ### Test-023 : Checkout Strip Payment
 
 ### Test-024 : Profile Page
+
+### Test-025 : Search Bar
 
 <a name="codevalidation"></a>
 ## Code Validation
@@ -444,3 +470,12 @@ Clicking on the New In link on the navigation bar displayed the correct items on
 
 <a name="bugsissues"></a>
 ## Bugs / Issues
+
+### Add New Product Error
+When adding a new product to the site with no image the site would come back with a server 500 error when trying to display the product details page. To debug the issue the same test was repeated in GitPod with the degug flag set to True. The error reported back is shown below:
+
+![AddNewProductError](docs/images/Test-014-Error.png)
+
+The cause of this was an incorrect href tag for the product image when displaying the 'noimage.png' file as the user did not add an image with the product. The href tag was trying to reference a URL that didn't exist hance the error being raised. The href tag was changed to point to the default 'noimage.png' file and this fixed the problem.
+
+See [GitHub change log](https://github.com/peejaywk/VinylRack/commit/86211f5a32ae751d164933b41dbca0e5918f1932) for the exact changes made.
