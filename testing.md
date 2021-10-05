@@ -410,14 +410,115 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PASS**
 
 ### Test-017 : Add to Wishlist
+Test to check that users who are logged in can add products to their wishlist. Once in their wishlist confirm that items can be added to the shopping cart from the wishlist.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. If logged in logout of the site.
+3. Click on any product to open the product details page. Click on the Add to Wishlist link and confirm that the user is redirected to the Sign-In page.
+4. Log into the site and click on any product to open the product details page.
+5. Click on the Add to Wishlist link and confirm the message appears confirm the product has been added to your wishlist.
+6. On the same product details page click on the Add to Wishlist link again and confirm that the message appears informing you that the product is already in your wishlist.
+7. Click on the My Account icon and select My Wishlist. Confirm that the correct items appear in the wishlist.
+8. Click on the Add To Bag button and confirm that the product has been added to the shopping bag.
+9. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+10. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+When trying to add a product to a wishlist when logged out the user is correctly redirected to the sign-in page.  When logged in clicking on the Add to Wishlist link on the product details page results in the correct message being displayed confirming that the product has been added. Trying to add the same product again also results in the correct message being display stating that the product is already in the wishlist.
+
+Navigating to the wishlist displays the correct items that have been added. Clicking on the Add To Bag button adds the correct item to the shopping bag.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-018 : Remove from Wishlist
+Test to confirm that a logged in user can remove a product from their wishlist.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Click on the My Account icon and select My Wishlist.
+3. Click ob the Remove button to remove a prodcut from the wishlist. Confirm that the product has been removed and that the correct message is displayed informing the user the product has been deleted from the wishlist.
+4. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+5. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking in the Remove button deletes the product from the wishlist and the correct message is displayed confirming that the product has been deleted from the wishlist.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-019 : Add Review
+Test to confirm that a logged in user can write a product review and that the correct number or stars are displayed on the product details page. Also confirm that the form validation is functioning correctly.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Login to the site and click on any product to open the product details page.
+3. Click on the 'Be the first to review this album!' or 'Add new review' link and confirm that the Add Review page is opened.
+4. Populate the review form confirming the form validation is working as per the Review model validation requirements.
+5. Click the Add Review button to add the review to the Product and confirm the user is redirected to the My Review page.
+6. Navigate back to the product details page and confirm the correct number of stars are displayed. Note: If there is more than one review for the product then the stars will display the average rating.
+7. Click on the Reviews link and confirm that the review is listed on the page and the details are correct. If there are multiple reviews confirm that the edit/delete links are only visible next to the review that the current logged in user left.
+8. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+9. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the 'Be the first to review this album!' or 'Add new review' opens up the add review page for the correct product. The form validation functions as per the Review model validation requirements and clicking Add Review redirects the user to the My Review page. The correct number of stars are displayed on the product detail page for products with single and multiple reviews.
+
+Clicking on the Reviews link in the product details page lists all the reviews for the given Product with the edit/delete link appearing next to the correct review.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-020 : Edit Review
+Test to confirm that the logged in user can edit any reviews they have left on the site.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Login to the site and click on a product that the user has reviewed in the past.
+3. On the product details page click on the Reviews link to open the reviews page for the current product. Click the edit link next to the review and confirm the edit review page is opened and displaying the correct information.
+4. Click the Cancel button to close the review page. From the My Account dropdown click the My Reviews link. Confirm that all the reviews for the current user are listed on the page.
+5. Click the edit link next to the review you would like to edit and confirm the review page is opened and displaying the correct information.
+6. Edit the review clicking Save when finished. Confirm the user is redirected to the My Reviews page and that the information for the review has been updated accordingly.
+7. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+8. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the Reviews link on the product details page opens up the reviews page displaying all the reviews for the product. Clicking the edit link opens the reviews edit page and the form is populated with the correct information. The My Reviews page displayed all the reviews for the logged in user and clicking the edit link for a review opened the review edit page for that review with the form populated with the correct information.
+
+The review could be editted using the form and once the changes were saved the user was redirected back to the My Reviews page which displayed the updated information.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-021 : Delete Review
+Test to confirm that the logged in user can delete any reviews thay have left on the site.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Login to the site and click on a product that the user has reviewed in the past.
+3. On the product details page click the Reviews link to open the reviews page for the current product. Click on the delete link and confirm that the confimration modal appears.
+4. Click No and confirm that the modal is closed and the review has not been deleted from the site.
+5. Click on the delete link again and this time click on Yes to confirm deletion.
+6. Confirm that the review has been deleted and the user redirected to the My Reviews page.
+7. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+8. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the delete link on the product details page opens up the confirmation modal. Clicking the No button closes the modal without deleting the review. Clicking the Yes button deletes the review from the site and returns the user to the My Reviews page.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-022 : Add/Remove/Delete to/from Cart
 
@@ -426,6 +527,8 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 ### Test-024 : Profile Page
 
 ### Test-025 : Search Bar
+
+### Test-026 : Contact Us
 
 <a name="codevalidation"></a>
 ## Code Validation
