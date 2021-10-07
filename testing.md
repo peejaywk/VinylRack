@@ -522,13 +522,50 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 
 ### Test-022 : Add/Remove/Delete to/from Cart
 
-### Test-023 : Checkout Strip Payment
+### Test-023 : Checkout & Stripe Payment
 
 ### Test-024 : Profile Page
 
 ### Test-025 : Search Bar
+Test to confirm that the user can search for products using the search bar in the nav bar. Confirm that the user can search for by artist, album and any words in a product description.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. In the search bar enter the name of a known artist listed on the site and confirm that the correct number of products are returned and displayed correctly.
+3. In the search bar enter the name of a known album listed on the site and confirm that the correct number of products are returned and displayed correctly.
+4. In the search bar enter word that is used in the descripion of a product and confirm that the correct number of products are returned and displayed correctly.
+5. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+6. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+The correct products were found and displayed when searching by artist name, album name or a string in the product description. If the search string was found in more than one product then the correct number of products were returned and displayed.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-026 : Contact Us
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Navigate to the Contact Us page by clinking the Contact Us link in the site footer.
+3. Confirm that the form validation is functioning as per the form validation requirements.
+4. Once the form has been complete click on the Submit button. Confirm that the success message is displayed.
+5. Check that the user has received a confirmation email to the specified email address and that all the details are correct.
+6. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+7. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+The form validation functions correctly prompting the user to complete all the required fields. Clicking the Submit button results on the correct success message being displayed stating that the message has been received and somebody will be in touch soon.
+
+The confirmation email was received at the email address specified and the information in the email was correct. A spelling mistake was found in the email body during testing and this was corrected. See image below for a copy of the received email.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+![ConfirmationEmail](/docs/images/Test-026-ConfirmationEmail.png)
+
+#### Test Results
+* **PASS**
 
 <a name="codevalidation"></a>
 ## Code Validation
