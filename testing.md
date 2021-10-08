@@ -170,10 +170,86 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PASS**
 
 ### Test-004 : User Registration
+Test to confirm that user registration process functions correctly. 
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. If logged in then logout of the site.
+3. Click on the Register link in the My Account dropdown menu.
+4. Confirm that the form validation functions correctly. All fields are mandatory and the user should be prompted to complete all fields.
+5. Complete the form and click the Sign Up button
+6. Confirm that the user is redirected to the Verify Your Email Address page and that a message appears stating a confirmation email has been sent.
+7. Confirm that a confirmation email has been received at the email address used above.
+8. Click on the link in the confirmation email to activate the new account.
+9. On the Confirm Email Address screen click on the Confirm button. 
+10. Sign into the site using the new user credentials.
+11. Check that the correct links appear in the My Account dropdown for a logged in non-admin user.
+12. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+13. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+The form validation functioned as expected prompting the user to complete all the fields with valid information. The user was redirected to the Verify Your Email page after clicking the Sign Up button with the correct success message being displayed.
+
+The confirmation was received at the specified email address. See below.
+
+![ConfirmEmail](/docs/images/Test-004-ConfirmationEmail.png)
+
+The link in the email redirected the user to the Confirm Email address page and the clicking the Confirm button successfully verified the email address. Sign-in was successful using the new user credentials and the correct navigation links were displayed in the My Account dropdown menu.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-005 : User Authentication
+Test to confirm that users can log in to the site and access the pages they have permissions to view.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Logout of the site if currently logged in.
+3. Login to the site using a non-admin account.
+4. Confirm that the user has access to the following pages and that the information presented is correct for the logged in user:
+    * My Profile
+    * My Wishlist &
+    * My Reviews
+5. Logout of the site and login using an admin account.
+6. Confirm that the user has access to the following pages and that the information presented is correct for the logged in user:
+    * Product Management
+    * My Profile
+    * My Wishlist &
+    * My Reviews
+7. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+8. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Loggining in as a non-admin and admin resulted in the correct links being displayed in the My Accounts dropdown and each page displaying the correct information for the logged in user.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-006 : User Sign-out
+Test to confirm that a user can sign-out of the site and is redirected to the correct screen after sign-out.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Login to the site.
+3. Logout of the site by clicking on the Logout link in the My Account dropdown.
+4. Confirm that the user is redirected to the Sign Out confirmation page.
+5. Click the Sign Out button and confirm the user is redirected back to the home page.
+6. Confirm the correct links are displayed in the My Account dropdown menu - these should be Register and Login.
+7. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+8. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+Clicking on the logout link in the My Account dropdown redirects the user to the correct Sign Out confirmation page. Clicking on the Sign Out button logs out the user redirecting them back to the home page. The links in the My Account dropdown are correct for a user who is not logged in to the site.
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
+
 
 ### Test-007 : Product List Page
 Test to confirm all the products available on the site are listed on the products list page. Check that the image, artist, album name and price are clearly displayed and that and items marked as 'on_sale' are displaying the percentage discount and the adjusted price. Also confirm that the edit/delete links are displayed for each product when the use is logged in the admin access.
