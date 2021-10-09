@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container page-top-margin"> 
+    <div class="row">
+        <div class="col-12 mt-3">
+            <h3 class="font-weight-bold mt-3">500 Error - Internal Server Error</h3>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <p>An internal server error occurred. To return to the Home page click the button below. If the error persists please contact us.</p>
+            <a class="btn btn-black rounded-0 text-uppercase" aria-label="Return Home" href="{% url 'home' %}" >Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
