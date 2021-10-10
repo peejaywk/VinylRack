@@ -597,8 +597,78 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PASS**
 
 ### Test-022 : Add/Remove/Delete to/from Cart
+Test to confirm that users can add products to their shopping bag and edit their shopping bag before checkout.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. Browse the store and via the product details page add a product to the shopping bag by clicking the Add to Bag button.
+3. Confirm that the pop-up message display the correct information confirming the product has been added to the bag.
+4. Add two more different products to the shopping bag checking the correct information is displayed in the pop-up message.
+5. Once all products have been added go to the shopping bag by clicking either the Go To Secure Checkout in the pop-up message of the shopping bag icon in the nav bar. Both should take you to the shopping bag page.
+6. Confirm that the information displayed on the Shopping Bag page is correct.
+7. Increase the quantity for one of the products and click the Update link to refresh the page. Confirm that the Subtotal for the product has been updated along with the Bag Total and Grand Total.
+8. Remove a product from the bag by clicking on the remove button. Confirm the product has been removed from the shopping bag.
+10. Remove products from the shopping back until the Bag Total is less than the free delivery threshold of £50.
+11. Confirm that the Shopping Bag page is displaying the correct information and reminding tthe user how much more they need to spend before they qualify for free shipping.
+
+#### Test Notes
+When adding products to the shopping bag the correct information is displayed in the pop-up message window. Clicking the Go To Secure Checkout button in the pop-up window opens the Shopping Bag page. It was also confirmed that clicking the shopping bag icon in the nav bar takes the user to the same page. The information displayed on the Shopping Bag page was correct matching the items previously added to the Bag.
+
+Item quantities could be adjusted using the +/- buttons and clicking on the Update link adjusted the sub total and totals accordingly. Items were successfully removed from the bag when the Remove link was clicked and the page updated correclty.
+
+When the Bag Total was below the free delivery threshold of £50 the correct information was displayed on the Shopping Bag page and the pop-up message. See images below.
+
+![FreeDeliveryThreshold_1](/docs/images/Test-022-FreeShipping1.png)
+
+![FreeDeliveryThreshold_2](/docs/images/Test-022-FreeShipping2.png)
+
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
+#### Test Results
+* **PASS**
 
 ### Test-023 : Checkout & Stripe Payment
+Test to confirm that the user can securly checkout using stripe entering their delivery details and credit card information. Confirm that the order is recorded correcly and appears in the users profile page under previous orders. Also checks that the confirmation email is sent to the user.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. If logged in the logout of the site.
+3. Add a couple of items to the shopping bag and navigate to the Shopping Bag page.
+4. Click Secure Checkout to open the Checkout page. Confirm that the order summary is correct.
+5. Complete the checkout form providing delivery details and credit card information. Use the following Stripe test card details:
+    * Card Number: 4242 4242 4242 4242
+    * Expiration: Any date in the future
+    * CVC: A random 3 digit number
+6. Confirm that the form validation functions correctly prompting the user to complete all mandatory information.
+7. Once the form is complete click the Complete Order button.
+8. Confirm the order success pop-up message is displayed and that the user is redirected to the order confirmation and the information is correct.
+9. Confirm receipt of the confirmation email and that all details are correct.
+10. Login to the Django administration panel and confirm the order has been added to the Orders table.
+11. Login to Stripe and confirm that the payment was created and charged.
+12. Login to the site and repeat the steps 3 to 11 as detailed above.
+13. Confirm that the order has been added to your profile by clicking on the My Profile link under the My Account dropdown.
+14. Click on the order number and confirm the details are correct.
+
+#### Test Notes
+The checkout page order summary displayed the correct information. The form validation functioned correclty prompting the user to complete all mandatory fields with the correct information. It was noted that the credit card charge total at the bottom of the screen was proceeded with a $ instead of a £. This was fixed during testing (see [Bugs & Issues](#bugsissues) section below ).
+
+The order success message was displayed and the correct information was displayed on the Order Confirmation page. See below:
+
+![OrderConfirmation](/docs/images/Test-023-ThankYouPage.png)
+
+The confirmation email was received and this contained the correct information. See below:
+
+![ConfirmationEmail](/docs/images/Test-023-ConfirmationEmail.png)
+
+The orders table in the Django Administration panel had been updated to include the new order with all details being correct.
+
+The payment was created and charged in Stripe (see image below). As can be seen Stripe was processing payments in USD instead of GBP. This was fixed during testing (see [Bugs & Issues](#bugsissues) section below ).
+
+![Stripe](/docs/images/Test-023-Stripe.png)
+
+When logged the checkout process functioned as expected and has already been documented above. The My Profile page listed the new order and clicking on the order number displayed the correct information for that order.
+
+#### Test Results
+* **PASS**
 
 ### Test-024 : Profile Page
 
@@ -743,3 +813,10 @@ When adding a new product to the site with no image the site would come back wit
 The cause of this was an incorrect href tag for the product image when displaying the 'noimage.png' file as the user did not add an image with the product. The href tag was trying to reference a URL that didn't exist hance the error being raised. The href tag was changed to point to the default 'noimage.png' file and this fixed the problem.
 
 See [GitHub change log](https://github.com/peejaywk/VinylRack/commit/86211f5a32ae751d164933b41dbca0e5918f1932) for the exact changes made.
+
+### Stripe Payments
+During testing it was noticed that Strip was processing all payments in USD instead of GBP. This was easily changed by setting `STRIPE_CURRENCY='gbp'` in the settings.py file.
+
+The Checkout page was also also displaying the credit card charge amount in USD. See image below:
+
+![CreditCardChargeError](/docs/images/Test-023-IncorrectCurrency.png)
