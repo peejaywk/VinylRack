@@ -667,10 +667,33 @@ The payment was created and charged in Stripe (see image below). As can be seen 
 
 When logged the checkout process functioned as expected and has already been documented above. The My Profile page listed the new order and clicking on the order number displayed the correct information for that order.
 
+Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
+Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
+
 #### Test Results
-* **PASS**
+* **PARTIAL PASS** (See Unreoloved issues in the [Bugs & Issues](#bugsissues) section below)
 
 ### Test-024 : Profile Page
+Test to confirm that users can update their information via the profile page and that delivery details are automatically added to the chekout form. Also confirm that the delivery details in the profile are updated if the update checkbox is selected during checkout.
+
+1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
+2. If logged out login to the site.
+3. Navigate to the profile page by clicking on My Profile in the My Account dropdown.
+4. If the default delivery information is empty then populate the form and click Update Information when complete.
+5. Add some products to your bag and proceed to the checkout page.
+6. Confirm that the form has been populated with the correct information from your profile.
+7. Before completing the order modify the contents of the form and select the 'Save this delivery information to my profile' checkbox.
+8. Complete the order.
+9. Return to the Profile page and confirm that the delivery details have been updated to those used during checkout.
+10. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
+11. Repeat the above steps using a mobile device if possible.
+
+#### Test Notes
+On the My Profile page the default delivery information was updated and successfully saved. During the checkout process the correct information from my profile was displayed in the checkout form. The information was changed in the form and the update profile checkbox selected. After completing the checkout the it was confirmed that the default delivery information on the My Profile page had been updated with the new data.
+A minor change was made to the code during testing to sort the Order History by date descending.
+
+#### Test Results
+* **PASS**
 
 ### Test-025 : Search Bar
 Test to confirm that the user can search for products using the search bar in the nav bar. Confirm that the user can search for by artist, album and any words in a product description.
@@ -820,3 +843,8 @@ During testing it was noticed that Strip was processing all payments in USD inst
 The Checkout page was also also displaying the credit card charge amount in USD. See image below:
 
 ![CreditCardChargeError](/docs/images/Test-023-IncorrectCurrency.png)
+
+## Unresolved Issues
+
+### Checkout Process
+When checking out as a guest user (not logged in) the order is being logged twice in the database. The user is only billed once in Stripe and only one email confirmation is sent out but two different orders appear in the database. Due to limited time I was unable to find a solution to this probelm. This problem does not exist when testing in GitPod only on the deployed site. The problem could be related to the Webhook handler but further investigation is required. If the user is logged in when checking out then this problem does hot happen - only one order is logged in the database.
