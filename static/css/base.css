@@ -104,8 +104,8 @@ footer a:hover {
 
 footer {
     position: relative;
-    margin-top: -120px;
-    height: 120px;
+    margin-top: -100px;
+    height: 100px;
     clear: both;
     background-color: #4D724D;
     padding-top: 1.5rem;
@@ -450,5 +450,11 @@ input[name='q']::placeholder {
 
     .page-top-margin {
         margin-top: 0px;
+    }
+
+    /* Increase the size of the footer on mobile */
+    footer {
+        margin-top: -150px;
+        height: 150px;
     }
 }
