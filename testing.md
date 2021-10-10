@@ -828,6 +828,10 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 <a name="bugsissues"></a>
 ## Bugs / Issues
 
+### Wishlist Page Images
+Images not being displayed on the wishlist page on screen sizes above medium.
+Incorrect bootstrap class applied. Changed from 'd-none d-md-cell' to 'd-none d-md-table-cell' which fixed the problem.
+
 ### Add New Product Error
 When adding a new product to the site with no image the site would come back with a server 500 error when trying to display the product details page. To debug the issue the same test was repeated in GitPod with the degug flag set to True. The error reported back is shown below:
 
