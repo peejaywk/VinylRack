@@ -305,16 +305,11 @@ repository. No other branches were created during the development of this projec
 To clone this [repository](https://github.com/peejaywk/VinylRack) follow the instruction below:
 
 1. Navigate to the [repository](https://github.com/peejaywk/VinylRack).
-
 2. Click on the **Code** button and copy the URL from the **Clone>>HTTPS** section.
-
 3. Inside your development environment/IDE open a command terminal.
-
 4. Create / navigate to the directory you would like the cloned copy to be made.
-
 5. Type in the following command using the URL copied from step 2 and press Enter. This will create a cloned copy of the repository.
-
-        git clone https://github.com/peejaywk/VinylRack
+    * `git clone https://github.com/peejaywk/VinylRack`
 
 ### Deploying to Heroku from Gitpod
 
@@ -397,7 +392,121 @@ To clone this [repository](https://github.com/peejaywk/VinylRack) follow the ins
     * `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
 30. Commit the changes to Github. Heroku should pickup the changes from Github and deploy the site to app-name.herokuapp.com.
 
+### AWS S3 Configuration
 
+The AWS S3 service will be used to host all static files and images.
+
+1. Open [AWS](https://aws.amazon.com) in the browser and login creating a new account if required.
+2. Open the AWS Management Console and search for the S3 service using the search box if it isn't listed in your recently accessed services.
+3. Click 'Create New Bucket' to create a new bucket. It is reccommended to give the bucket the same name as your Heroku app.
+4. Select the region closet to you.
+5. Uncheck 'Block all public access' and using the tick box below acknowledge that the bucket will be public. Click 'Create bucket'.
+6. Select your bucket from the bucket list. In the properties tab turn on static website hosting and set the following default values then click save.
+    * Index document: `index.html`
+    * Error document: `error.html`
+7. In the Permissions tab paste in the following CORS configuration then click save.
+```
+    [
+    {
+        "AllowedHeaders": [
+            "Authorization"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+    ]
+```
+8. In the Permissions tab go to the Bucket policy section and click the Edit button. Click the Policy Generator button to create a new security policy. Select/enter the following:
+    * Policy Type: S3 Bucket Policy
+    * Principal: *
+    * Actions: GetObject
+    * ARN: Copy the ARN from the Bucket Policy tab and paste here.
+    * Click Add Statement then Generate Policy.
+    * Copy the new policy and paste into the the Bucket Policy editor.
+    * To allow access to all resources add a "/*" onto the end of the Resource key value.
+    * Click save to save the new policy.
+9. In the Permissions tab go to the Access Control section and click the Edit button. On the "Everyone (public access)" line check the List checkbox and click Save changes.
+10. Go back to the services and select Identity and Access Management (IAM) to add a new user. Use the search bar if IAM isn't listed. IAM will be used to create new group, create an access policy giving the group access to the S3 bucket and to assign a user to the group so they can use the policy to access the files in the S3 bucket.
+11. Under User Groups click the Create Group button. Enter a group name then scroll to the bottom and click Create group.
+12. Under Policies click the Create Policy button. Follow the steps below:
+    * Go to the JSON tab and select Import managed policy.
+    * Search for the `AmazonS3FullAccess` policy and Import this.
+    * From the S3 Bucket Policy page copy the ARN and paste this twice into the Resource key as shown below:
+    ```
+        "Resource": [
+            "arn:aws:s3:::s3-bucket-name",
+            "arn:aws:s3:::s3--bucket-name/*"
+        ]
+    ```
+13. Click the Review Policy button giving the policy a name and description. Click the Create Policy button to save all changes.
+14. Under User Groups select the group that was created above. On the Permissions tab select Attach Policies from the Add permissions dropdown menu. Search for the policy that was created above, select it and click the Add permissions button.
+15. Under Users click the Add Users button and give the user a name. Check the Access Key - Programmatic access option and click next. On the next page add the user to the new group that was created above. Click through to the end then click Create User.
+16. Download the CSV file - this contains the user access key and secret access key which will be used by the Django app for authentication. Save the file in a secure location as this cannot be downloaded again once the user has been created.
+17. To connect Django to the new S3 Bucket two new packages are required: boto3 and django-storages. In Gitpod type the following commands to install the packages:
+    * `pip3 install boto3`
+    * `pip3 install django-storages`
+18. Freeze the requirements by running command `pip3 freeze > requirements.txt`.
+19. In the settings.py file add 'storages' to the INSTALLED_APPS list.
+20. Add the following configuration to the settings.py file. As the S3 Bucket is only required when using Heroku an if statement is used to check if the variable USE_AWS exists. 
+```
+    if 'USE_AWS' in os.environ:
+        # Bucket Config
+        AWS_STORAGE_BUCKET_NAME = 'bucket-name'
+        AWS_S3_REGION_NAME = 'eu-west-2'
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+```
+21. In Heroku at the following Config Vars to the app. The AWS keys can be found in the csv file that was downloaded when creating the S3 user. The DISABLE_COLLECTSTATIC can also be removed as Heroku will get the static files from AWS for any future deploys.
+    * `AWS_ACCESS_KEY_ID : From the csv file`
+    * `AWS_SECRET_ACCESS_KEY : From the csv file`
+    * `USE_AWS : True`
+    * Remove variable `DISABLE_COLLECTSTATIC`
+22. In the settings.py file add the following inside the USE_AWS if statement to tell Django where the static files will be sourced from in production.
+    * `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'`
+23. The next step is to configure Django to use S3 to store our static files whenever someone runs `collectstatic` and to also store any uploaded images in the S3 bucket.
+24. In the root folder create a file by running `touch custom_storages.py`.
+25. Copy the following configuration into the file and save:
+```
+    from django.conf import settings
+    from storages.backends.s3boto3 import S3Boto3Storage
+
+
+    class StaticStorage(S3Boto3Storage):
+        location = settings.STATICFILES_LOCATION
+
+
+    class MediaStorage(S3Boto3Storage):
+        location = settings.MEDIAFILES_LOCATION
+```
+26. In the settings.py file add the following inside the USE_AWS if statement to configure Django to use our custom storage class for static file storage and to override the static and media URLs in production.
+```
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+27. In the settings.py add the following lines to the top of the USE_AWS if statement. These will configure the browser to cache static files for a long time as they don't change often.
+```
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+```
+28. At this point all the changes can be committed to Github triggering Heroku to deploy the app. Confirm all the static files have been uploaded to the S3 bucket.
+29. To add the media files to the S3 bucket go to AWS S3, select the bucket and click on Create folder. Create a folder called media.
+30. Inside the media folder click Upload to upload all the media files to the S3 bucket. Under Permissions set the Predefined ACL to Grant public-read access.
+31. The superuser email address for the Postgres database needs to be confirmed to allow the user to login to the application. To do this login to the Django admin panel and confirm the email address for the superuser by checking the Verified box.
+
+### Stripe Configuration
+1. 
 <a name="credits"></a>
 ## Credits
 * [Filling Star Ratings: George Martsoukos](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450)
