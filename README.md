@@ -287,6 +287,7 @@ Note: For the user model in the Profile App the Django Allauth and its `django.c
 * [GitPod](https://gitpod.io/)
 * [GitHub](https://github.com/)
 * [Heroku](https://heroku.com)
+* [GMail](https://gmail.com)
 
 
 <a name="testing"></a>
@@ -506,7 +507,43 @@ The AWS S3 service will be used to host all static files and images.
 31. The superuser email address for the Postgres database needs to be confirmed to allow the user to login to the application. To do this login to the Django admin panel and confirm the email address for the superuser by checking the Verified box.
 
 ### Stripe Configuration
-1. 
+1. Login to Stripe and in the Developers section click on API Keys. In Heroku add the publishable and secret keys as the following config variables.
+    * `STRIPE_PUBLIC_KEY`
+    * `STRIPE_SECRET_KEY`
+2. Click on the Webhooks link in the Developers section. Click on Add Endpoint configure as follows:
+    * `EndPoint URL: https://app-name.herokuapp.com/checkout/wh/`
+    * Click receive all events in the Events to send section and click Add Endpoint.
+3. On the webhook screen reveal the Signing Secret and copy this into Heroku as a config variable named `STRIPE_WH_SECRET`.
+4. To confirm the webhook is working send a test webhook from Stripe to ensure the listener is working.
+
+### Email Configuration
+The following process assumes that GMail will be used for sending and receiving emails.
+1. Open [GMail](https://gmail.com) in the browser and login creating a new account if required.
+2. Open the account settings , select Accounts and Import and then other Google account settings.
+3. Click on the Security tab and turn on 2-Step Verification under Signing in to Google.
+4. Click Get Started and enter your Gmail password and then follow the 2-Step Verification as instructed.
+5. Once the 2-Step Verification has completed go back to the Security tab and select App passwords under Signing in to Google.
+6. On the App passwords screen select Mail for the app and other for the device giving it the name Django. Click Generate to complete.
+7. Copy the password and create a new config variable in Heroku called `EMAIL_HOST_PASS` pasting in the password as the value.
+8. Also create another config variable in Heroku called `EMAIL_HOST_USER` and set this to the Gmail account.
+9. In settings.py add the following:
+```
+    if 'DEVELOPMENT' in os.environ:
+        EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+        DEFAULT_FROM_EMAIL = 'app-name@example.com'
+        EMAIL_SUBJECT_PREFIX = '[App-Name]'
+    else:
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        EMAIL_USE_TLS = True
+        EMAIL_PORT = 587
+        EMAIL_HOST = 'smtp.gmail.com'
+        EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+        EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+        DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+        EMAIL_SUBJECT_PREFIX = '[App-Name]'
+```
+10. Confirm the email is functioning correctly by registering a new user and checking that the email confimration is received.
+
 <a name="credits"></a>
 ## Credits
 * [Filling Star Ratings: George Martsoukos](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450)
