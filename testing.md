@@ -706,7 +706,9 @@ Test to confirm that the user can search for products using the search bar in th
 6. Repeat the above steps using a mobile device if possible.
 
 #### Test Notes
-The correct products were found and displayed when searching by artist name, album name or a string in the product description. If the search string was found in more than one product then the correct number of products were returned and displayed.
+The correct products were found and displayed when searching by artist name, album name or a string in the product description on desktop devices. If the search string was found in more than one product then the correct number of products were returned and displayed.
+
+The search wasn't functioning when the nav bar had been collapsed for mobile deives. See [Bugs & Issues](#bugsissues) section below for details and how this problems was resolved.
 
 Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
 Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
@@ -847,6 +849,11 @@ During testing it was noticed that Strip was processing all payments in USD inst
 The Checkout page was also also displaying the credit card charge amount in USD. See image below:
 
 ![CreditCardChargeError](/docs/images/Test-023-IncorrectCurrency.png)
+
+### Mobile Search
+When performing a search on mobile devices or when the nav bar was collapsed because the screen size was < 992 pixels the search bar was not working. When a search term was entered the nothing would happen when the search icon was clicked. This problem was caused by a missing action on the search form in the mobile-top-header.html file. After adding in the action the search functioned as expected.
+
+See [GitHub change log](https://github.com/peejaywk/VinylRack/commit/e617aec9a5819d6dbe58b4f7915a81a47df45487) for the exact changes made.
 
 ## Unresolved Issues
 
