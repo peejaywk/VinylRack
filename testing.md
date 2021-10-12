@@ -53,22 +53,37 @@ The site was consistently resposive across all devices and screen sizes with the
 
 ### New Users
 * *"As a new user, I want a clear layout so I can easily navigate the site on all platforms."*
+    * The website has been developed to work on different browsers accross all platforms. Extensive testing has been performed (see [Functional/Features Testing](#functionaltesting) below).
 * *"As a new user, I would like view all records sold within the store without having to register for an account."*
+    * User scan browse and purchase products without registering for an account.
 * *"As a new user, I would like to see new releases and/or special offers on the Home page."*
+    * The Home Page will displayed the last 8 products added to the store. A link to products on sale is jumbotron at the top of the page.
 * *"As a new user, I would like see all releases within a particular genre."*
+    * Users can browse by Genre by clicking on the 'By Genre' link in the Catalogue dropdown menu.
 * *"As a new user, I would like to see all releases by a particular artist/band."*
+    * Users can browse by Artist by clicking on the 'By Artist' link in the Catalogue dropdown menu.
 * *"As a new user, I would like the ability to search the store either by artist or album name."*
+    * Users can search the website using the search bar at the top of the screen. This searches artist names, album titles and album descriptions.
 * *"As a new user, I would like to be able to add items to a shopping basket"*
-* *"As a new user, I would like to be able to edit / delete items that are already in my shooping basket."*
+    * When viewing the detail of any products users can add the item to their shopping bag. Items can also be added from a users wishlist.
+* *"As a new user, I would like to be able to edit / delete items that are already in my shopping basket."*
+    * Users can edit / delete items in their shopping back before completing the checkout process.
 * *"As a new user, I would like to clearly see the total cost of my order including any shipping costs."*
+    * Shipping costs are clearly shown on the shopping bag page.
 
 ### Registered Users
 * *"As a registered user, I would like to see my previous orders or the status of current orders."*
+    * Prvious orders can be viewed on the users profile page. This is accessed via the My Profile link in My Account dropdown menu.
 * *"As a registered user, I would like to save items to a wish list so I can keep track of potential future purchases."*
+    * Whistl browsing the site users can add any products to their wishlist. The wishlist can be viewed by clicking on the My Wishlist link in the My Account dropdown.
 * *"As a registered user, I would like the option to save my delivery details so I don't need to keep enetering them."*
+    * Default delivery information can be added to the users profile page. Delivery information can also be saved to a users profile during the checkout process by checking the 'Save this delivery information to my profile' checkbox on the checkout page.
 * *"As a registered user, I would like the ability write a review of a record sold on the site."*
+    * A user can leave a review for a product via any product details page. A users can leave a written review along with a star rating between 0 and 5. A list of user reviews can be found by clicking the My Reviews link in the My Account dropdown menu.
 * *"As a registered user, I would like the ability to edit or delete a previous review that I have left for a particular product."*
+    * Reviews can be editted/deleted via the My Reviews page by clicking the appropriate link next to the review.
 * *"As a registered user, I would like the ability to edit or delete my profile/account."*
+    * This feature has not been implemented. However, user profiles can be deleted by any site administrators via the Django control panel.
 
 ### Returning Users
 * *"As a returning user, I would like to easily see what new records have been added to the site."*
