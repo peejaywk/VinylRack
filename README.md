@@ -293,7 +293,7 @@ Note: For the user model in the Profile App the Django Allauth and its `django.c
 <a name="testing"></a>
 ## Testing
 
-See [testing.md](/assets/documentation/testing.md) for the testing documentation.
+See [testing.md](testing.md) for the testing documentation.
 
 <a name="deployment"></a>
 ## Deployment
