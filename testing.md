@@ -30,6 +30,8 @@ The code (HTML/CSS/JS/Python) must also satisfy the requirements of the online v
 
 Google Lighthouse will be used to check the Performance, Accessibility, Best Practices and Search Engine Optimisation of the website.
 
+[Back to TOC](#table-of-contents)
+
 <a name="responsivetesting"></a>
 ## Responsive Testing
 
@@ -47,6 +49,7 @@ The resposiveness of the site on desktop devices was tested using Chrome, Firefo
 
 The site was consistently resposive across all devices and screen sizes with the layout responding as expected.
 
+[Back to TOC](#table-of-contents)
 
 <a name="userstorytesting"></a>
 ## User Story Testing
@@ -108,6 +111,8 @@ The site was consistently resposive across all devices and screen sizes with the
     * Currently the home page displays the last 8 items added to the database. The only way for the admin to tag an item for displaying on the home page is to modify the date added field. This isn't ideal but was deemed a suitable solution for this implementation/release of the site.
 * *"As the store owner / admin, I would like the ability to edit or delete any user reviews if they breach the website guidelines."*
     * Site administrators can edit or delete any reviews via the Django admin console. This feature wasn't implemented on the main site as the admin console provides all the functionality that is required.
+
+[Back to TOC](#table-of-contents)
 
 <a name="functionaltesting"></a>
 ## Functional/Features Testing
@@ -753,6 +758,8 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 #### Test Results
 * **PASS**
 
+[Back to TOC](#table-of-contents)
+
 <a name="codevalidation"></a>
 ## Code Validation
 
@@ -840,7 +847,12 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * Registration Page
     * No errors reported
 
+[Back to TOC](#table-of-contents)
+
 ### [W3C CSS Checker](https://jigsaw.w3.org/css-validator/)
+
+
+[Back to TOC](#table-of-contents)
 
 <a name="bugsissues"></a>
 ## Bugs / Issues
@@ -874,3 +886,5 @@ See [GitHub change log](https://github.com/peejaywk/VinylRack/commit/e617aec9a58
 
 ### Checkout Process
 When checking out as a guest user (not logged in) the order is being logged twice in the database. The user is only billed once in Stripe and only one email confirmation is sent out but two different orders appear in the database. Due to limited time I was unable to find a solution to this probelm. This problem does not exist when testing in GitPod only on the deployed site. The problem could be related to the Webhook handler but further investigation is required. If the user is logged in when checking out then this problem does hot happen - only one order is logged in the database.
+
+[Back to TOC](#table-of-contents)

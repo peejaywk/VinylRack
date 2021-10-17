@@ -1,4 +1,6 @@
-# Vinyl Rack
+# [Vinyl Rack](https://vinyl-rack.herokuapp.com/)
+
+![Am I Responsive Image](/docs/images/am-i-responsive-capture.png)
 
 Vinyl Rack is an online store selling new and second hand vinyl records. The website allows users to browse/search items available in the store and to purchase then using a secure payment system. By registering for an account users can leave ratings/reviews for records sold in the store and also add items to their own wish list. Delivery details can also be stored within a users profile making checkout easier for future orders.
 
@@ -19,7 +21,7 @@ New records will be clearly displayed on the Home page allowing returning users/
 
 [Deployment](#deployment)
 
-[Credits](#credits)
+[Credits & Acknowledgements](#credits)
 
 <a name="userexperience"></a>
 ## User Experience (UX)
@@ -66,6 +68,8 @@ New records will be clearly displayed on the Home page allowing returning users/
 * As the store owner / admin, I would like the ability to tag items to appear in the home page.
 * As the store owner / admin, I would like the ability to edit or delete any user reviews if they breach the website guidelines.
 
+[Back to TOC](#table-of-contents)
+
 ### Wireframe Mockups
 The initial wireframe mockups for the website are linked below. These initial designs were captured using [Balsamiq](https://balsamiq.com/).
 
@@ -93,6 +97,8 @@ A neutral colour scheme was chosen for the site as most of the color on majority
     * Footer background colour
     * Percentage discount badge background colour
 * A custom black button was created and used throughout the site - otherwise the default Bootstrap colours were used for buttons
+
+[Back to TOC](#table-of-contents)
 
 <a name="features"></a>
 ## Features
@@ -147,6 +153,8 @@ A neutral colour scheme was chosen for the site as most of the color on majority
 * Wish List Page
     * Registered users will have the ability to add products to their wishlist. The wish list page will be accessible via the My Account dropdown in the nav bar and will display all items in their wish list.
     * Items from the wish list can be deleted or added to the users shopping cart.
+
+[Back to TOC](#table-of-contents)
 
 <a name="database"></a>
 ## Database Design
@@ -268,6 +276,8 @@ Note: For the user model in the Profile App the Django Allauth and its `django.c
 | Review Title    | review_title   | CharField            | max_length=254, null=False, blank=False                                   |
 | Review Content  | review_content | DateTimeField        | max_length=1200, null=False, blank=False, default=''                      |
 
+[Back to TOC](#table-of-contents)
+
 <a name="technologies"></a>
 ## Technologies Used
 
@@ -275,20 +285,29 @@ Note: For the user model in the Profile App the Django Allauth and its `django.c
 * This website uses HTML, CSS, JavaScript & Python programming languages.
 
 ### Libraries & Frameworks
-* [Font Awesome](https://fontawesome.com/)
-* [Googel Fonts](https://fonts.google.com/)
-* [Bootstrap](https://getbootstrap.com/)
-* [jQuery](https://jquery.com/)
-* [Django](https://www.djangoproject.com/)
+* [Font Awesome](https://fontawesome.com/): provided all icons (social media icons etc.) used throughout the site.
+* [Googel Fonts](https://fonts.google.com/): provided the Lato font that is used throughout this website.
+* [Bootstrap](https://getbootstrap.com/): a frontend framework for implementing responsive websites.
+* [jQuery](https://jquery.com/): JavaScript library.
+* [Django](https://www.djangoproject.com/): A Python based framework for developing secure and maintainable websites - the core of this project.
+* [Amazon Web Services (AWS)](https://aws.amazon.com/): was used to host all static and media files using the [S3](https://aws.amazon.com/s3/) and [IAM](https://aws.amazon.com/iam/) services.
+* [Stripe](https://stripe.com/gb): an API framework for processing secure payments.
+
+### Database
+* [Postgres](https://www.postgresql.org/) - Releational database, hosted and deployed via Heroku.
 
 ### Tools
-* [Balsamiq](https://balsamiq.com/)
-* [DrawSQL](https://drawsql.app/)
-* [GitPod](https://gitpod.io/)
-* [GitHub](https://github.com/)
-* [Heroku](https://heroku.com)
-* [GMail](https://gmail.com)
+* [Balsamiq](https://balsamiq.com/): was used to capture the initial wireframe models of the site.
+* [DrawSQL](https://drawsql.app/): was used to plan/capture the database structure and relationships.
+* [GitPod](https://gitpod.io/): was use as the development environment.
+* [GitHub](https://github.com/): was used to manage the configuration and control of the project.
+* [Heroku](https://heroku.com): was used to deploy the project.
+* [GMail](https://gmail.com): was used to provide the SMPT server allowing the app to send and receive emails.
+* [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/): a suite of tools used during the project development to debug problems and to test the website.
+* [Am I Responsive](http://ami.responsivedesign.is/): was used to generate the website screen shots displayed at the top of this page.
+* [Favicon](https://favicon.io/): was used to generate the favicon for the website.
 
+[Back to TOC](#table-of-contents)
 
 <a name="testing"></a>
 ## Testing
@@ -392,6 +411,8 @@ To clone this [repository](https://github.com/peejaywk/VinylRack) follow the ins
 29. To ensure the Heroku app picks up this key add the following to the settings.py file:
     * `SECRET_KEY = os.environ.get('SECRET_KEY', '')`
 30. Commit the changes to Github. Heroku should pickup the changes from Github and deploy the site to app-name.herokuapp.com.
+
+[Back to TOC](#table-of-contents)
 
 ### AWS S3 Configuration
 
@@ -506,6 +527,8 @@ The AWS S3 service will be used to host all static files and images.
 30. Inside the media folder click Upload to upload all the media files to the S3 bucket. Under Permissions set the Predefined ACL to Grant public-read access.
 31. The superuser email address for the Postgres database needs to be confirmed to allow the user to login to the application. To do this login to the Django admin panel and confirm the email address for the superuser by checking the Verified box.
 
+[Back to TOC](#table-of-contents)
+
 ### Stripe Configuration
 1. Login to Stripe and in the Developers section click on API Keys. In Heroku add the publishable and secret keys as the following config variables.
     * `STRIPE_PUBLIC_KEY`
@@ -515,6 +538,8 @@ The AWS S3 service will be used to host all static files and images.
     * Click receive all events in the Events to send section and click Add Endpoint.
 3. On the webhook screen reveal the Signing Secret and copy this into Heroku as a config variable named `STRIPE_WH_SECRET`.
 4. To confirm the webhook is working send a test webhook from Stripe to ensure the listener is working.
+
+[Back to TOC](#table-of-contents)
 
 ### Email Configuration
 The following process assumes that GMail will be used for sending and receiving emails.
@@ -544,8 +569,20 @@ The following process assumes that GMail will be used for sending and receiving 
 ```
 10. Confirm the email is functioning correctly by registering a new user and checking that the email confimration is received.
 
+[Back to TOC](#table-of-contents)
+
 <a name="credits"></a>
-## Credits
-* [Filling Star Ratings: George Martsoukos](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450)
-* [Jumbotron Image](https://unsplash.com/photos/CbNBjnXXhNg) Unsplash Credit @rocinante_11
-* Standard record grading text copied from [Vinyl Music Madness](https://vinylmusicmadness.co.uk/record-collector-grading)
+## Credits & Acknowledgements
+
+### Content
+The Jumbotron image used on the home page was sourced from [Unsplash.com](https://unsplash.com/photos/CbNBjnXXhNg). Credit [@rocinante_11](https://unsplash.com/@rocinante_11)
+
+Standard record grading text copied from [Vinyl Music Madness](https://vinylmusicmadness.co.uk/record-collector-grading)
+
+The implementation of the 5 star rating system used on the Product Details page is based on the [Filling Star Ratings: George Martsoukos](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450) tutorial.
+
+### Special Thanks
+
+I would like to thank my mentor Adegbenga Adeye for his guidance throughout this project. I would also like to thank the members of the Slack community who answered my questions to help with this project.
+
+[Back to TOC](#table-of-contents)
