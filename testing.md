@@ -854,6 +854,26 @@ The CSS code was validated using the W3C CSS Checker - no errors were found.
 
 [Back to TOC](#table-of-contents)
 
+### Lighthouse Reports
+The Google Lighthouse reports can be found at the links listed below. Minor changes were made to the website to improve accessibility. 
+
+* [Home Page - Desktop](/docs/LighthouseReports/Lighthouse-HomePage-Desktop.pdf)
+* [Home Page - Mobile](/docs/LighthouseReports/Lighthouse-HomePage-Mobile.pdf)
+* [Product Details Page - Desktop](/docs/LighthouseReports/Lighthouse-ProductDetailsPage-Desktop.pdf)
+* [Product Details Page - Mobile](/docs/LighthouseReports/Lighthouse-ProductDetailsPage-Mobile.pdf)
+* [My Profile Page - Desktop](/docs/LighthouseReports/Lighthouse-MyProfilePage-Desktop.pdf)
+* [My Profile Page - Mobile](/docs/LighthouseReports/Lighthouse-MyProfilePage-Mobile.pdf)
+* [Product Management Page - Desktop](/docs/LighthouseReports/Lighthouse-ProductManagement-Desktop.pdf)
+* [Product Management Page - Mobile](/docs/LighthouseReports/Lighthouse-ProductManagement-Mobile.pdf)
+* [Contact Us Page - Desktop](/docs/LighthouseReports/Lighthouse-ContactUsPage-Desktop.pdf)
+* [Contact Us Page - Mobile](/docs/LighthouseReports/Lighthouse-ContactUsPage-Mobile.pdf)
+* [My Wishlist Page - Desktop](/docs/LighthouseReports/Lighthouse-Wishlist-Desktop.pdf)
+* [My Wishlist Page - Mobile](/docs/LighthouseReports/Lighthouse-Wishlist-Mobile.pdf)
+* [My Reviews Page - Desktop](/docs/LighthouseReports/Lighthouse-Reviews-Desktop.pdf)
+* [My Reviews Page - Mobile](/docs/LighthouseReports/Lighthouse-Reviews-Mobile.pdf)
+
+[Back to TOC](#table-of-contents)
+
 <a name="bugsissues"></a>
 ## Bugs / Issues
 
