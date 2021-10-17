@@ -575,6 +575,8 @@ The following process assumes that GMail will be used for sending and receiving 
 ## Credits & Acknowledgements
 
 ### Content
+The majority of the data for the products listed on this site was taken from the [Discoggs](https://www.discogs.com/) website. This includes information such as catalogue number, record label and album artwork. The grading for each item was randomly selected and product descriptions were either created by the website author or taken from [Discoggs](https://www.discogs.com/).
+
 The Jumbotron image used on the home page was sourced from [Unsplash.com](https://unsplash.com/photos/CbNBjnXXhNg). Credit [@rocinante_11](https://unsplash.com/@rocinante_11)
 
 Standard record grading text copied from [Vinyl Music Madness](https://vinylmusicmadness.co.uk/record-collector-grading)

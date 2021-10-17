@@ -882,6 +882,9 @@ When performing a search on mobile devices or when the nav bar was collapsed bec
 
 See [GitHub change log](https://github.com/peejaywk/VinylRack/commit/e617aec9a5819d6dbe58b4f7915a81a47df45487) for the exact changes made.
 
+### Access Control
+During testing it was noted that a user who is logged out could access the order history details of any order from any user. This could be achived by typing the url directly into the browser such as 'https://vinyl-rack.herokuapp.com/profile/order_history/<order_number>'. Due to the length and complexity of the order number this wasn't seen as a major concern but the code was modified so that a user has to be logged in to access the order_history url.
+
 ## Unresolved Issues
 
 ### Checkout Process
