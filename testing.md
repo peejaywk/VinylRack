@@ -17,7 +17,7 @@
 <a name="teststrategy"></a>
 ## Test Strategy
 
-To test responsiveness of the site [Chrome DevTools](https://developer.chrome.com/docs/devtools/) will be used. This ensures the site is usable on a varitey of different devices and screen sizes.
+To test responsiveness of the site [Chrome DevTools](https://developer.chrome.com/docs/devtools/) will be used. This ensures the site is usable on a variety of different devices and screen sizes.
 
 To ensure the site is fit for purpose all user stories and features documented in the main README.md file are to be tested. The test procedures
 and results are documented below.
@@ -40,14 +40,14 @@ The responsiveness of the site was tested using the Device Mode in [Chrome DevTo
 
 * Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, iPhone 5/SE, iPhone 6/7/8, iPhone 6/7/8 Plus, iPhone X, iPad, iPad Pro, Surface Duo, Nest Hub & Nest Hub Max
 
-The responsiveness was also tested on an actual Samsung Galaxy S8 Plus and an iPhone 12 ProMax. The site was consistently resposive across all devices and screen sizes with the layout responding as expected.
+The responsiveness was also tested on an actual Samsung Galaxy S8 Plus and an iPhone 12 ProMax. The site was consistently responsive across all devices and screen sizes with the layout responding as expected.
 
 ### Desktop
-The resposiveness of the site on desktop devices was tested using Chrome, Firefox, Edge, Opera and Safari browsers. The site was tested using the following screen widths:
+The responsiveness of the site on desktop devices was tested using Chrome, Firefox, Edge, Opera and Safari browsers. The site was tested using the following screen widths:
 
 * 1024 pixels, 1280 pixels, 1440 pixels, 1600 pixels and 1920 pixels.
 
-The site was consistently resposive across all devices and screen sizes with the layout responding as expected.
+The site was consistently responsive across all devices and screen sizes with the layout responding as expected.
 
 [Back to TOC](#table-of-contents)
 
@@ -56,9 +56,9 @@ The site was consistently resposive across all devices and screen sizes with the
 
 ### New Users
 * *"As a new user, I want a clear layout so I can easily navigate the site on all platforms."*
-    * The website has been developed to work on different browsers accross all platforms. Extensive testing has been performed (see [Functional/Features Testing](#functionaltesting) below).
+    * The website has been developed to work on different browsers across all platforms. Extensive testing has been performed (see [Functional/Features Testing](#functionaltesting) below).
 * *"As a new user, I would like view all records sold within the store without having to register for an account."*
-    * User scan browse and purchase products without registering for an account.
+    * Users can browse and purchase products without registering for an account.
 * *"As a new user, I would like to see new releases and/or special offers on the Home page."*
     * The Home Page will displayed the last 8 products added to the store. A link to products on sale is jumbotron at the top of the page.
 * *"As a new user, I would like see all releases within a particular genre."*
@@ -76,15 +76,15 @@ The site was consistently resposive across all devices and screen sizes with the
 
 ### Registered Users
 * *"As a registered user, I would like to see my previous orders or the status of current orders."*
-    * Prvious orders can be viewed on the users profile page. This is accessed via the My Profile link in My Account dropdown menu.
+    * Previous orders can be viewed on the users profile page. This is accessed via the My Profile link in My Account dropdown menu.
 * *"As a registered user, I would like to save items to a wish list so I can keep track of potential future purchases."*
     * Whistl browsing the site users can add any products to their wishlist. The wishlist can be viewed by clicking on the My Wishlist link in the My Account dropdown.
-* *"As a registered user, I would like the option to save my delivery details so I don't need to keep enetering them."*
+* *"As a registered user, I would like the option to save my delivery details so I don't need to keep entering them."*
     * Default delivery information can be added to the users profile page. Delivery information can also be saved to a users profile during the checkout process by checking the 'Save this delivery information to my profile' checkbox on the checkout page.
 * *"As a registered user, I would like the ability write a review of a record sold on the site."*
     * A user can leave a review for a product via any product details page. A users can leave a written review along with a star rating between 0 and 5. A list of user reviews can be found by clicking the My Reviews link in the My Account dropdown menu.
 * *"As a registered user, I would like the ability to edit or delete a previous review that I have left for a particular product."*
-    * Reviews can be editted/deleted via the My Reviews page by clicking the appropriate link next to the review.
+    * Reviews can be edited/deleted via the My Reviews page by clicking the appropriate link next to the review.
 * *"As a registered user, I would like the ability to edit or delete my profile/account."*
     * This feature has not been implemented. However, user profiles can be deleted by any site administrators via the Django control panel.
 
@@ -94,16 +94,16 @@ The site was consistently resposive across all devices and screen sizes with the
 * *"As a returning user, I would like to follow the record store on social media so I can stay updated on any upcoming events or new releases."*
     * Social media links are listed in the footer - these are visible on all pages.
 * *"As a returning user, I would like to have the ability to contact the store if I have any questions or queries regarding a product or order."*
-    * A 'Contact Us' link is available in the site footer. This is visible on all pages. Clicking on the link opens a page displaying a form that the user can complete to send any questions or quiries to the site admin.
+    * A 'Contact Us' link is available in the site footer. This is visible on all pages. Clicking on the link opens a page displaying a form that the user can complete to send any questions or queries to the site admin.
 
 ### Store Owner / Administrator
 * *"As the store owner / admin, I would like the ability to add records to the website."*
     * Records can be added to the site via the Product Management page. Once the user is logged in and has the correct permissions the Product Management page can be accessed via the My Account icon in the navigation bar.
 * *"As the store owner / admin, I would like the ability to edit records on the website."*
-    * When logged in as an admin the edit option for a record will be visibe on the products page and the product details page. Clicking on this link will open the edit product page.
+    * When logged in as an admin the edit option for a record will be visible on the products page and the product details page. Clicking on this link will open the edit product page.
 * *"As the store owner / admin, I would like the ability to delete records from the website."*
-    * When logged in as an admin the delete option for a record will be visibe on the products page and the product details page. Clicking on this link will open a modal for the to confirm delete of the item from the database.
-* *"As the store owner / admin, I would like the ability to apply discounts to indiviual records."*
+    * When logged in as an admin the delete option for a record will be visible on the products page and the product details page. Clicking on this link will open a modal for the to confirm delete of the item from the database.
+* *"As the store owner / admin, I would like the ability to apply discounts to individual records."*
     * The product model has a boolean field 'on_sale' and when this is True the item will be marked for sale on the site. The percentage discount is entered in the 'discount_percent' field. These fields can be set when adding a new product to the site or when editing an existing product.
 * *"As the store owner / admin, I would like the ability to apply site wide discounts for large sale events."*
     * Currently the only way to apply discounts to products is using the 'on_sale' and 'discount_percent' fields as described above. There is no method of providing site wide discounts but this could be added at a future date.
@@ -122,22 +122,22 @@ Test navigation bar links function correctly and that the correct links are disp
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/. Logout of the site if logged in.
 2. Check that the nav bar is fixed to the top of the browser window when scrolling down.
-3. With the user logged out check that the following menu options appear in the the My Account drop down menu:
+3. With the user logged out check that the following menu options appear in the My Account drop down menu:
     * Register & Login
 4. Click each of the menu options listed above and confirm that you are taken to the correct page.
 5. Login as a regular non admin user and check that the following menu options appear in My Account drop down menu::
-    * My Profile, My My Wishlist, My Reviews & Logout.
+    * My Profile, My Wishlist, My Reviews & Logout.
 6. Click each of the menu options listed above and confirm that you are taken to the correct page. Clicking the Logout option should log you out of the website.
 7. Login in using an administrator account and check that the following options appear in the nav bar:
-    * Product Management, My Profile, My My Wishlist, My Reviews & Logout
+    * Product Management, My Profile, My Wishlist, My Reviews & Logout
 8. Click each of the menu options listed above and confirm that you are taken to the correct page. Clicking the Logout option should log you out of the website.
 9. On desktop devices confirm that clicking on the Vinyl Rack icon in the top left returns the user to the home page.
-10. Confirm that all the navigation links under the Catalogue drop down menu function correclty. On mobile devices these will collapse into a hamburger icon.
-11. Confirm that the New In and On Sale links function correclty. On mobile devices these will collapse into a hamburger icon.
+10. Confirm that all the navigation links under the Catalogue drop down menu function correctly. On mobile devices these will collapse into a hamburger icon.
+11. Confirm that the New In and On Sale links function correctly. On mobile devices these will collapse into a hamburger icon.
 12. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
 13. Repeat the above steps using a mobile device if possible.
 14. Repeat the above tests with a screen size of <=992 pixels and check that the menu options Catalogue, On Sale & New In collapse into the hamburger icon. Also confirm that the Vinyl Rack icon is not rendered and that instead there is a Home link in the hamburger menu.
-15. On mobile devices confirm that the Search, My Account and Shooping Bag icons are rendered at the top of the screen and function correctly.
+15. On mobile devices confirm that the Search, My Account and Shopping Bag icons are rendered at the top of the screen and function correctly.
 
 #### Test Notes
 All the navigation links function correctly for all users and link to the correct pages. For screen sizes <=992 pixels the correct navigation links
@@ -298,7 +298,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PASS**
 
 ### Test-008 : Product Details Page
-Test to confirm that the correct information is displayed on the Product Details page for logged out user, logged in (non-adim) and logged in (admin).
+Test to confirm that the correct information is displayed on the Product Details page for logged out user, logged in (non-admin) and logged in (admin).
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
 2. Logout of the site if currently logged in.
@@ -388,7 +388,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PASS**
 
 ### Test-012 : On Sale Page / Items
-Test to confirm that the correct products are displayed on the On Sale page with the % discound and the price adjusted accordingly.
+Test to confirm that the correct products are displayed on the On Sale page with the % discount and the price adjusted accordingly.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
 2. Click the On Sale link in navigation bar and confirm that the correct products are displayed. Only products with the 'on_sale' flag set should be displayed.
@@ -399,7 +399,7 @@ Test to confirm that the correct products are displayed on the On Sale page with
 7. Repeat the above steps using a mobile device if possible
 
 #### Test Notes
-The On Sale page displayed all products that had the 'on_sale' flag set True. The currect percentage discount was visible below the image and the price had been reduced by the correct amount (see image below).
+The On Sale page displayed all products that had the 'on_sale' flag set True. The current percentage discount was visible below the image and the price had been reduced by the correct amount (see image below).
 
 ![Test-011-Image](/docs/images/Test-011b.png)
 
@@ -448,8 +448,8 @@ Test to check that admin users can add new products to the site and that the for
 #### Test Notes
 The process of adding a new genre, artist and record label worked as expected. The form validation functioned correctly prompting the user to complete all mandatory fields. The new entries appeared in the dropdown lists on the Product Management page.
 
-When adding a new product to the site the form validation functioned as per the model requirements promting the user to complete all the required fields.
-There was an issue when adding a new product to the site with no image. The site was returning a server 500 error. This issue was resolved and is ducumented in the [Bugs & Issues](#bugsissues) section below.
+When adding a new product to the site the form validation functioned as per the model requirements prompting the user to complete all the required fields.
+There was an issue when adding a new product to the site with no image. The site was returning a server 500 error. This issue was resolved and is documented in the [Bugs & Issues](#bugsissues) section below.
 
 Once the error was resolved the user was redirected to the product details page for the new product displaying the correct information.
 
@@ -535,7 +535,7 @@ Test to confirm that a logged in user can remove a product from their wishlist.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
 2. Click on the My Account icon and select My Wishlist.
-3. Click ob the Remove button to remove a prodcut from the wishlist. Confirm that the product has been removed and that the correct message is displayed informing the user the product has been deleted from the wishlist.
+3. Click on the Remove button to remove a product from the wishlist. Confirm that the product has been removed and that the correct message is displayed informing the user the product has been deleted from the wishlist.
 4. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
 5. Repeat the above steps using a mobile device if possible.
 
@@ -587,7 +587,7 @@ Test to confirm that the logged in user can edit any reviews they have left on t
 #### Test Notes
 Clicking on the Reviews link on the product details page opens up the reviews page displaying all the reviews for the product. Clicking the edit link opens the reviews edit page and the form is populated with the correct information. The My Reviews page displayed all the reviews for the logged in user and clicking the edit link for a review opened the review edit page for that review with the form populated with the correct information.
 
-The review could be editted using the form and once the changes were saved the user was redirected back to the My Reviews page which displayed the updated information.
+The review could be edited using the form and once the changes were saved the user was redirected back to the My Reviews page which displayed the updated information.
 
 Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
 Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
@@ -596,11 +596,11 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PASS**
 
 ### Test-021 : Delete Review
-Test to confirm that the logged in user can delete any reviews thay have left on the site.
+Test to confirm that the logged in user can delete any reviews they have left on the site.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
 2. Login to the site and click on a product that the user has reviewed in the past.
-3. On the product details page click the Reviews link to open the reviews page for the current product. Click on the delete link and confirm that the confimration modal appears.
+3. On the product details page click the Reviews link to open the reviews page for the current product. Click on the delete link and confirm that the confirmation modal appears.
 4. Click No and confirm that the modal is closed and the review has not been deleted from the site.
 5. Click on the delete link again and this time click on Yes to confirm deletion.
 6. Confirm that the review has been deleted and the user redirected to the My Reviews page.
@@ -628,12 +628,12 @@ Test to confirm that users can add products to their shopping bag and edit their
 7. Increase the quantity for one of the products and click the Update link to refresh the page. Confirm that the Subtotal for the product has been updated along with the Bag Total and Grand Total.
 8. Remove a product from the bag by clicking on the remove button. Confirm the product has been removed from the shopping bag.
 10. Remove products from the shopping back until the Bag Total is less than the free delivery threshold of £50.
-11. Confirm that the Shopping Bag page is displaying the correct information and reminding tthe user how much more they need to spend before they qualify for free shipping.
+11. Confirm that the Shopping Bag page is displaying the correct information and reminding the user how much more they need to spend before they qualify for free shipping.
 
 #### Test Notes
 When adding products to the shopping bag the correct information is displayed in the pop-up message window. Clicking the Go To Secure Checkout button in the pop-up window opens the Shopping Bag page. It was also confirmed that clicking the shopping bag icon in the nav bar takes the user to the same page. The information displayed on the Shopping Bag page was correct matching the items previously added to the Bag.
 
-Item quantities could be adjusted using the +/- buttons and clicking on the Update link adjusted the sub total and totals accordingly. Items were successfully removed from the bag when the Remove link was clicked and the page updated correclty.
+Item quantities could be adjusted using the +/- buttons and clicking on the Update link adjusted the sub total and totals accordingly. Items were successfully removed from the bag when the Remove link was clicked and the page updated correctly.
 
 When the Bag Total was below the free delivery threshold of £50 the correct information was displayed on the Shopping Bag page and the pop-up message. See images below.
 
@@ -648,7 +648,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PASS**
 
 ### Test-023 : Checkout & Stripe Payment
-Test to confirm that the user can securly checkout using stripe entering their delivery details and credit card information. Confirm that the order is recorded correcly and appears in the users profile page under previous orders. Also checks that the confirmation email is sent to the user.
+Test to confirm that the user can securely checkout using stripe entering their delivery details and credit card information. Confirm that the order is recorded correctly and appears in the users profile page under previous orders. Also checks that the confirmation email is sent to the user.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
 2. If logged in the logout of the site.
@@ -694,7 +694,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PARTIAL PASS** (See Unreoloved issues in the [Bugs & Issues](#bugsissues) section below)
 
 ### Test-024 : Profile Page
-Test to confirm that users can update their information via the profile page and that delivery details are automatically added to the chekout form. Also confirm that the delivery details in the profile are updated if the update checkbox is selected during checkout.
+Test to confirm that users can update their information via the profile page and that delivery details are automatically added to the checkout form. Also confirm that the delivery details in the profile are updated if the update checkbox is selected during checkout.
 
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
 2. If logged out login to the site.
@@ -709,7 +709,7 @@ Test to confirm that users can update their information via the profile page and
 11. Repeat the above steps using a mobile device if possible.
 
 #### Test Notes
-On the My Profile page the default delivery information was updated and successfully saved. During the checkout process the correct information from my profile was displayed in the checkout form. The information was changed in the form and the update profile checkbox selected. After completing the checkout the it was confirmed that the default delivery information on the My Profile page had been updated with the new data.
+On the My Profile page the default delivery information was updated and successfully saved. During the checkout process the correct information from my profile was displayed in the checkout form. The information was changed in the form and the update profile checkbox selected. After completing the checkout it was confirmed that the default delivery information on the My Profile page had been updated with the new data.
 A minor change was made to the code during testing to sort the Order History by date descending.
 
 #### Test Results
@@ -721,14 +721,14 @@ Test to confirm that the user can search for products using the search bar in th
 1. Open Chrome browser and navigate to: https://vinyl-rack.herokuapp.com/.
 2. In the search bar enter the name of a known artist listed on the site and confirm that the correct number of products are returned and displayed correctly.
 3. In the search bar enter the name of a known album listed on the site and confirm that the correct number of products are returned and displayed correctly.
-4. In the search bar enter word that is used in the descripion of a product and confirm that the correct number of products are returned and displayed correctly.
+4. In the search bar enter word that is used in the description of a product and confirm that the correct number of products are returned and displayed correctly.
 5. Repeat the above steps using Firefox, Opera, Edge & Safari browsers.
 6. Repeat the above steps using a mobile device if possible.
 
 #### Test Notes
 The correct products were found and displayed when searching by artist name, album name or a string in the product description on desktop devices. If the search string was found in more than one product then the correct number of products were returned and displayed.
 
-The search wasn't functioning when the nav bar had been collapsed for mobile deives. See [Bugs & Issues](#bugsissues) section below for details and how this problems was resolved.
+The search wasn't functioning when the nav bar had been collapsed for mobile devices. See [Bugs & Issues](#bugsissues) section below for details and how this problems was resolved.
 
 Tests performed using  Chrome, Firefox, Opera, Edge & Safari desktop browsers.
 Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
@@ -795,12 +795,12 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 
 * Add Product Page
     * Errors & warnings reported for the Product Management Page. See [here](docs/images/002-ProductAddHTMLCheck.png) for details.
-        * All the duplicate attributes and IDs were ignored as the duplicate items were on the modal forms and therefore separate from the main html. These errors did not impace on the performace/operation of the site. Maybe these should be addressed at a later date.
+        * All the duplicate attributes and IDs were ignored as the duplicate items were on the modal forms and therefore separate from the main html. These errors did not impact on the performace/operation of the site so were not fixed for this release.
         * The error 'Element p not allowed as child of element strong in this context' seemed to be coming from the Crispy Forms so was ignored.
 
 * Edit Product Page
     * Errors & warnings reported for the Product Management Page. See [here](docs/images/006-ProductEditPageHTMLCheck.png) for details.
-        * The img alt atribute was added in the CustomClearableFileInput widget.
+        * The img alt attribute was added in the CustomClearableFileInput widget.
         * The error 'Element p not allowed as child of element strong in this context' seemed to be coming from the Crispy Forms so was ignored.
 
 * My Profile Page
@@ -832,7 +832,7 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
         * The error 'Element p not allowed as child of element strong in this context' seemed to be coming from the Crispy Forms so was ignored.
         * The duplicate IDs are from the code used to generate different views for small and large screens. Different code will be rendered depending on the size of the screen. Errors ignored.
 
-* Chekout Page
+* Checkout Page
     * No errors reported
 
 * Checkout Success Page
@@ -886,14 +886,14 @@ When adding a new product to the site with no image the site would come back wit
 
 ![AddNewProductError](docs/images/Test-014-Error.png)
 
-The cause of this was an incorrect href tag for the product image when displaying the 'noimage.png' file as the user did not add an image with the product. The href tag was trying to reference a URL that didn't exist hance the error being raised. The href tag was changed to point to the default 'noimage.png' file and this fixed the problem.
+The cause of this was an incorrect href tag for the product image when displaying the 'noimage.png' file as the user did not add an image with the product. The href tag was trying to reference a URL that didn't exist hence the error being raised. The href tag was changed to point to the default 'noimage.png' file and this fixed the problem.
 
 See [GitHub change log](https://github.com/peejaywk/VinylRack/commit/86211f5a32ae751d164933b41dbca0e5918f1932) for the exact changes made.
 
 ### Stripe Payments
 During testing it was noticed that Strip was processing all payments in USD instead of GBP. This was easily changed by setting `STRIPE_CURRENCY='gbp'` in the settings.py file.
 
-The Checkout page was also also displaying the credit card charge amount in USD. See image below:
+The Checkout page was also displaying the credit card charge amount in USD. See image below:
 
 ![CreditCardChargeError](/docs/images/Test-023-IncorrectCurrency.png)
 
@@ -908,6 +908,6 @@ During testing it was noted that a user who is logged out could access the order
 ## Unresolved Issues
 
 ### Checkout Process
-When checking out as a guest user (not logged in) the order is being logged twice in the database. The user is only billed once in Stripe and only one email confirmation is sent out but two different orders appear in the database. Due to limited time I was unable to find a solution to this probelm. This problem does not exist when testing in GitPod only on the deployed site. The problem could be related to the Webhook handler but further investigation is required. If the user is logged in when checking out then this problem does hot happen - only one order is logged in the database.
+When checking out as a guest user (not logged in) the order is being logged twice in the database. The user is only billed once in Stripe and only one email confirmation is sent out but two different orders appear in the database. Due to limited time I was unable to find a solution to this problem. This problem does not exist when testing in GitPod only on the deployed site. The problem could be related to the Webhook handler but further investigation is required. If the user is logged in when checking out then this problem does not happen - only one order is logged in the database.
 
 [Back to TOC](#table-of-contents)

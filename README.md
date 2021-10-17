@@ -2,7 +2,7 @@
 
 ![Am I Responsive Image](/docs/images/am-i-responsive-capture.png)
 
-Vinyl Rack is an online store selling new and second hand vinyl records. The website allows users to browse/search items available in the store and to purchase then using a secure payment system. By registering for an account users can leave ratings/reviews for records sold in the store and also add items to their own wish list. Delivery details can also be stored within a users profile making checkout easier for future orders.
+Vinyl Rack is an online store selling new and second hand vinyl records. The website allows users to browse/search items available in the store and to purchase then using a secure payment system. By registering for an account users can leave ratings/reviews for records sold in the store and also add items to their own wish list. Delivery details can also be stored within a user's profile making checkout easier for future orders.
 
 New records will be clearly displayed on the Home page allowing returning users/customers to see what records have been added to the store.
 
@@ -43,13 +43,13 @@ New records will be clearly displayed on the Home page allowing returning users/
 * As a new user, I would like to see all releases by a particular artist/band.
 * As a new user, I would like the ability to search the store either by artist or album name.
 * As a new user, I would like to be able to add items to a shopping basket
-* As a new user, I would like to be able to edit / delete items that are already in my shooping basket.
+* As a new user, I would like to be able to edit / delete items that are already in my shopping basket.
 * As a new user, I would like to clearly see the total cost of my order including any shipping costs.
 
 #### Registered Users
 * As a registered user, I would like to see my previous orders or the status of current orders.
 * As a registered user, I would like to save items to a wish list so I can keep track of potential future purchases.
-* As a registered user, I would like the option to save my delivery details so I don't need to keep enetering them.
+* As a registered user, I would like the option to save my delivery details so I don't need to keep entering them.
 * As a registered user, I would like the ability write a review of a record sold on the site.
 * As a registered user, I would like the ability to edit or delete a previous review that I have left for a particular product.
 * As a registered user, I would like the ability to edit or delete my profile/account.
@@ -63,7 +63,7 @@ New records will be clearly displayed on the Home page allowing returning users/
 * As the store owner / admin, I would like the ability to add records to the website.
 * As the store owner / admin, I would like the ability to edit records on the website.
 * As the store owner / admin, I would like the ability to delete records from the website.
-* As the store owner / admin, I would like the ability to apply discounts to indiviual records.
+* As the store owner / admin, I would like the ability to apply discounts to individual records.
 * As the store owner / admin, I would like the ability to apply site wide discounts for large sale events.
 * As the store owner / admin, I would like the ability to tag items to appear in the home page.
 * As the store owner / admin, I would like the ability to edit or delete any user reviews if they breach the website guidelines.
@@ -90,7 +90,7 @@ The [Bootstrap](https://getbootstrap.com/) framework was used to implement the f
 [Font Awesome](https://fontawesome.com/) has been used throughout this project to provide any icons that are required.
 
 ### Colour Scheme
-A neutral colour scheme was chosen for the site as most of the color on majority of pages is provided by the album artwork. A simple black and white theme was chosen with a light green colour being used for the delivery details banner and to display the discount percentage when required.
+A neutral colour scheme was chosen for the site as most of the colour on majority of pages is provided by the album artwork. A simple black and white theme was chosen with a light green colour being used for the delivery details banner and to display the discount percentage when required.
 
 * ![#4D724D](https://via.placeholder.com/15/4D724D/000000?text=+) #4D724D
     * Delivery details banner
@@ -108,8 +108,8 @@ A neutral colour scheme was chosen for the site as most of the color on majority
     * The header will be in a fixed position at the top of the screen and will not scroll with the page contents. This allows visitors easy access to navigate the site via the menu.
     * The header will include a nav bar split into two rows.
         * The top row will include a link back to the home page, a search bar and links to My Accounts and the Shopping Cart.
-        * The bottom section will include another navigation menu, aligned to the left of the page, that includes links to allow the user to browse the shop by Genre, Artist or Label and also to view new or sale items in the store.
-    * On mobile the navigation links in the bottom row will collapse into a burger menu. The links to My Account and Shopping Cart will remain visibale at the top of the screen for easy access.
+        * The bottom section will include another navigation menu, aligned to the left of the page, which includes links to allow the user to browse the shop by Genre, Artist or Label and also to view new or sale items in the store.
+    * On mobile the navigation links in the bottom row will collapse into a burger menu. The links to My Account and Shopping Cart will remain visible at the top of the screen for easy access.
     * The navigation links in the My Account dropdown will change when the user is registered and logged in.
     * A message bar will be positioned below the header to allow information to be presented to the user.
 * Footer
@@ -119,7 +119,7 @@ A neutral colour scheme was chosen for the site as most of the color on majority
     * Social media links will be represented by icons for each site and will increase when the user hovers over them.
     * There will be a contact link at the bottom of the page that will take the user to the contact page.
 * Home Page
-    * The Home page will clearly display products that have been recently added to the website. The album artwork will the main feature on the Home page with artist/album title and price displayed under each image.
+    * The Home page will clearly display products that have been recently added to the website. The album artwork will be the main feature on the Home page with artist/album title and price displayed under each image.
     * At the top of the page there will be quick links that will allow the user to view all new products, products on sale or all products on the site.
     * Clicking on the album image will open up a new page containing more details on the selected product.
     * The layout/size of the album images will be responsive and will resize for different screen sizes. On mobile devices the albums will be presented in a single column to maximise the image size.
@@ -137,14 +137,14 @@ A neutral colour scheme was chosen for the site as most of the color on majority
 * Shopping Bag Page
     * The shopping bag will display all items that that have been added by the user.
     * For each item it will show the unit price, quantity and subtotal.
-    * The user can change the quanity against each item and also remove it from their back if they no longer wish to purchase the product.
-    * At the bottome of the page the basket total, delivery cost and order total will be displayed. On mobile screens this will be positioned at the top of the screen so the user can easily see the total cost of their order.
+    * The user can change the quantity against each item and also remove it from their back if they no longer wish to purchase the product.
+    * At the bottom of the page the basket total, delivery cost and order total will be displayed. On mobile screens this will be positioned at the top of the screen so the user can easily see the total cost of their order.
     * A Keep Shopping anf Checkout button will also be displayed at the bottom of the page.
 * Checkout Page
-    * The Checkout page will contain a bried summary of the order and a form for the delivery details.
+    * The Checkout page will contain a brief summary of the order and a form for the delivery details.
     * If the user is logged in then the form will be populated with any address information the user has saved in their profile.
-    * The form will be validated on submission and any errors/ommissions will be reported back to the user.
-    * The payment information system will be implemented by Stripe and it will allow the user to enter a card number, expirey date and CVC number.
+    * The form will be validated on submission and any errors/omissions will be reported back to the user.
+    * The payment information system will be implemented by Stripe and it will allow the user to enter a card number, expiry date and CVC number.
     * Buttons at the bottom of the page will allow the user to complete the order or adjust the order.
 * Profile Page
     * Once a user is registered they will have access to their profile page. This allows the user to enter default delivery information, view previous orders and view/edit/delete any reviews they have written on the site.
@@ -286,7 +286,7 @@ Note: For the user model in the Profile App the Django Allauth and its `django.c
 
 ### Libraries & Frameworks
 * [Font Awesome](https://fontawesome.com/): provided all icons (social media icons etc.) used throughout the site.
-* [Googel Fonts](https://fonts.google.com/): provided the Lato font that is used throughout this website.
+* [Google Fonts](https://fonts.google.com/): provided the Lato font that is used throughout this website.
 * [Bootstrap](https://getbootstrap.com/): a frontend framework for implementing responsive websites.
 * [jQuery](https://jquery.com/): JavaScript library.
 * [Django](https://www.djangoproject.com/): A Python based framework for developing secure and maintainable websites - the core of this project.
@@ -294,7 +294,7 @@ Note: For the user model in the Profile App the Django Allauth and its `django.c
 * [Stripe](https://stripe.com/gb): an API framework for processing secure payments.
 
 ### Database
-* [Postgres](https://www.postgresql.org/) - Releational database, hosted and deployed via Heroku.
+* [Postgres](https://www.postgresql.org/) - Relational database, hosted and deployed via Heroku.
 
 ### Tools
 * [Balsamiq](https://balsamiq.com/): was used to capture the initial wireframe models of the site.
@@ -420,9 +420,9 @@ The AWS S3 service will be used to host all static files and images.
 
 1. Open [AWS](https://aws.amazon.com) in the browser and login creating a new account if required.
 2. Open the AWS Management Console and search for the S3 service using the search box if it isn't listed in your recently accessed services.
-3. Click 'Create New Bucket' to create a new bucket. It is reccommended to give the bucket the same name as your Heroku app.
+3. Click 'Create New Bucket' to create a new bucket. It is recommended to give the bucket the same name as your Heroku app.
 4. Select the region closet to you.
-5. Uncheck 'Block all public access' and using the tick box below acknowledge that the bucket will be public. Click 'Create bucket'.
+5. Uncheck 'Block all public access' and using the tick box below to acknowledge that the bucket will be public. Click 'Create bucket'.
 6. Select your bucket from the bucket list. In the properties tab turn on static website hosting and set the following default values then click save.
     * Index document: `index.html`
     * Error document: `error.html`
@@ -449,9 +449,9 @@ The AWS S3 service will be used to host all static files and images.
     * Actions: GetObject
     * ARN: Copy the ARN from the Bucket Policy tab and paste here.
     * Click Add Statement then Generate Policy.
-    * Copy the new policy and paste into the the Bucket Policy editor.
+    * Copy the new policy and paste into the Bucket Policy editor.
     * To allow access to all resources add a "/*" onto the end of the Resource key value.
-    * Click save to save the new policy.
+    * Save the new policy.
 9. In the Permissions tab go to the Access Control section and click the Edit button. On the "Everyone (public access)" line check the List checkbox and click Save changes.
 10. Go back to the services and select Identity and Access Management (IAM) to add a new user. Use the search bar if IAM isn't listed. IAM will be used to create new group, create an access policy giving the group access to the S3 bucket and to assign a user to the group so they can use the policy to access the files in the S3 bucket.
 11. Under User Groups click the Create Group button. Enter a group name then scroll to the bottom and click Create group.
@@ -544,7 +544,7 @@ The AWS S3 service will be used to host all static files and images.
 ### Email Configuration
 The following process assumes that GMail will be used for sending and receiving emails.
 1. Open [GMail](https://gmail.com) in the browser and login creating a new account if required.
-2. Open the account settings , select Accounts and Import and then other Google account settings.
+2. Open the account settings, select Accounts and Import and then other Google account settings.
 3. Click on the Security tab and turn on 2-Step Verification under Signing in to Google.
 4. Click Get Started and enter your Gmail password and then follow the 2-Step Verification as instructed.
 5. Once the 2-Step Verification has completed go back to the Security tab and select App passwords under Signing in to Google.
