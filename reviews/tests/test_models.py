@@ -7,7 +7,10 @@ from reviews.models import Review
 class TestAppModel(TestCase):
     def setUp(self):
         # Create a user
-        self.user = User.objects.create_user(username='testuser', email='testuser@email.com')
+        self.user = User.objects.create_user(
+            username='testuser',
+            email='testuser@email.com'
+        )
         self.user.set_password('!password1234!')
         self.user.save()
 
@@ -17,8 +20,11 @@ class TestAppModel(TestCase):
         # Create a Genre
         self.genre = Genre(name='rock', friendly_name='Rock')
         self.genre.save()
-        #Cretae a Record Label
-        self.recordlabel = Recordlabel(name='atlantic_records', friendly_name='Atlantic Records')
+        # Cretae a Record Label
+        self.recordlabel = Recordlabel(
+            name='atlantic_records',
+            friendly_name='Atlantic Records'
+        )
         self.recordlabel.save()
         # Create a Product
         self.product = Product(
@@ -49,4 +55,3 @@ class TestAppModel(TestCase):
         )
 
         self.assertEqual(str(review), 'My Album Review')
-     

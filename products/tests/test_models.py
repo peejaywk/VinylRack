@@ -12,8 +12,10 @@ class TestAppModel(TestCase):
         # Create a Genre
         self.genre = Genre(name='rock', friendly_name='Rock')
         self.genre.save()
-        #Cretae a Record Label
-        self.recordlabel = Recordlabel(name='atlantic_records', friendly_name='Atlantic Records')
+        # Cretae a Record Label
+        self.recordlabel = Recordlabel(
+            name='atlantic_records',
+            friendly_name='Atlantic Records')
         self.recordlabel.save()
         # Create a Product
         self.product = Product(
@@ -44,7 +46,10 @@ class TestAppModel(TestCase):
 
     def test_recordlabel_str(self):
         self.assertEqual(str(self.recordlabel), 'atlantic_records')
-        self.assertEqual(self.recordlabel.get_friendly_name(), 'Atlantic Records')
+        self.assertEqual(
+            self.recordlabel.get_friendly_name(),
+            'Atlantic Records'
+        )
 
     def test_product_str(self):
         self.assertEqual(str(self.product), 'Legacy')

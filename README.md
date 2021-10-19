@@ -583,6 +583,8 @@ Standard record grading text copied from [Vinyl Music Madness](https://vinylmusi
 
 The implementation of the 5 star rating system used on the Product Details page is based on the [Filling Star Ratings: George Martsoukos](https://webdesign.tutsplus.com/tutorials/a-simple-javascript-technique-for-filling-star-ratings--cms-29450) tutorial.
 
+Django Tutorial planning and writing unit tests - [Django Testing Guide](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing).
+
 ### Special Thanks
 
 I would like to thank my mentor Adegbenga Adeye for his guidance throughout this project. I would also like to thank the members of the Slack community who answered my questions to help with this project.
