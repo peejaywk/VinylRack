@@ -57,5 +57,5 @@ class TestAppModel(TestCase):
             review_title='My Album Review',
             review_content='My Album Review Description',
         )
-
-        self.assertEqual(str(review), 'My Album Review')
+        expected_result = review.review_title
+        self.assertEqual(str(review), expected_result)

@@ -1,6 +1,5 @@
 from django.test import TestCase
 from products.models import Product, Artist, Genre, Recordlabel
-from django.contrib.auth.models import User
 
 
 class TestAppModel(TestCase):
@@ -41,26 +40,38 @@ class TestAppModel(TestCase):
         Test to check the correct string is returned by the __str__ and
         get_friendly_name methods in the Artist model
         """
-        self.assertEqual(str(self.artist), 'david_bowie')
-        self.assertEqual(self.artist.get_friendly_name(), 'David Bowie')
+        artist = Artist.objects.get(pk=self.artist.id)
+        expected_result = artist.name
+        self.assertEqual(str(self.artist), expected_result)
+
+        expected_result = artist.friendly_name
+        self.assertEqual(self.artist.get_friendly_name(), expected_result)
 
     def test_genre_str(self):
         """
         Test to check the correct string is returned by the __str__ and
         get_friendly_name methods in the Genre model
         """
-        self.assertEqual(str(self.genre), 'rock')
-        self.assertEqual(self.genre.get_friendly_name(), 'Rock')
+        genre = Genre.objects.get(pk=self.genre.id)
+        expected_result = genre.name
+        self.assertEqual(str(self.genre), expected_result)
+
+        expected_result = genre.friendly_name
+        self.assertEqual(self.genre.get_friendly_name(), expected_result)
 
     def test_recordlabel_str(self):
         """
         Test to check the correct string is returned by the __str__ and
         get_friendly_name methods in the Recordlabel model
         """
-        self.assertEqual(str(self.recordlabel), 'atlantic_records')
+        recordlabel = Recordlabel.objects.get(pk=self.recordlabel.id)
+        expected_result = recordlabel.name
+        self.assertEqual(str(self.recordlabel), expected_result)
+
+        expected_result = recordlabel.friendly_name
         self.assertEqual(
             self.recordlabel.get_friendly_name(),
-            'Atlantic Records'
+            expected_result
         )
 
     def test_product_str(self):
@@ -68,4 +79,6 @@ class TestAppModel(TestCase):
         Test to check the correct string is returned by the __str__ method
         in the Product model
         """
-        self.assertEqual(str(self.product), 'Legacy')
+        product = Product.objects.get(pk=self.product.id)
+        expected_result = product.album_title
+        self.assertEqual(str(self.product), expected_result)

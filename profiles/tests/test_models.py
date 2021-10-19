@@ -29,4 +29,6 @@ class TestAppModel(TestCase):
             default_country='UK',
         )
 
-        self.assertEqual(str(profile), 'testuser')
+        expected_result = profile.user.username
+
+        self.assertEqual(str(profile), expected_result)

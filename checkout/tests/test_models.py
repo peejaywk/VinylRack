@@ -1,8 +1,8 @@
 from django.test import TestCase
+from django.conf import settings
 from django.contrib.auth.models import User
 from checkout.models import Order, OrderLineItem
 from products.models import Product, Artist, Genre, Recordlabel
-from django.conf import settings
 
 
 class TestAppModel(TestCase):
@@ -70,7 +70,9 @@ class TestAppModel(TestCase):
         Test to check the correct string is returned by the __str__ method
         in the Order model
         """
-        self.assertEqual(str(self.order), '1234567890')
+        order = Order.objects.get(pk=self.order.id)
+        expected_result = order.order_number
+        self.assertEqual(str(self.order), expected_result)
 
     def test_orderlineitem_str(self):
         """
@@ -83,7 +85,9 @@ class TestAppModel(TestCase):
             quantity=1,
         )
         orderlineitem.save()
-        self.assertEqual(str(orderlineitem), 'SKU p1234567 on order 1234567890')
+
+        expected_result = f'SKU {orderlineitem.product.sku} on order {orderlineitem.order.order_number}'
+        self.assertEqual(str(orderlineitem), expected_result)
 
     def test_orderlineitem_save(self):
         """

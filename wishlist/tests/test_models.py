@@ -59,5 +59,8 @@ class TestAppModel(TestCase):
             product=self.product,
         )
 
-        self.assertEqual(str(wishlist), 'Wishlist (testuser)')
-        self.assertEqual(str(wishlistitem), 'David Bowie')
+        expected_result = f'Wishlist ({wishlist.user})'
+        self.assertEqual(str(wishlist), expected_result)
+
+        expected_result = wishlistitem.product.artist.friendly_name
+        self.assertEqual(str(wishlistitem), expected_result)
