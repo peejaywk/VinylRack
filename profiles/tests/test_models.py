@@ -14,6 +14,10 @@ class TestAppModel(TestCase):
         self.user.save()
 
     def test_profile_str(self):
+        """
+        Test to check the correct string is returned by the __str__
+        method in the UserProfile model
+        """
         profile = UserProfile(
             user=self.user,
             default_phone_number='5551234',

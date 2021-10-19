@@ -10,6 +10,8 @@
 
 [Functional/Features Testing](#functionaltesting)
 
+[Unit Testing](#unittesting)
+
 [Code Validation](#codevalidation)
 
 [Bugs / Issues](#bugsissues)
@@ -20,7 +22,7 @@
 To test responsiveness of the site [Chrome DevTools](https://developer.chrome.com/docs/devtools/) will be used. This ensures the site is usable on a variety of different devices and screen sizes.
 
 To ensure the site is fit for purpose all user stories and features documented in the main README.md file are to be tested. The test procedures
-and results are documented below.
+and results are documented below. Unit tests have also been written when required to test the individual apps.
 
 The code (HTML/CSS/JS/Python) must also satisfy the requirements of the online validation tools. These are:
 * [W3C Markup Validation Service](https://validator.w3.org/). Check the markup of web documents.
@@ -759,6 +761,11 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 * **PASS**
 
 [Back to TOC](#table-of-contents)
+
+<a name="unittesting"></a>
+## Unit Testing
+
+All the unit tests can be run by executing command `python3 manage.py test`. This will run through all the unit tests for each app. The unit tests are located in the 'tests' folder for each app. Any errors will get printed out in the console.
 
 <a name="codevalidation"></a>
 ## Code Validation

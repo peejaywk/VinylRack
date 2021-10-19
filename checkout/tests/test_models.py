@@ -66,9 +66,17 @@ class TestAppModel(TestCase):
         self.order.save()
 
     def test_order_str(self):
+        """
+        Test to check the correct string is returned by the __str__ method
+        in the Order model
+        """
         self.assertEqual(str(self.order), '1234567890')
 
     def test_orderlineitem_str(self):
+        """
+        Test to check the correct string is returned by the __str__ method
+        in the OrderLineItem model
+        """
         orderlineitem = OrderLineItem(
             order=self.order,
             product=self.product,
@@ -109,7 +117,6 @@ class TestAppModel(TestCase):
         """
         Test the update_total method in the order model.
         """
-  
         orderlineitem = OrderLineItem(
             order=self.order,
             product=self.product,

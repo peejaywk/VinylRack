@@ -37,14 +37,26 @@ class TestAppModel(TestCase):
         self.product.save()
 
     def test_artist_str(self):
+        """
+        Test to check the correct string is returned by the __str__ and
+        get_friendly_name methods in the Artist model
+        """
         self.assertEqual(str(self.artist), 'david_bowie')
         self.assertEqual(self.artist.get_friendly_name(), 'David Bowie')
 
     def test_genre_str(self):
+        """
+        Test to check the correct string is returned by the __str__ and
+        get_friendly_name methods in the Genre model
+        """
         self.assertEqual(str(self.genre), 'rock')
         self.assertEqual(self.genre.get_friendly_name(), 'Rock')
 
     def test_recordlabel_str(self):
+        """
+        Test to check the correct string is returned by the __str__ and
+        get_friendly_name methods in the Recordlabel model
+        """
         self.assertEqual(str(self.recordlabel), 'atlantic_records')
         self.assertEqual(
             self.recordlabel.get_friendly_name(),
@@ -52,4 +64,8 @@ class TestAppModel(TestCase):
         )
 
     def test_product_str(self):
+        """
+        Test to check the correct string is returned by the __str__ method
+        in the Product model
+        """
         self.assertEqual(str(self.product), 'Legacy')

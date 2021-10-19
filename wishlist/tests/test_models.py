@@ -45,6 +45,10 @@ class TestAppModel(TestCase):
         self.product.save()
 
     def test_wishlist_str(self):
+        """
+        Test to check the correct string is returned by the __str__
+        method in the Wishlist &  WishlistItem models
+        """
         wishlist = Wishlist(
             user=self.user,
         )

@@ -46,6 +46,10 @@ class TestAppModel(TestCase):
         self.product.save()
 
     def test_review_str(self):
+        """
+        Test to check the correct string is returned by the __str__
+        method in the Review model
+        """
         review = Review(
             user=self.user,
             product=self.product,
