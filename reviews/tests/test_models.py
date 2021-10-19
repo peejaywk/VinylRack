@@ -5,6 +5,7 @@ from reviews.models import Review
 
 
 class TestAppModel(TestCase):
+    @classmethod
     def setUp(self):
         # Create a user
         self.user = User.objects.create_user(
@@ -45,17 +46,46 @@ class TestAppModel(TestCase):
         )
         self.product.save()
 
-    def test_review_str(self):
-        """
-        Test to check the correct string is returned by the __str__
-        method in the Review model
-        """
-        review = Review(
+        Review.objects.create(
             user=self.user,
             product=self.product,
             review_rating='5',
             review_title='My Album Review',
             review_content='My Album Review Description',
         )
+
+    def test_review_str(self):
+        """
+        Test to check the correct string is returned by the __str__
+        method in the Review model
+        """
+        review = Review.objects.get(id=1)
         expected_result = review.review_title
         self.assertEqual(str(review), expected_result)
+
+    # Check that the values of the field labels are correct
+    def test_review_rating_label(self):
+        review = Review.objects.get(id=1)
+        field_label = review._meta.get_field('review_rating').verbose_name
+        self.assertEqual(field_label, 'review rating')
+
+    def test_review_title_label(self):
+        review = Review.objects.get(id=1)
+        field_label = review._meta.get_field('review_title').verbose_name
+        self.assertEqual(field_label, 'review title')
+
+    def test_review_content_label(self):
+        review = Review.objects.get(id=1)
+        field_label = review._meta.get_field('review_content').verbose_name
+        self.assertEqual(field_label, 'review content')
+
+    # Check that the size of the character fields are correct.
+    def test_review_title_max_length(self):
+        review = Review.objects.get(id=1)
+        max_length = review._meta.get_field('review_title').max_length
+        self.assertEqual(max_length, 254)
+
+    def test_review_content_max_length(self):
+        review = Review.objects.get(id=1)
+        max_length = review._meta.get_field('review_content').max_length
+        self.assertEqual(max_length, 1200)
