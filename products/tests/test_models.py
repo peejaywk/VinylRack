@@ -82,3 +82,145 @@ class TestAppModel(TestCase):
         product = Product.objects.get(pk=self.product.id)
         expected_result = product.album_title
         self.assertEqual(str(self.product), expected_result)
+
+    # Check that the values of the field labels are correct
+    def test_genre_name_label(self):
+        genre = Genre.objects.get(id=1)
+        field_label = genre._meta.get_field('name').verbose_name
+        self.assertEqual(field_label, 'name')
+
+    def test_genre_friendly_name_label(self):
+        genre = Genre.objects.get(id=1)
+        field_label = genre._meta.get_field('friendly_name').verbose_name
+        self.assertEqual(field_label, 'friendly name')
+
+    def test_artist_name_label(self):
+        artist = Artist.objects.get(id=1)
+        field_label = artist._meta.get_field('name').verbose_name
+        self.assertEqual(field_label, 'name')
+
+    def test_artist_friendly_name_label(self):
+        artist = Artist.objects.get(id=1)
+        field_label = artist._meta.get_field('friendly_name').verbose_name
+        self.assertEqual(field_label, 'friendly name')
+
+    def test_recordlabel_name_label(self):
+        recordlabel = Recordlabel.objects.get(id=1)
+        field_label = recordlabel._meta.get_field('name').verbose_name
+        self.assertEqual(field_label, 'name')
+
+    def test_recordlabel_friendly_name_label(self):
+        recordlabel = Recordlabel.objects.get(id=1)
+        field_label = recordlabel._meta.get_field('friendly_name').verbose_name
+        self.assertEqual(field_label, 'friendly name')
+
+    def test_product_album_title_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('album_title').verbose_name
+        self.assertEqual(field_label, 'album title')
+
+    def test_product_description_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('description').verbose_name
+        self.assertEqual(field_label, 'description')
+
+    def test_product_price_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('price').verbose_name
+        self.assertEqual(field_label, 'price')
+
+    def test_product_on_sale_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('on_sale').verbose_name
+        self.assertEqual(field_label, 'on sale')
+
+    def test_product_discount_percent_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('discount_percent').verbose_name
+        self.assertEqual(field_label, 'discount percent')
+
+    def test_product_image_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('image').verbose_name
+        self.assertEqual(field_label, 'image')
+
+    def test_product_image_url_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('image_url').verbose_name
+        self.assertEqual(field_label, 'image url')
+
+    def test_product_media_condition_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('media_condition').verbose_name
+        self.assertEqual(field_label, 'media condition')
+
+    def test_product_sleeve_condition_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('sleeve_condition').verbose_name
+        self.assertEqual(field_label, 'sleeve condition')
+
+    def test_product_cat_num_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('cat_num').verbose_name
+        self.assertEqual(field_label, 'cat num')
+
+    def test_product_date_added_label(self):
+        product = Product.objects.get(id=1)
+        field_label = product._meta.get_field('date_added').verbose_name
+        self.assertEqual(field_label, 'date added')
+
+    # Check that the size of the character fields are correct.
+    def test_genre_name_max_length(self):
+        genre = Genre.objects.get(id=1)
+        max_length = genre._meta.get_field('name').max_length
+        self.assertEqual(max_length, 254)
+
+    def test_genre_friendly_name_max_length(self):
+        genre = Genre.objects.get(id=1)
+        max_length = genre._meta.get_field('friendly_name').max_length
+        self.assertEqual(max_length, 254)
+
+    def test_artist_name_max_length(self):
+        artist = Artist.objects.get(id=1)
+        max_length = artist._meta.get_field('name').max_length
+        self.assertEqual(max_length, 254)
+
+    def test_artist_friendly_name_max_length(self):
+        artist = Artist.objects.get(id=1)
+        max_length = artist._meta.get_field('friendly_name').max_length
+        self.assertEqual(max_length, 254)
+
+    def test_recordlabel_name_max_length(self):
+        recordlabel = Recordlabel.objects.get(id=1)
+        max_length = recordlabel._meta.get_field('name').max_length
+        self.assertEqual(max_length, 254)
+
+    def test_recordlabel_friendly_name_max_length(self):
+        recordlabel = Recordlabel.objects.get(id=1)
+        max_length = recordlabel._meta.get_field('friendly_name').max_length
+        self.assertEqual(max_length, 254)
+
+    def test_product_album_title_max_length(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('album_title').max_length
+        self.assertEqual(max_length, 254)
+
+    def test_product_image_url_max_length(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('image_url').max_length
+        self.assertEqual(max_length, 1024)
+
+    def test_product_media_condition_max_length(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('media_condition').max_length
+        self.assertEqual(max_length, 16)
+
+    def test_product_sleeve_condition_max_length(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('sleeve_condition').max_length
+        self.assertEqual(max_length, 16)
+
+    def test_product_cat_num_max_length(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('cat_num').max_length
+        self.assertEqual(max_length, 254)
