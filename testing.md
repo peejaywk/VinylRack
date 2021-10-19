@@ -767,6 +767,8 @@ Repeated tests using a Samsung Galaxy S8 mobile device with no issues.
 
 All the unit tests can be run by executing command `python3 manage.py test`. This will run through all the unit tests for each app. The unit tests are located in the 'tests' folder for each app. Any errors will get printed out in the console.
 
+Currently the unit tests on test the models within each app. They test that any custom methods function correctly and that the field values and any custom lengths are correct.
+
 <a name="codevalidation"></a>
 ## Code Validation
 
