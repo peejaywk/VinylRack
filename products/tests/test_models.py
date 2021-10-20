@@ -224,3 +224,23 @@ class TestAppModel(TestCase):
         product = Product.objects.get(id=1)
         max_length = product._meta.get_field('cat_num').max_length
         self.assertEqual(max_length, 254)
+
+    def test_product_price_max_digits(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('price').max_digits
+        self.assertEqual(max_length, 6)
+
+    def test_product_price_decimal_places(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('price').decimal_places
+        self.assertEqual(max_length, 2)
+
+    def test_product_discount_percent_max_digits(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('discount_percent').max_digits
+        self.assertEqual(max_length, 2)
+
+    def test_product_discount_percent_decimal_places(self):
+        product = Product.objects.get(id=1)
+        max_length = product._meta.get_field('discount_percent').decimal_places
+        self.assertEqual(max_length, 0)
