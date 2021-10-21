@@ -22,7 +22,9 @@
 To test responsiveness of the site [Chrome DevTools](https://developer.chrome.com/docs/devtools/) will be used. This ensures the site is usable on a variety of different devices and screen sizes.
 
 To ensure the site is fit for purpose all user stories and features documented in the main README.md file are to be tested. The test procedures
-and results are documented below. Unit tests have also been written when required to test the individual apps.
+and results are documented below. 
+
+Unit tests have also been written when required to test the individual apps. Currently (due to time restrictions) the unit tests only test the models within each of the apps. In future this could be expanded to test views and forms for each app. 
 
 The code (HTML/CSS/JS/Python) must also satisfy the requirements of the online validation tools. These are:
 * [W3C Markup Validation Service](https://validator.w3.org/). Check the markup of web documents.

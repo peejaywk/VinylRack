@@ -154,6 +154,11 @@ A neutral colour scheme was chosen for the site as most of the colour on majorit
     * Registered users will have the ability to add products to their wishlist. The wish list page will be accessible via the My Account dropdown in the nav bar and will display all items in their wish list.
     * Items from the wish list can be deleted or added to the users shopping cart.
 
+### Features not Implemented
+* Enable users to delete their accounts from the site along with any personal data stored.
+* Ability to apply a site wide discount for large sale events.
+* The ability to tag items so that they appear on the home page.
+
 [Back to TOC](#table-of-contents)
 
 <a name="database"></a>
